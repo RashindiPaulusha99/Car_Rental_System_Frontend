@@ -1,5 +1,5 @@
 
-.nav-link {
+main > section:nth-child(1) .nav-link {
     background-image: linear-gradient(
             to right,
             goldenrod,
@@ -17,7 +17,7 @@
     text-decoration: none;
 }
 
-.nav-link:before {
+main > section:nth-child(1) .nav-link:before {
     content: '';
     background: goldenrod;
     display: block;
@@ -29,13 +29,13 @@
     transition: all 0.3s ease-in-out;
 }
 
-.nav-link:hover {
+main > section:nth-child(1) .nav-link:hover {
     background-position: 0;
     color: gold;
     text-decoration: none;
 }
 
-.nav-link:hover::before {
+main > section:nth-child(1) .nav-link:hover::before {
     width:100%;
 }
 

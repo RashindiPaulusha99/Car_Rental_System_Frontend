@@ -54,12 +54,12 @@
     <section id="NavBar" >
 
         <!-- Navbar -->
-        <nav class=" navbar-expand-lg navbar sticky-top" style="position: absolute; width: 100%;">
+        <nav class=" navbar-expand-lg navbar sticky-top" style="position: absolute; width: 100%; top: 10px;">
             <!-- Container wrapper -->
             <div class="container">
                 <!-- Navbar brand -->
                 <a class="navbar-brand me-2" href="">
-                    <img src="assets/logo/car%20rental%20logo.jpg" height="60" alt="Car Rental Logo" loading="lazy" style="margin-top: -1px;"/>
+                    <img src="assets/logo/car%20rental%20logo.jpg" id="logoImage" height="60" alt="Car Rental Logo" loading="lazy" style="margin-top: -22px;"/>
                 </a>
 
                 <!-- Collapsible wrapper -->
@@ -119,9 +119,9 @@
            <div class="row">
                 <div class="col w-25 ">
                     <div class="container ">
-                        <label style="font-size: 15px" for="pickUpDate" class="text-white">Pickup Date</label>
+                        <label style="font-size: 15px" for="pickUpDate" class="text-white">When will I pickup you </label>
                         <div class="input-group date" style="width: 250px">
-                            <input type="text" id="pickUpDate" class="form-control">
+                            <input type="text" id="pickUpDate" class="form-control" placeholder="Pickup date">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div>
                     </div>
@@ -129,27 +129,28 @@
 
                 <div class="col w-25 ">
                     <div class="container">
-                        <label class="form-label text-white" for="pickUpTime"  style="font-size: 15px">Return Time</label>
+                        <label class="form-label text-white" for="pickUpTime"  style="font-size: 15px">At what time will I pickup you</label>
                         <div style="position: relative;width: 250px" >
-                            <input class="form-control" type="text" id="pickUpTime"/>
+                            <input class="form-control" type="text" id="pickUpTime" placeholder="Pickup time"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="col w-25 ">
                     <div class="container">
-                        <label style="font-size: 15px" for="returnDate" class="text-white">Return Date</label>
+                        <label style="font-size: 15px" for="returnDate" class="text-white">When will I drop you off</label>
                         <div class="input-group date " style="width: 250px">
-                            <input type="text" id="returnDate" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input type="text" id="returnDate" class="form-control" placeholder="Return date">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="col w-25 ">
                     <div class="container">
-                        <label class="form-label text-white" for="returnTime"  style="font-size: 15px">Return Time</label>
+                        <label class="form-label text-white" for="returnTime"  style="font-size: 15px">At what time will I drop you off</label>
                         <div style="position: relative;width: 250px" >
-                            <input class="form-control" type="text" id="returnTime"/>
+                            <input class="form-control" type="text" id="returnTime" placeholder="Return time"/>
                         </div>
                     </div>
                 </div>
@@ -160,15 +161,29 @@
 
                 <div class="col w-50 mt-3">
                     <div class="form-outline me-5">
-                        <label class="form-label text-white" for="pickUpLocation">Pickup Location</label>
-                        <input type="text" id="pickUpLocation" class="form-control" />
+                        <label class="form-label text-white" for="pickUpLocation">Where I pick you</label>
+                        <input type="text" id="pickUpLocation" class="form-control" placeholder="Your pickup location"/>
                     </div>
                 </div>
 
                 <div class="col w-50 mt-3">
                     <div class="form-outline me-5">
-                        <label class="form-label text-white" for="returnLocation">Return Location</label>
-                        <input type="text" id="returnLocation" class="form-control" />
+                        <label class="form-label text-white" for="returnLocation">Where I drop you</label>
+                        <input type="text" id="returnLocation" class="form-control" placeholder="Your drop-off location"/>
+                    </div>
+                </div>
+
+                <div class="col w-50 mt-3">
+                    <div class="form-outline me-5">
+                        <label class="form-label text-white" for="destination">Where you go</label>
+                        <input type="text" id="destination" class="form-control" placeholder="Your destination"/>
+                    </div>
+                </div>
+
+                <div class="col w-50 mt-3">
+                    <div class="form-outline me-5">
+                        <label class="form-label text-white" for="duration">How far</label>
+                        <input type="text" id="duration" class="form-control" placeholder="Journey duration"/>
                     </div>
                 </div>
 
@@ -186,8 +201,164 @@
 
     </section>
 
-    <section id="LoginPage" style="width: 100%;height: 100vh ; background-color: blue"></section>
-    <section id="ForgotPasswordPage" style="width: 100%;height: 100vh ; background-color: pink"></section>
+    <!--Login Page-->
+    <section id="LoginPage" style="width: 100%;height: 100vh ; ">
+
+        <div class=" w-75 h-75 center-block">
+
+            <!-- Pills navs -->
+            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active " id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Login</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
+                </li>
+            </ul>
+            <!-- Pills navs -->
+
+            <!-- Pills content -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                    <form>
+                        <div class="text-center mb-3">
+                            <p>Sign in with:</p>
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+
+                        <p class="text-center">or:</p>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="loginName" class="form-control" />
+                            <label class="form-label" for="loginName">Email or username</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="loginPassword" class="form-control" />
+                            <label class="form-label" for="loginPassword">Password</label>
+                        </div>
+
+                        <!-- 2 column grid layout -->
+                        <div class="row mb-4">
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check mb-3 mb-md-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                    <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Simple link -->
+                                <a href="#!">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Not a member? <a href="#!">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                    <form>
+                        <div class="text-center mb-3">
+                            <p>Sign up with:</p>
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+
+                        <p class="text-center">or:</p>
+
+                        <!-- Name input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="registerName" class="form-control" />
+                            <label class="form-label" for="registerName">Name</label>
+                        </div>
+
+                        <!-- Username input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="registerUsername" class="form-control" />
+                            <label class="form-label" for="registerUsername">Username</label>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="registerEmail" class="form-control" />
+                            <label class="form-label" for="registerEmail">Email</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="registerPassword" class="form-control" />
+                            <label class="form-label" for="registerPassword">Password</label>
+                        </div>
+
+                        <!-- Repeat Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="registerRepeatPassword" class="form-control" />
+                            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="form-check d-flex justify-content-center mb-4">
+                            <input
+                                    class="form-check-input me-2"
+                                    type="checkbox"
+                                    value=""
+                                    id="registerCheck"
+                                    checked
+                                    aria-describedby="registerCheckHelpText"
+                            />
+                            <label class="form-check-label" for="registerCheck">
+                                I have read and agree to the terms
+                            </label>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Pills content -->
+
+        </div>
+
+    </section>
+
+    <!--<section id="ForgotPasswordPage" style="width: 100%;height: 100vh ; background-color: pink"></section>
     <section id="RegisterPage" style="width: 100%; background-color: yellow"></section>
     <section id="CustomerDashBoard" style="width: 100%; height: 100vh ;background-color: green"></section>
     <section id="AdminPanel" style="width: 100%; height: 100vh ;background-color: purple"></section>
@@ -197,7 +368,7 @@
     <section id="ViewReserveDetailsPage" style="width: 100%; height: 100vh ;background-color: chartreuse"></section>
     <section id="SchedulePage" style="width: 100%; height: 100vh ;background-color: fuchsia"></section>
     <section id="PaymentPage" style="width: 100%; height: 100vh ;background-color: brown"></section>
-    <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown"></section>
+    <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown"></section>-->
 
 </main>
 

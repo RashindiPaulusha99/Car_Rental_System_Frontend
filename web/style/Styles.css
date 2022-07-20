@@ -1,0 +1,97 @@
+
+.nav-link {
+    background-image: linear-gradient(
+            to right,
+            goldenrod,
+            goldenrod 50%,
+            #000 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    color: snow;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:before {
+    content: '';
+    background: goldenrod;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    background-position: 0;
+    color: gold;
+}
+
+.nav-link:hover::before {
+    width:100%;
+}
+
+.heading{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 429px;
+    top: 0;
+    margin: auto;
+}
+
+.mask{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+
+.chooseData{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+
+.datepicker table{
+    background-color: chocolate;
+}
+.datepicker table tr td {
+    background-color:#B77F0E;
+    background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+    border-radius: 50%;
+}
+
+.datepicker table tr th {
+    color: #fff;
+    line-height:35px;
+}
+
+.datepicker .datepicker-switch {
+    font-family:Optima;
+    text-transform:uppercase;
+    font-size:16px;
+    width: 145px;
+    background: #3A2218;
+    color: #EAAA01;
+}
+
+.datepicker .datepicker-switch:hover,
+.datepicker .prev:hover,
+.datepicker .next:hover,
+.datepicker tfoot tr th:hover {
+    background: #3A2218;
+    color: #EAAA01;
+}
+

@@ -6,12 +6,17 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/fonts/css/all.css">
+    <link rel="stylesheet" href="style/Styles.css">
+    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css”>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
 
 </head>
 <body>
 
 <main style="width: 100%; height: 100vh;">
 
+    <!--Navigation Bar-->
     <section id="NavBar" >
 
         <!-- Navbar -->
@@ -20,7 +25,7 @@
             <div class="container">
                 <!-- Navbar brand -->
                 <a class="navbar-brand me-2" href="">
-                    <img src="assets/logo/car%20rental%20logo.jpg" height="50" alt="Car Rental Logo" loading="lazy" style="margin-top: -1px;"/>
+                    <img src="assets/logo/car%20rental%20logo.jpg" height="60" alt="Car Rental Logo" loading="lazy" style="margin-top: -1px;"/>
                 </a>
 
                 <!-- Collapsible wrapper -->
@@ -28,32 +33,32 @@
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Home</a>
+                            <a class="nav-link " href="#">Home</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-white" href="#">Cars</a>
+                            <a class="nav-link" href="#">Cars</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Services</a>
+                            <a class="nav-link " href="#">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">About</a>
+                            <a class="nav-link " href="#">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Blog</a>
+                            <a class="nav-link " href="#">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Contact</a>
+                            <a class="nav-link " href="#">Contact</a>
                         </li>
                     </ul>
                     <!-- Left links -->
 
                     <div class="d-flex align-items-center">
-                        <button type="button" class="btn btn-link px-3 me-2">
+                        <button type="button" class="btn btn-link px-3 me-2 text-white">
                             Login
                         </button>
-                        <button type="button" class="btn btn-primary me-3">
-                            Sign up for free
+                        <button type="button" class="btn btn-primary me-3 btn-sm">
+                            Sign up
                         </button>
 
                     </div>
@@ -66,15 +71,63 @@
 
     </section>
 
+    <!--Welcome Page-->
     <section id="WelcomePage" style="width: 100%; height: 100vh ;">
-
-        <img src="assets/images/Koenigsegg%20Gemera_01%20copy.jpg" alt="bg image" style="width: 100%; height: 100vh">
-
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-            <div class="d-flex justify-content-center align-items-center " >
-                <h1 class="text-white mb-0">Page title</h1>
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
+            <div class="heading d-flex justify-content-center align-items-center h-100">
+                <p class="text-white mb-0" style="font-size: 45px">MAKE YOUR TRIP AWESOME</p>
             </div>
         </div>
+
+        <div class="chooseData bg-white w-75 h-25">
+
+            <div class="row">
+                <div class="col w-25 bg-success me-5 mt-4">
+                    <div class="container ">
+                        <label style="font-size: 15px">Pickup Date</label>
+                        <div class="input-group date" style="width: 200px">
+                            <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col w-25 bg-danger me-5 mt-4">
+                    <div class="form-outline timepicker-inline-12">
+                        <label class="form-label" for="form41">Select a time</label>
+                        <input type="text" class="form-control" id="form41" />
+                    </div>
+                </div>
+
+                <div class="col w-25 bg-primary me-5 mt-4">
+                    <div class="container">
+                        <label style="font-size: 15px">Return Date</label>
+                        <div class="input-group date " style="width: 200px">
+                            <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col w-25 bg-warning me-5 mt-4">
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col w-50 me-5 bg-primary mt-3">
+                    <h1>11</h1>
+                </div>
+
+                <div class="col w-50 me-5 bg-danger mt-3">
+
+                </div>
+
+            </div>
+
+        </div>
+
+       <img src="assets/images/Koenigsegg%20Gemera_01%20copy.jpg" alt="bg image" style="width: 100%; height: 100vh" class="img-fluid">
 
     </section>
 
@@ -95,5 +148,27 @@
 
 <script src="assets/jquery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type=’text/javascript’ src=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js”></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+<script >
+    $(function(){
+        $('.input-group.date').datepicker({
+            orientation: "auto bottom",
+            forceParse: false,
+            autoclose: true,
+            todayHighlight: true,
+            toggleActive: true
+        });
+    });
+
+    const pickerInline = document.querySelector('.timepicker-inline-12');
+    const timepickerMaxMin = new mdb.Timepicker(pickerInline, {
+        format12:true,
+        inline: true
+    });
+
+</script>
 </body>
 </html>

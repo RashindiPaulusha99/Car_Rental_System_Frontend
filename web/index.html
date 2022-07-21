@@ -1092,7 +1092,7 @@
             </div>
 
             <div class=" mt-0 ms-2 me-5">
-                <form class="ms-5 me-5" style="position: relative; top: 50px;">
+                <form class="ms-5 me-5" style="position: relative; top: 45px;">
 
                     <div class="row">
                         <div class="col">
@@ -1116,42 +1116,101 @@
                     </div>
 
                     <div class="row">
-                        <!-- rent fee -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light " for="rentFee" style="font-size: 15px;">* Rent Fee</label>
-                            <input type="text" id="rentFee" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        <div class="col">
+                            <!-- rent fee -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="rentFee" style="font-size: 15px;">* Rent Fee</label>
+                                <input type="text" id="rentFee" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- driver fee -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="driverFee" style="font-size: 15px;">* Driver Fee</label>
+                                <input type="text" id="driverFee" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <!-- driver age -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light " for="driverAge" style="font-size: 15px;">* Age</label>
-                            <input type="number" id="driverAge" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        <div class="col">
+                            <!-- lose damage payment -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="loseDamageWaiverPayment" style="font-size: 15px;">* Lose Damage Waiver Payment</label>
+                                <input type="text" id="loseDamageWaiverPayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- reduced lose damage payment -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="reducedLoseDamageWaiverPayment" style="font-size: 15px;">* Reduced Lose Damage Payment</label>
+                                <input type="text" id="reducedLoseDamageWaiverPayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <!-- driver contact -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light " for="driverContact" style="font-size: 15px;">* Contact</label>
-                            <input type="tel" id="driverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        <div class="col">
+                            <!-- car harm or not -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="carHarmOrNot" style="font-size: 15px;">* Harm Or Not</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="carHarmOrNot">
+                                    <option selected value="0">None</option>
+                                    <option value="1">Harm</option>
+                                    <option value="2">Not Harm</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- travelled distance -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="travelledDistance" style="font-size: 15px;">* Travelled Distance</label>
+                                <input type="number" id="travelledDistance" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <!-- driver release or not -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light " for="driverReleaseOrNot" style="font-size: 15px;">* Release Or Not</label>
-                            <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="driverReleaseOrNot">
-                                <option selected value="0">None</option>
-                                <option value="1">Release</option>
-                                <option value="2">Not Release</option>
-                            </select>
+                        <div class="col">
+                            <!-- extra km -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="extraKm" style="font-size: 15px;">* Extra KM</label>
+                                <input type="number" id="extraKm" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- price for extra km -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-1">
+                                <label class="form-label text-dark fw-light " for="priceForExtraKm" style="font-size: 15px;">* Price For Extra KM</label>
+                                <input type="text" id="priceForExtraKm" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
                         </div>
                     </div>
 
                     <hr class="divider-horizontal-blurry mb-0" style="" />
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="col" style="width: 200px;">
+                                <button type="button" class="btn btn-info btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-plus"></i>
+                                    Calculate
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- full payment -->
+                            <div class="form-outline mb-2 ms-4 me-4 mt-2">
+                                <label class="form-label text-dark fw-light " for="fullPayment" style="font-size: 15px;">* Full Payment</label>
+                                <input type="text" id="fullPayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                    </div>
 
                     <!--button panel-->
                     <div class="row mt-4">
@@ -1162,9 +1221,6 @@
                             <div class="col" style="width: 200px;">
                                 <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-pen-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
-                                    <i class="fas fa-plus"></i>
                                 </button>
                                 <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-times"></i>

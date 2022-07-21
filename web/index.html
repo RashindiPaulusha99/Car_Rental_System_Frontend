@@ -492,13 +492,13 @@
 
     <section id="CarAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
-        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 630px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
 
             <div class="text-center  border-bottom border-2 " style="position: relative;top: 20px;">
-                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- ADD CAR -</h1>
+                <h1 class="mt-1 text-dark fw-bold fst-italic mb-0 " style="font-family: 'PT Serif', serif;">- ADD CAR -</h1>
             </div>
 
-            <div class=" mt-0">
+            <div class="mt-0" style="position: relative;top: -3px;">
                 <form class="ms-5 me-5" style="position: relative; top: 50px;">
 
                     <div class="row">
@@ -676,29 +676,37 @@
                         </div>
                     </div>
 
+                    <div class="row mb-0">
+                        <!-- total distance travelled -->
+                        <div class="form-outline ms-4 me-4">
+                            <label class="form-label text-dark fw-light " for="totalDistanceTravelled" style="font-size: 15px;">* Total Distance Travelled</label>
+                            <input type="number" id="totalDistanceTravelled" class="w-25 form-control  border border-2 border-white bg-light rounded-3 shadow" />
+                        </div>
+                    </div>
+
                     <hr class="divider-horizontal-blurry" style="" />
 
-                    <div class="row">
+                    <div class="row mt-0">
 
-                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form  style="border: 2px solid white;" class="h-100">
                                 <label class="form-label mt-2 text-dark fw-light " for="uploadFrontView">Upload front view</label>
                                 <input type="file" class="form-control shadow" id="uploadFrontView" />
                             </form>
                         </div>
-                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form  class="h-100">
                                 <label class="form-label mt-2 text-dark fw-light " for="uploadBackView">Upload back view</label>
                                 <input type="file" class="form-control shadow" id="uploadBackView" />
                             </form>
                         </div>
-                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form class="h-100">
                                 <label class="form-label mt-2 text-dark fw-light " for="uploadSideView">Upload side view</label>
                                 <input type="file" class="form-control shadow" id="uploadSideView" />
                             </form>
                         </div>
-                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form class="h-100">
                                  <label class="form-label mt-2 text-dark fw-light " for="uploadInteriorView">Upload interior view</label>
                                  <input type="file" class="form-control shadow" id="uploadInteriorView" />
@@ -1075,11 +1083,109 @@
 
     </section>
 
+    <section id="PaymentAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
+        <div class=" border border-3 border-white rounded-1 shadow" style="width: 700px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+
+            <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
+                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- Make Payment -</h1>
+            </div>
+
+            <div class=" mt-0 ms-2 me-5">
+                <form class="ms-5 me-5" style="position: relative; top: 50px;">
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- payment id -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="paymentId" style="font-size: 15px;">* Payment Id</label>
+                                <input type="text" id="paymentId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- payment date -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="paymentDate" style="font-size: 15px;">* Payment Date</label>
+                                <div class="input-group date" style="width: 250px">
+                                    <input type="text" id="paymentDate" class="form-control">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- rent fee -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light " for="rentFee" style="font-size: 15px;">* Rent Fee</label>
+                            <input type="text" id="rentFee" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver age -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light " for="driverAge" style="font-size: 15px;">* Age</label>
+                            <input type="number" id="driverAge" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver contact -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light " for="driverContact" style="font-size: 15px;">* Contact</label>
+                            <input type="tel" id="driverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver release or not -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light " for="driverReleaseOrNot" style="font-size: 15px;">* Release Or Not</label>
+                            <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="driverReleaseOrNot">
+                                <option selected value="0">None</option>
+                                <option value="1">Release</option>
+                                <option value="2">Not Release</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr class="divider-horizontal-blurry mb-0" style="" />
+
+                    <!--button panel-->
+                    <div class="row mt-4">
+                        <div class="col text-center">
+
+                        </div>
+                        <div class="col text-center ">
+                            <div class="col" style="width: 200px;">
+                                <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-pen-alt"></i>
+                                </button>
+                                <button type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
 
     <!--<section id="CustomerDashBoard" style="width: 100%; height: 100vh ;background-color: green"></section>
     <section id="AdminPanel" style="width: 100%; height: 100vh ;background-color: purple"></section>
-    <section id="PaymentAddPage" style="width: 100%; height: 100vh ;background-color: #b6effb"></section>
     <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown"></section>-->
 
 </main>
@@ -1096,10 +1202,6 @@
 <!--for date picker-->
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
 
 
 <script >
@@ -1122,15 +1224,6 @@
         format: 'HH:mm'
     });
 
-    $(document).ready(function() {
-        var table = $('#example').DataTable( {
-            responsive: true
-        } );
-
-        new $.fn.dataTable.FixedHeader( table );
-    } );
-
-    /*----------------------*/
 
 
 </script>

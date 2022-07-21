@@ -492,51 +492,72 @@
 
     <section id="CarAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
-        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#EAAA01,#000);">
+        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
 
-            <div class="text-center" style="position: relative;top: 20px">
-                <h1 class="mt-1 text-white fw-bold fst-italic" style="font-family: 'PT Serif', serif;">ADD CAR</h1>
+            <div class="text-center  border-bottom border-2 " style="position: relative;top: 20px;">
+                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- ADD CAR -</h1>
             </div>
 
             <div class=" mt-0">
-
                 <form class="ms-5 me-5" style="position: relative; top: 50px;">
 
                     <div class="row">
                         <div class="col">
                             <!-- car id -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-white fw-light" for="carId" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Car Id</label>
-                                <input type="text" id="carId" class="form-control  border border-2 border-white bg-light rounded-3" />
+                                <label class="form-label text-dark fw-light " for="carId" style="font-size: 15px;">* Car Id</label>
+                                <input type="text" id="carId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- brand -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-white fw-light" for="brand" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Brand</label>
+                                <label class="form-label text-dark fw-light " for="brand" style="font-size: 15px;">* Brand</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="brand">
                                     <option selected value="0">None</option>
-                                    <option value="1">Susuki</option>
-                                    <option value="2">Audi</option>
-                                    <option value="3">BMW</option>
+                                    <option value="1">Suzuki Alto - Premium - Manual * 7</option>
+                                    <option value="2">Suzuki Alto K10 - Auto * 8</option>
+                                    <option value="3">Perodua (Daihatsu) Axia - Auto * 2</option>
+                                    <option value="4">Toyota Prius C/ Aqua - Auto * 8</option>
+                                    <option value="5">Suzuki Celerio - Auto * 5</option>
+                                    <option value="6">Toyota Corolla Axio/ NZE141 * 4</option>
+                                    <option value="7">Perodua Bezza Prime Sedan - Auto (2017) * 5</option>
+                                    <option value="8">Toyota Allion NZT 260 * 3</option>
+                                    <option value="9">Toyota Axio NKR 165 * 2</option>
+                                    <option value="10">Toyota Axio NKR 165 * 2</option>
+                                    <option value="11">Mercedes * 2</option>
+                                    <option value="12">BMW i8 * 2</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
                             <!-- colour -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-white fw-light" for="colour" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Colour</label>
+                                <label class="form-label text-dark fw-light " for="colour" style=" font-size: 15px;">* Colour</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="colour">
-                                    <option selected></option>
+                                    <option selected value="0">None</option>
+                                    <option value="1">White/white pearl</option>
+                                    <option value="2">Black/black effect</option>
+                                    <option value="3">Silver</option>
+                                    <option value="4">Gray</option>
+                                    <option value="5">Red</option>
+                                    <option value="6">Blue</option>
+                                    <option value="7">Brown/beige</option>
+                                    <option value="8">Yellow/Gold</option>
+                                    <option value="9">Green</option>
+                                    <option value="10">Others</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
                             <!-- type -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-white fw-light" for="type" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Type</label>
+                                <label class="form-label text-dark fw-light " for="type" style="font-size: 15px;">* Type</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="type">
-                                    <option selected></option>
+                                    <option selected value="0">None</option>
+                                    <option value="1">General</option>
+                                    <option value="2">Premium</option>
+                                    <option value="3">Luxury</option>
                                 </select>
                             </div>
                         </div>
@@ -546,33 +567,37 @@
                         <div class="col">
                             <!-- registration no -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <input type="text" id="registrationNo" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                <label class="form-label text-white fw-light" for="registrationNo" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Registration NO</label>
+                                <label class="form-label text-dark fw-light " for="registrationNo" style="font-size: 15px;">* Registration NO</label>
+                                <input type="text" id="registrationNo" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- fuel type -->
                             <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="fuelType" style="font-size: 15px;">* Fuel Type</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="fuelType">
-                                    <option selected></option>
+                                    <option selected value="0">None</option>
+                                    <option value="1">Petrol</option>
+                                    <option value="2">Diesel</option>
                                 </select>
-                                <label class="form-label text-white fw-light" for="fuelType" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Fuel Type</label>
                             </div>
                         </div>
                         <div class="col">
                             <!-- transmission type -->
                             <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="transmissionType" style="font-size: 15px;">* Transmission Type</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="transmissionType">
-                                    <option selected></option>
+                                    <option selected value="0">None</option>
+                                    <option value="1">Manual</option>
+                                    <option value="2">Auto</option>
                                 </select>
-                                <label class="form-label text-white fw-light" for="transmissionType" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Transmission Type</label>
                             </div>
                         </div>
                         <div class="col">
                             <!-- no of passengers -->
                             <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="noOfPassengers" style="font-size: 15px;">* NO Of Passenagers</label>
                                 <input type="number" id="noOfPassengers" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                <label class="form-label text-white fw-light" for="noOfPassengers" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">NO Of Passenagers</label>
                             </div>
                         </div>
                     </div>
@@ -581,29 +606,29 @@
                         <div class="col">
                             <!-- daily rate price -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <input type="text" id="dailyRatePrice" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                <label class="form-label text-white fw-light" for="dailyRatePrice" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Daily Rate Price</label>
+                                <label class="form-label text-dark fw-light " for="dailyRatePrice" style="font-size: 15px;">* Daily Rate Price</label>
+                                <input type="text" id="dailyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- monthly rate price -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <input type="text" id="monthlyRatePrice" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                <label class="form-label text-white fw-light" for="monthlyRatePrice" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Monthly Rate Price</label>
+                                <label class="form-label text-dark fw-light " for="monthlyRatePrice" style="font-size: 15px;">* Monthly Rate Price</label>
+                                <input type="text" id="monthlyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- free km per day -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <input type="number" id="freeKMPerDay" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                <label class="form-label text-white fw-light" for="freeKMPerDay" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Free KM Per Day</label>
+                                <label class="form-label text-dark fw-light " for="freeKMPerDay" style="font-size: 15px;">* Free KM Per Day</label>
+                                <input type="number" id="freeKMPerDay" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- free km per month -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <input type="number" id="freeKMPerMonth" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                <label class="form-label text-white fw-light" for="freeKMPerMonth" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Free KM Per Month</label>
+                                <label class="form-label text-dark fw-light " for="freeKMPerMonth" style="font-size: 15px;">* Free KM Per Month</label>
+                                <input type="number" id="freeKMPerMonth" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -612,162 +637,103 @@
                         <div class="col">
                             <!-- price per extra km -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <input type="text" id="pricePerExtraKM" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                <label class="form-label text-white fw-light" for="pricePerExtraKM" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Price Per Extra KM</label>
+                                <label class="form-label text-dark fw-light " for="pricePerExtraKM" style="font-size: 15px;">* Price Per Extra KM</label>
+                                <input type="text" id="pricePerExtraKM" class="form-control  border border-2 border-white bg-light rounded-3 shadow" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- available or not -->
                             <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="availableOrNot" style="font-size: 15px;">* Available Or Not</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="availableOrNot">
-                                    <option selected></option>
+                                    <option selected value="0">None</option>
+                                    <option value="1">Available</option>
+                                    <option value="2">Not Available</option>
                                 </select>
-                                <label class="form-label text-white fw-light" for="availableOrNot" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Available Or Not</label>
                             </div>
                         </div>
                         <div class="col">
                             <!-- damage or not -->
                             <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="damageOrNot" style="font-size: 15px;">* Damage Or Not</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="damageOrNot">
-                                    <option selected></option>
+                                    <option selected value="0">None</option>
+                                    <option value="1">Damage</option>
+                                    <option value="2">Not Damage</option>
                                 </select>
-                                <label class="form-label text-white fw-light" for="damageOrNot" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Damage Or Not</label>
                             </div>
                         </div>
                         <div class="col">
                             <!-- under maintain or not -->
                             <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light " for="availableOrNot" style="font-size: 15px;">* Under Maintain Or Not</label>
                                 <select aria-label="Default select example" class="form-select shadow" style="height: 32px" id="underMaintainOrNot">
-                                    <option selected></option>
+                                    <option selected value="0">None</option>
+                                    <option value="1">Maintained</option>
+                                    <option value="2">Under Maintain</option>
                                 </select>
-                                <label class="form-label text-white fw-light" for="availableOrNot" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Under Maintain Or Not</label>
                             </div>
                         </div>
                     </div>
 
                     <hr class="divider-horizontal-blurry" style="" />
 
+                    <div class="row">
+
+                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                            <form  style="border: 2px solid white;" class="h-100">
+                                <label class="form-label mt-2 text-dark fw-light " for="uploadFrontView">Upload front view</label>
+                                <input type="file" class="form-control shadow" id="uploadFrontView" />
+                            </form>
+                        </div>
+                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                            <form  class="h-100">
+                                <label class="form-label mt-2 text-dark fw-light " for="uploadBackView">Upload back view</label>
+                                <input type="file" class="form-control shadow" id="uploadBackView" />
+                            </form>
+                        </div>
+                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                            <form class="h-100">
+                                <label class="form-label mt-2 text-dark fw-light " for="uploadSideView">Upload side view</label>
+                                <input type="file" class="form-control shadow" id="uploadSideView" />
+                            </form>
+                        </div>
+                        <div class="col w-25 me-3 ms-3 mb-5 border border-1 border-white">
+                            <form class="h-100">
+                                 <label class="form-label mt-2 text-dark fw-light " for="uploadInteriorView">Upload interior view</label>
+                                 <input type="file" class="form-control shadow" id="uploadInteriorView" />
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <hr class="divider-horizontal-blurry mt-5 w-75 " style=" position: relative; top: 20px;left: 0;right: 0;bottom: 0;margin: auto" />
+
+                    <!--button panel-->
+                    <div class="row">
+                        <div class="col text-center">
+
+                        </div>
+                        <div class="col text-center mt-5">
+                            <div class="col">
+                                <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-pen-alt"></i>
+                                </button>
+                                <button type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+
+                        </div>
+                    </div>
+
                 </form>
 
-               <!-- <div class="col">
-                    <form class="ms-5 me-5" style="position: relative; top: 50px;">
-
-                        <div class="row">
-                            <div class="col">
-                                &lt;!&ndash; username input &ndash;&gt;
-                                <div class="form-outline mb-2 ms-4 me-4">
-                                    <input type="text" id="username" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                    <label class="form-label text-white fw-light" for="enterusername" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Username</label>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                &lt;!&ndash; Password input &ndash;&gt;
-                                <div class="form-outline mb-2 ms-4 me-4">
-                                    <input type="password" id="password" class="form-control  border border-2 border-white bg-light" />
-                                    <label class="form-label text-white fw-light" for="newpassword" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px">Password</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                &lt;!&ndash; username input &ndash;&gt;
-                                <div class="form-outline mb-2 ms-4 me-4">
-                                    <input type="text" id="customername" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                    <label class="form-label text-white fw-light" for="customername" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Full Name</label>
-                                </div>
-                            </div>
-                            <div class="col">
-                                &lt;!&ndash; username input &ndash;&gt;
-                                <div class="form-outline mb-2 ms-4 me-4">
-                                    <input type="tel" id="contactnumber" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                    <label class="form-label text-white fw-light" for="contactnumber" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Contact</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col mt-0">
-                                &lt;!&ndash; username input &ndash;&gt;
-                                <div class="form-outline mb-2 ms-4 me-4">
-                                    <input type="text" id="customeraddress" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                    <label class="form-label text-white fw-light" for="customeraddress" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Address</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                &lt;!&ndash; username input &ndash;&gt;
-                                <div class="form-outline mb-2 ms-4 me-4">
-                                    <input type="email" id="email" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                    <label class="form-label text-white fw-light" for="email" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Email</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                &lt;!&ndash; username input &ndash;&gt;
-                                <div class="form-outline  ms-4 me-4 mb-5">
-                                    <input type="text" id="nic" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                    <label class="form-label text-white fw-light" for="nic" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">NIC</label>
-                                </div>
-                            </div>
-                            <div class="col">
-                                &lt;!&ndash; username input &ndash;&gt;
-                                <div class="form-outline ms-4 me-4 mb-5">
-                                    <input type="text" id="drivinglicense" class="form-control  border border-2 border-white bg-light rounded-3" />
-                                    <label class="form-label text-white fw-light" for="drivinglicense" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Driving License NO</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="divider-horizontal-blurry" style="" />
-
-                    </form>
-                </div>
-
-                <div class="col">
-                    <div class="row">
-                        <form  style="border: 1px solid white; width: 530px; height: 104px;;position: relative; top: 50px;">
-                            <label class="form-label mt-4 text-white fw-light" for="uploadmyimage">Upload your image</label>
-                            <input type="file" class="form-control" id="uploadmyimage" />
-                        </form>
-                    </div>
-
-                    <div class="row">
-                        <form  style="border: 1px solid white; width: 530px; height: 104px;;position: relative; top: 84px;">
-                            <form  style="border: 2px solid white; width: 530px; height: 104px;;position: relative; top: 50px;">
-                                <label class="form-label mt-4 text-white fw-light" for="uploadnicimage">Upload your NIC image</label>
-                                <input type="file" class="form-control" id="uploadnicimage" />
-                            </form>
-                        </form>
-                    </div>
-
-                    <div class="row">
-                        <form  style="border: 1px solid white; width: 530px; height: 104px;;position: relative; top: 120px;">
-                            <form  style="border: 2px solid white; width: 530px; height: 104px;;position: relative; top: 50px;">
-                                <label class="form-label mt-4 text-white fw-light" for="uploaddrivinglicence">Upload your Driving Licence image</label>
-                                <input type="file" class="form-control" id="uploaddrivinglicence" />
-                            </form>
-                        </form>
-                    </div>
-
-                </div>-->
-
-            </div>
-
-            <div class="row">
-                <div class="mb-4 me-5 ms-5 mt-5 text-center">
-                    <!-- Submit button -->
-                    <button type="button" class="btn btn-block text-center text-white btn-info shadow" style="display: inline;position: relative;right: 0; top: 20px;margin: auto;width: 50%;">Add</button>
-                </div>
-
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="position: relative;left: -25px;top: 10px;">
-                    <button type="button" class="btn btn-danger text-end" id="btnCancelAddCar">Cancel</button>
-                </div>
             </div>
 
         </div>
@@ -800,6 +766,12 @@
             </div>
 
         </div>
+
+    </section>
+
+    <section id="DriverAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+
+
 
     </section>
 
@@ -916,7 +888,6 @@
 
     <!--<section id="CustomerDashBoard" style="width: 100%; height: 100vh ;background-color: green"></section>
     <section id="AdminPanel" style="width: 100%; height: 100vh ;background-color: purple"></section>
-    <section id="DriverAddPage" style="width: 100%; height: 100vh ;background-color: #b6effb"></section>
     <section id="PaymentAddPage" style="width: 100%; height: 100vh ;background-color: #b6effb"></section>
     <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown"></section>-->
 

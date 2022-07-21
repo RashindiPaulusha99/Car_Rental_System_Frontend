@@ -473,14 +473,18 @@
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
                     <i class="fas fa-taxi fa-1x"></i>
                     Car Information
+                    <button class="btn btn-success ms-5">
+                        <i class="fas fa-plus-circle"></i>
+                        Add</button>
                 </h1>
-                
+
             </div>
 
-            <form>
+            <div style="width: 90vw; height: 80vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
 
-            </form>
+
+            </div>
 
         </div>
 
@@ -510,6 +514,11 @@
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+
+
 <script >
     $(function(){
         $('.input-group.date').datepicker({
@@ -529,6 +538,16 @@
     $('#pickUpTime').datetimepicker({
         format: 'HH:mm'
     });
+
+    $(document).ready(function() {
+        var table = $('#example').DataTable( {
+            responsive: true
+        } );
+
+        new $.fn.dataTable.FixedHeader( table );
+    } );
+
+    /*----------------------*/
 
 
 </script>

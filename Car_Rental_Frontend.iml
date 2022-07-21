@@ -29,5 +29,7 @@
     <orderEntry type="library" name="@popperjs/core" level="application" />
     <orderEntry type="library" name="tempus-dominus" level="application" />
     <orderEntry type="library" name="mdb-ui-kit" level="application" />
+    <orderEntry type="library" name="jquery.dataTables" level="application" />
+    <orderEntry type="library" name="stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387" level="application" />
   </component>
 </module>

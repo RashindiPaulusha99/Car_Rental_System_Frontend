@@ -92,10 +92,10 @@
                     <!-- Left links -->
 
                     <div class="d-flex align-items-center loginBar">
-                        <button type="button" class="btn btn-link px-3 me-2 text-white">
+                        <button type="button" class="btn btn-link px-3 me-2 text-white" id="btnLogin">
                             Login
                         </button>
-                        <button type="button" class="btn btn-primary me-3 btn-sm">
+                        <button type="button" class="btn btn-primary me-3 btn-sm" id="btnRegister">
                             Sign up
                         </button>
 
@@ -282,6 +282,7 @@
 
     </section>
 
+    <!--Forgot Password Page-->
     <section id="ForgotPasswordPage" style="width: 100%;height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class="h-75  border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;width: 500px;background-image: radial-gradient(circle at top,#EAAA01,#000);">
@@ -326,6 +327,7 @@
 
     </section>
 
+    <!--Customer Register Page-->
     <section id="RegisterPage" style="width: 100%;height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#EAAA01,#000);">
@@ -461,6 +463,7 @@
 
     </section>
 
+    <!--View Car Details Page-->
     <section id="CarDetailsPage" style="width: 100%; height: 100vh ;">
 
         <div >
@@ -480,9 +483,272 @@
 
             </div>
 
-            <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+            <div style="width: 98vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-
+                <table class="table align-middle mb-0 bg-white table-responsive">
+                    <thead class="bg-light">
+                    <tr>
+                        <th>Car Id</th>
+                        <th>Brand</th>
+                        <th>Colour</th>
+                        <th>Type</th>
+                        <th>Registration NO</th>
+                        <th>Fuel Type</th>
+                        <th>Transmission Type</th>
+                        <th>Daily Rate</th>
+                        <th>Monthly Rate</th>
+                        <th>Free KM Per Day</th>
+                        <th>Free KM Per Month</th>
+                        <th>Price For Extra KM</th>
+                        <th>Available Or Not</th>
+                        <th>Damage Or Not</th>
+                        <th>Under Maintain Or Not</th>
+                        <th>Total Distance Travelled</th>
+                        <th>Front View</th>
+                        <th>Back View</th>
+                        <th>Side View</th>
+                        <th>Interior View</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            C00-0001
+                        </td>
+                        <td>
+                            Susuki
+                        </td>
+                        <td>
+                            White
+                        </td>
+                        <td>
+                            General
+                        </td>
+                        <td>
+                            R00-CVD25896
+                        </td>
+                        <td>
+                            Petrol
+                        </td>
+                        <td>
+                            Manual
+                        </td>
+                        <td>
+                            1000
+                        </td>
+                        <td>
+                            10000
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1000
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Available</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Not Damage</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Maintained</span>
+                        </td>
+                        <td>0</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            C00-0001
+                        </td>
+                        <td>
+                            Susuki
+                        </td>
+                        <td>
+                            White
+                        </td>
+                        <td>
+                            General
+                        </td>
+                        <td>
+                            R00-CVD25896
+                        </td>
+                        <td>
+                            Petrol
+                        </td>
+                        <td>
+                            Manual
+                        </td>
+                        <td>
+                            1000
+                        </td>
+                        <td>
+                            10000
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1000
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Available</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Not Damage</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Maintained</span>
+                        </td>
+                        <td>0</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            C00-0001
+                        </td>
+                        <td>
+                            Susuki
+                        </td>
+                        <td>
+                            White
+                        </td>
+                        <td>
+                            General
+                        </td>
+                        <td>
+                            R00-CVD25896
+                        </td>
+                        <td>
+                            Petrol
+                        </td>
+                        <td>
+                            Manual
+                        </td>
+                        <td>
+                            1000
+                        </td>
+                        <td>
+                            10000
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1000
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Available</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Not Damage</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Maintained</span>
+                        </td>
+                        <td>0</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
 
@@ -490,6 +756,7 @@
 
     </section>
 
+    <!--Add New Car Page-->
     <section id="CarAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 630px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
@@ -635,10 +902,10 @@
 
                     <div class="row">
                         <div class="col">
-                            <!-- price per extra km -->
+                            <!-- price for extra km -->
                             <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="pricePerExtraKM">* Price Per Extra KM</label>
-                                <input type="text" id="pricePerExtraKM" class="form-control  border border-2 border-white bg-light rounded-3 shadow" />
+                                <label class="form-label text-dark fw-light fs-4" for="priceForExtraKM">* Price For Extra KM</label>
+                                <input type="text" id="priceForExtraKM" class="form-control  border border-2 border-white bg-light rounded-3 shadow" />
                             </div>
                         </div>
                         <div class="col">
@@ -753,6 +1020,268 @@
 
     </section>
 
+    <!--Edit Car Page-->
+    <section id="UpdateAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+
+        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 630px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+
+            <div class="text-center  border-bottom border-2 " style="position: relative;top: 20px;">
+                <h1 class="mt-1 text-dark fw-bold fst-italic mb-0 " style="font-family: 'PT Serif', serif;">- UPDATE CAR -</h1>
+            </div>
+
+            <div class="mt-0" style="position: relative;top: -3px;">
+                <form class="ms-5 me-5" style="position: relative; top: 50px;">
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- car id -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="PreviousCarId">* Car Id</label>
+                                <input type="text" id="PreviousCarId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- brand -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateBrand">* Brand</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateBrand">
+                                    <option selected value="0">None</option>
+                                    <option value="1">Suzuki Alto - Premium - Manual * 7</option>
+                                    <option value="2">Suzuki Alto K10 - Auto * 8</option>
+                                    <option value="3">Perodua (Daihatsu) Axia - Auto * 2</option>
+                                    <option value="4">Toyota Prius C/ Aqua - Auto * 8</option>
+                                    <option value="5">Suzuki Celerio - Auto * 5</option>
+                                    <option value="6">Toyota Corolla Axio/ NZE141 * 4</option>
+                                    <option value="7">Perodua Bezza Prime Sedan - Auto (2017) * 5</option>
+                                    <option value="8">Toyota Allion NZT 260 * 3</option>
+                                    <option value="9">Toyota Axio NKR 165 * 2</option>
+                                    <option value="10">Toyota Axio NKR 165 * 2</option>
+                                    <option value="11">Mercedes * 2</option>
+                                    <option value="12">BMW i8 * 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- colour -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateColour">* Colour</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateColour">
+                                    <option selected value="0">None</option>
+                                    <option value="1">White/white pearl</option>
+                                    <option value="2">Black/black effect</option>
+                                    <option value="3">Silver</option>
+                                    <option value="4">Gray</option>
+                                    <option value="5">Red</option>
+                                    <option value="6">Blue</option>
+                                    <option value="7">Brown/beige</option>
+                                    <option value="8">Yellow/Gold</option>
+                                    <option value="9">Green</option>
+                                    <option value="10">Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- type -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateType">* Type</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateType">
+                                    <option selected value="0">None</option>
+                                    <option value="1">General</option>
+                                    <option value="2">Premium</option>
+                                    <option value="3">Luxury</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- registration no -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateRegistrationNo">* Registration NO</label>
+                                <input type="text" id="updateRegistrationNo" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- fuel type -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateFuelType">* Fuel Type</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateFuelType">
+                                    <option selected value="0">None</option>
+                                    <option value="1">Petrol</option>
+                                    <option value="2">Diesel</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- transmission type -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateTransmissionType">* Transmission Type</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateTransmissionType">
+                                    <option selected value="0">None</option>
+                                    <option value="1">Manual</option>
+                                    <option value="2">Auto</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- no of passengers -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateNoOfPassengers">* NO Of Passenagers</label>
+                                <input type="number" id="updateNoOfPassengers" class="form-control  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- daily rate price -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateDailyRatePrice">* Daily Rate Price</label>
+                                <input type="text" id="updateDailyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- monthly rate price -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateMonthlyRatePrice">* Monthly Rate Price</label>
+                                <input type="text" id="updateMonthlyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- free km per day -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateFreeKMPerDay">* Free KM Per Day</label>
+                                <input type="number" id="updateFreeKMPerDay" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- free km per month -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateFreeKMPerMonth">* Free KM Per Month</label>
+                                <input type="number" id="updateFreeKMPerMonth" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- price for extra km -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updatePriceForExtraKM">* Price For Extra KM</label>
+                                <input type="text" id="updatePriceForExtraKM" class="form-control  border border-2 border-white bg-light rounded-3 shadow" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- available or not -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateAvailableOrNot">* Available Or Not</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateAvailableOrNot">
+                                    <option selected value="0">None</option>
+                                    <option value="1">Available</option>
+                                    <option value="2">Not Available</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- damage or not -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateDamageOrNot">* Damage Or Not</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateDamageOrNot">
+                                    <option selected value="0">None</option>
+                                    <option value="1">Damage</option>
+                                    <option value="2">Not Damage</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- under maintain or not -->
+                            <div class="form-outline mb-2 ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateUnderMaintainOrNot">* Under Maintain Or Not</label>
+                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateUnderMaintainOrNot">
+                                    <option selected value="0">None</option>
+                                    <option value="1">Maintained</option>
+                                    <option value="2">Under Maintain</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-0">
+                        <div class="col">
+                            <!-- total distance travelled -->
+                            <div class="form-outline ms-4 me-4">
+                                <label class="form-label text-dark fw-light fs-4" for="updateTotalDistanceTravelled">* Total Distance Travelled</label>
+                                <input type="number" id="updateTotalDistanceTravelled" class=" form-control  border border-2 border-white bg-light rounded-3 shadow" />
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                    </div>
+
+                    <hr class="divider-horizontal-blurry" style="" />
+
+                    <div class="row mt-0">
+
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+                            <form  style="border: 2px solid white;" class="h-100">
+                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateFrontView">Upload front view</label>
+                                <input type="file" class="form-control shadow" id="updateFrontView" />
+                            </form>
+                        </div>
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+                            <form  class="h-100">
+                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateBackView">Upload back view</label>
+                                <input type="file" class="form-control shadow" id="updateBackView" />
+                            </form>
+                        </div>
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+                            <form class="h-100">
+                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateSideView">Upload side view</label>
+                                <input type="file" class="form-control shadow" id="updateSideView" />
+                            </form>
+                        </div>
+                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+                            <form class="h-100">
+                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateInteriorView">Upload interior view</label>
+                                <input type="file" class="form-control shadow" id="updateInteriorView" />
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <hr class="divider-horizontal-blurry mt-5 w-75 " style=" position: relative; top: 20px;left: 0;right: 0;bottom: 0;margin: auto" />
+
+                    <!--button panel-->
+                    <div class="row">
+                        <div class="col text-center">
+
+                        </div>
+                        <div class="col text-center mt-5">
+                            <div class="col">
+                                <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-pen-alt"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--View Driver Details Page-->
     <section id="DriverDetailsPage" style="width: 100%; height: 100vh ;">
 
         <div >
@@ -774,7 +1303,112 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-
+                <table class="table align-middle mb-0 bg-white table-responsive">
+                    <thead class="bg-light">
+                    <tr>
+                        <th>Driver Id</th>
+                        <th>Driver Name</th>
+                        <th>Driver Address</th>
+                        <th>Driver Age</th>
+                        <th>Driver Contact</th>
+                        <th>Release Or Not</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            D00-0001
+                        </td>
+                        <td>
+                            Kamal Perera
+                        </td>
+                        <td>
+                            Panadura
+                        </td>
+                        <td>
+                            30
+                        </td>
+                        <td>
+                            078-7991075
+                        </td>
+                        <td>
+                            Not Released
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            D00-0001
+                        </td>
+                        <td>
+                            Kamal Perera
+                        </td>
+                        <td>
+                            Panadura
+                        </td>
+                        <td>
+                            30
+                        </td>
+                        <td>
+                            078-7991075
+                        </td>
+                        <td>
+                            Not Released
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            D00-0001
+                        </td>
+                        <td>
+                            Kamal Perera
+                        </td>
+                        <td>
+                            Panadura
+                        </td>
+                        <td>
+                            30
+                        </td>
+                        <td>
+                            078-7991075
+                        </td>
+                        <td>
+                            Not Released
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
 
@@ -782,6 +1416,7 @@
 
     </section>
 
+    <!--Add New Driver Page-->
     <section id="DriverAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
@@ -878,6 +1513,101 @@
 
     </section>
 
+    <!--Update Driver Page-->
+    <section id="DriverUpdatePage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+
+        <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+
+            <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
+                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- UPDATE DRIVER -</h1>
+            </div>
+
+            <div class=" mt-0 ms-2 me-5">
+                <form class="ms-5 me-5" style="position: relative; top: 50px;">
+
+                    <div class="row">
+                        <!-- driver id -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light fs-4" for="updateDriverId">* Driver Id</label>
+                            <input type="text" id="updateDriverId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver name -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light fs-4" for="updateDriverName">* Name</label>
+                            <input type="text" id="updateDriverName" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver address -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light fs-4" for="updateDriverAddress">* Address</label>
+                            <input type="text" id="updateDriverAddress" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver age -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light fs-4" for="updateDriverAge">* Age</label>
+                            <input type="number" id="updateDriverAge" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver contact -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light fs-4" for="updateDriverContact">* Contact</label>
+                            <input type="tel" id="updateDriverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- driver release or not -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light fs-4" for="updateDriverReleaseOrNot">* Release Or Not</label>
+                            <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateDriverReleaseOrNot">
+                                <option selected value="0">None</option>
+                                <option value="1">Release</option>
+                                <option value="2">Not Release</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr class="divider-horizontal-blurry mb-0" style="" />
+
+                    <!--button panel-->
+                    <div class="row mt-4">
+                        <div class="col text-center">
+
+                        </div>
+                        <div class="col text-center ">
+                            <div class="col" style="width: 200px;">
+                                <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-pen-alt"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--View Customer Details Page-->
     <section id="ViewCustomerInformationPage" style="width: 100%;height: 100vh ; ">
 
         <div >
@@ -896,7 +1626,158 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-
+                <table class="table align-middle mb-0 bg-white table-responsive">
+                    <thead class="bg-light">
+                    <tr>
+                        <th>Registered Date</th>
+                        <th>Customer Id</th>
+                        <th>Customer Image</th>
+                        <th>Customer Name</th>
+                        <th>Customer Address</th>
+                        <th>Customer Contact</th>
+                        <th>Customer NIC NO</th>
+                        <th>Customer Driving Licence NO</th>
+                        <th>NIC Image</th>
+                        <th>Driving Licence Image</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                           2022-12-21
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            Harshana Perera
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            071-8220009
+                        </td>
+                        <td>885963214v</td>
+                        <td>DR-GT1524889</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            Harshana Perera
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            071-8220009
+                        </td>
+                        <td>885963214v</td>
+                        <td>DR-GT1524889</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            Harshana Perera
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            071-8220009
+                        </td>
+                        <td>885963214v</td>
+                        <td>DR-GT1524889</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
 
@@ -904,6 +1785,7 @@
 
     </section>
 
+    <!--View Reservation Details Page-->
     <section id="ViewReserveDetailsPage" style="width: 100%; height: 100vh ;">
 
         <div >
@@ -925,7 +1807,182 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 67px;right: 0;bottom: 0;left: 0;margin: auto">
 
-
+                <table class="table align-middle mb-0 bg-white table-responsive">
+                    <thead class="bg-light">
+                    <tr>
+                        <th>Reserve Date</th>
+                        <th>Reserve Id</th>
+                        <th>Customer</th>
+                        <th>Pickup Date</th>
+                        <th>Pickup Time</th>
+                        <th>Pickup Venue</th>
+                        <th>Return Date</th>
+                        <th>Return Time</th>
+                        <th>Return Venue</th>
+                        <th>Destination</th>
+                        <th>Duration</th>
+                        <th>Driver Want Or Not</th>
+                        <th>Request Accept Or Deny</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Want
+                        </td>
+                        <td>
+                            Accept
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Not Want
+                        </td>
+                        <td>
+                            Accept
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Not Want
+                        </td>
+                        <td>
+                            Deny
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
 
@@ -933,6 +1990,126 @@
 
     </section>
 
+    <!--Reserve Detail Page-->
+    <section id="ReserveDetailsPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+
+        <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+
+            <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
+                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- RESERVE DETAILS -</h1>
+            </div>
+
+            <div class=" mt-0 ms-2 me-5">
+                <form class="ms-5 me-5" style="position: relative; top: 50px;">
+
+                    <div class="row">
+                        <!-- reserve id -->
+                        <div class="form-outline mb-2 ms-4 me-4">
+                            <label class="form-label text-dark fw-light fs-4" for="viewReserveId">* Reserve Id</label>
+                            <input type="text" id="viewReserveId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- car id -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewCarId">* Car Id</label>
+                                <input type="text" id="viewCarId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- brand -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewBrand">* Brand</label>
+                                <input type="text" id="viewBrand" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- colour -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewColour">* Colour</label>
+                                <input type="text" id="viewColour" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- type -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewType">* Type</label>
+                                <input type="text" id="viewType" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- driver Id -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewDriverId">* Driver Id</label>
+                                <input type="number" id="viewDriverId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- driver name -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewDriverName">* Driver Name</label>
+                                <input type="number" id="viewDriverName" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- driver contact -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewDriverContact">* Driver Contact</label>
+                                <input type="text" id="viewDriverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- lose damage payment -->
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewLoseDamagePayment">* Lose Damage Paymnet</label>
+                                <input type="text" id="viewLoseDamagePayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="divider-horizontal-blurry mb-0" style="" />
+
+                    <!--button panel-->
+                    <div class="row mt-4">
+                        <div class="col text-center">
+
+                        </div>
+                        <div class="col text-center ">
+                            <div class="col" style="width: 200px;">
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--Change Driver Page-->
     <section id="ChangeDriver" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class="h-75 border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
@@ -1034,6 +2211,7 @@
 
     </section>
 
+    <!--View Schedule Page-->
     <section id="SchedulePage" style="width: 100%; height: 100vh ;">
 
         <div >
@@ -1051,7 +2229,182 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-
+                <table class="table align-middle mb-0 bg-white table-responsive">
+                    <thead class="bg-light">
+                    <tr>
+                        <th>Reserve Date</th>
+                        <th>Reserve Id</th>
+                        <th>Customer</th>
+                        <th>Pickup Date</th>
+                        <th>Pickup Time</th>
+                        <th>Pickup Venue</th>
+                        <th>Return Date</th>
+                        <th>Return Time</th>
+                        <th>Return Venue</th>
+                        <th>Destination</th>
+                        <th>Duration</th>
+                        <th>Driver Want Or Not</th>
+                        <th>Request Accept Or Deny</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Want
+                        </td>
+                        <td>
+                            Accept
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Not Want
+                        </td>
+                        <td>
+                            Accept
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Not Want
+                        </td>
+                        <td>
+                            Deny
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
 
@@ -1059,6 +2412,7 @@
 
     </section>
 
+    <!--View Payment Details Page-->
     <section id="PaymentPage" style="width: 100%; height: 100vh ;">
 
         <div >
@@ -1080,7 +2434,182 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-
+                <table class="table align-middle mb-0 bg-white table-responsive">
+                    <thead class="bg-light">
+                    <tr>
+                        <th>Reserve Date</th>
+                        <th>Reserve Id</th>
+                        <th>Customer</th>
+                        <th>Pickup Date</th>
+                        <th>Pickup Time</th>
+                        <th>Pickup Venue</th>
+                        <th>Return Date</th>
+                        <th>Return Time</th>
+                        <th>Return Venue</th>
+                        <th>Destination</th>
+                        <th>Duration</th>
+                        <th>Driver Want Or Not</th>
+                        <th>Request Accept Or Deny</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Want
+                        </td>
+                        <td>
+                            Accept
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Not Want
+                        </td>
+                        <td>
+                            Accept
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            R00-0001
+                        </td>
+                        <td>
+                            Cus00-0001
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            10.23
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            2022-12-21
+                        </td>
+                        <td>
+                            14.03
+                        </td>
+                        <td>
+                            Galle
+                        </td>
+                        <td>
+                            Anuradapura
+                        </td>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            Not Want
+                        </td>
+                        <td>
+                            Deny
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
 
@@ -1088,6 +2617,7 @@
 
     </section>
 
+    <!--Make Payment Page-->
     <section id="PaymentAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class="border border-3 border-white rounded-1 shadow" style="width: 50%; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 88%;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
@@ -1190,8 +2720,8 @@
                         <div class="col">
                             <!-- price for extra km -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
-                                <label class="form-label text-dark fw-light fs-4" for="priceForExtraKm">* Price For Extra KM</label>
-                                <input type="text" id="priceForExtraKm" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <label class="form-label text-dark fw-light fs-4" for="priceForTravelledExtraKm">* Price For Extra KM</label>
+                                <input type="text" id="priceForTravelledExtraKm" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -1245,14 +2775,84 @@
 
     </section>
 
+    <!--Admin Panel-->
+    <section id="AdminPanel" style="width: 100%; height: 100vh ;background-color: white">
+
+        <!--<div class="row">
+            <div class="col-3">
+                &lt;!&ndash; Tab navs &ndash;&gt;
+                <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-tabs-home-tab" data-mdb-toggle="tab" href="#CarDetailsPage" role="tab" aria-controls="CarDetailsPage" aria-selected="true">
+                        Car
+                    </a>
+                    <a class="nav-link" id="v-tabs-profile-tab" data-mdb-toggle="tab" href="#DriverDetailsPage" role="tab" aria-controls="DriverDetailsPage" aria-selected="false">
+                        Profile
+                    </a>
+                    <a class="nav-link" id="v-tabs-messages-tab" data-mdb-toggle="tab" href="#v-tabs-messages" role="tab" aria-controls="v-tabs-messages" aria-selected="false">
+                        Messages
+                    </a>
+                </div>
+                &lt;!&ndash; Tab navs &ndash;&gt;
+            </div>
+
+            <div class="col-9">
+                &lt;!&ndash; Tab content &ndash;&gt;
+                <div class="tab-content" id="v-tabs-tabContent">
+                    <div class="tab-pane show" id="v-tabs-home" role="tabpanel" aria-labelledby="v-tabs-home-tab">
+                        home
+                    </div>
+                    <div class="tab-pane fade" id="v-tabs-profile" role="tabpanel" aria-labelledby="v-tabs-profile-tab">
+                        message
+                    </div>
+                    <div class="tab-pane fade" id="v-tabs-messages" role="tabpanel" aria-labelledby="v-tabs-messages-tab">
+                        Messages content
+                    </div>
+                </div>
+                &lt;!&ndash; Tab content &ndash;&gt;
+            </div>
+        </div>-->
+
+        <!-- Button trigger modal -->
+        <!--<button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop">
+            Launch static backdrop modal
+        </button>
+
+        &lt;!&ndash; Modal &ndash;&gt;
+        <div
+                class="modal "
+                id="staticBackdrop"
+                data-mdb-backdrop="static"
+                data-mdb-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">...</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+    </section>
+
     <!--<section id="CustomerDashBoard" style="width: 100%; height: 100vh ;background-color: green"></section>
-    <section id="AdminPanel" style="width: 100%; height: 100vh ;background-color: purple"></section>
     <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown"></section>-->
 
 </main>
 
 <script src="assets/jquery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!--<script src="controllers/DashBoardController.js"></script>-->
 
 <!--for time picker-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -1263,6 +2863,11 @@
 <!--for date picker-->
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+
+
+
+<!--<script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/mdb5/standard/modules/0188a2dd6ac46416d1fe38c4dc421560.min.js"></script>
+<script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/search/search.min.js"></script>-->
 
 
 <script >
@@ -1284,6 +2889,7 @@
     $('#pickUpTime').datetimepicker({
         format: 'HH:mm'
     });
+
 
 
 

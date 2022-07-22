@@ -330,7 +330,7 @@
     <!--Customer Register Page-->
     <section id="RegisterPage" style="width: 100%;height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
-        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#EAAA01,#000);">
+        <div class="w-75 border border-3 border-white rounded-1 shadow scrollbar-ripe-malinka" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#EAAA01,#000);">
 
             <div class="text-center" style="position: relative;top: 20px">
                 <h1 class="mt-1 text-white fw-bold fst-italic" style="font-family: 'PT Serif', serif;">REGISTER</h1>
@@ -399,14 +399,14 @@
                         <div class="row">
                             <div class="col">
                                 <!-- username input -->
-                                <div class="form-outline  ms-4 me-4 mb-5">
+                                <div class="form-outline  ms-4 me-4 mb-4">
                                     <input type="text" id="nic" class="form-control  border border-2 border-white bg-light rounded-3" />
                                     <label class="form-label text-white fw-light" for="nic" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">NIC</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <!-- username input -->
-                                <div class="form-outline ms-4 me-4 mb-5">
+                                <div class="form-outline ms-4 me-4 mb-4">
                                     <input type="text" id="drivinglicense" class="form-control  border border-2 border-white bg-light rounded-3" />
                                     <label class="form-label text-white fw-light" for="drivinglicense" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;">Driving License NO</label>
                                 </div>
@@ -421,7 +421,7 @@
                 <div class="col">
                     <div class="row">
                         <form  style="border: 1px solid white; width: 530px; height: 104px;;position: relative; top: 50px;">
-                            <label class="form-label mt-4 text-white fw-light" for="uploadmyimage">Upload your image</label>
+                            <label style="font-family: 'Edu VIC WA NT Beginner', cursive; font-size: 18px" class="form-label mt-4 text-white fw-light" for="uploadmyimage" >Upload your image</label>
                             <input type="file" class="form-control" id="uploadmyimage" />
                         </form>
                     </div>
@@ -429,7 +429,7 @@
                     <div class="row">
                         <form  style="border: 1px solid white; width: 530px; height: 104px;;position: relative; top: 84px;">
                             <form  style="border: 2px solid white; width: 530px; height: 104px;;position: relative; top: 50px;">
-                                <label class="form-label mt-4 text-white fw-light" for="uploadnicimage">Upload your NIC image</label>
+                                <label class="form-label mt-4 text-white fw-light" for="uploadnicimage" style="font-family: 'Edu VIC WA NT Beginner', cursive; font-size: 18px">Upload your NIC image</label>
                                 <input type="file" class="form-control" id="uploadnicimage" />
                             </form>
                         </form>
@@ -438,7 +438,7 @@
                     <div class="row">
                         <form  style="border: 1px solid white; width: 530px; height: 104px;;position: relative; top: 120px;">
                             <form  style="border: 2px solid white; width: 530px; height: 104px;;position: relative; top: 50px;">
-                                <label class="form-label mt-4 text-white fw-light" for="uploaddrivinglicence">Upload your Driving Licence image</label>
+                                <label class="form-label mt-4 text-white fw-light" for="uploaddrivinglicence" style="font-family: 'Edu VIC WA NT Beginner', cursive; font-size: 18px">Upload your Driving Licence image</label>
                                 <input type="file" class="form-control" id="uploaddrivinglicence" />
                             </form>
                         </form>
@@ -448,13 +448,22 @@
 
             </div>
 
+            <div class="row  mt-4">
+                <div class="form-check mb-md-0 mt-5 ms-5 checkbox-inline text-center">
+                    <label class="form-check-label mt-2 checkbox-inline text-white" for="loginCheck">
+                        <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                        Accept the <a href="#" class="text-warning stretched-link">Terms and Conditions </a>
+                    </label>
+                </div>
+            </div>
+
             <div class="row">
-                <div class="mb-4 me-5 ms-5 mt-5 text-center">
+                <div class="mb-4 me-5 ms-5  text-center">
                     <!-- Submit button -->
                     <button type="button" class="btn btn-block text-center text-white btn-warning shadow" style="display: inline;position: relative;right: 0; top: 20px;margin: auto;width: 50%;">Register</button>
                 </div>
 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="position: relative;left: -25px;top: 10px;">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="position: relative;left: -25px;top: 0;">
                     <button type="button" class="btn btn-danger text-end" id="btnCancelRegister">Cancel</button>
                 </div>
             </div>
@@ -757,12 +766,12 @@
     </section>
 
     <!--Add New Car Page-->
-    <section id="CarAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+    <section id="CarManagePage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 630px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
 
             <div class="text-center  border-bottom border-2 " style="position: relative;top: 20px;">
-                <h1 class="mt-1 text-dark fw-bold fst-italic mb-0 " style="font-family: 'PT Serif', serif;">- ADD CAR -</h1>
+                <h1 class="mt-1 text-dark fw-bold fst-italic mb-0 " style="font-family: 'PT Serif', serif;">- MANAGE CAR -</h1>
             </div>
 
             <div class="mt-0" style="position: relative;top: -3px;">
@@ -1020,267 +1029,6 @@
 
     </section>
 
-    <!--Edit Car Page-->
-    <section id="UpdateAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
-
-        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 630px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
-
-            <div class="text-center  border-bottom border-2 " style="position: relative;top: 20px;">
-                <h1 class="mt-1 text-dark fw-bold fst-italic mb-0 " style="font-family: 'PT Serif', serif;">- UPDATE CAR -</h1>
-            </div>
-
-            <div class="mt-0" style="position: relative;top: -3px;">
-                <form class="ms-5 me-5" style="position: relative; top: 50px;">
-
-                    <div class="row">
-                        <div class="col">
-                            <!-- car id -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="PreviousCarId">* Car Id</label>
-                                <input type="text" id="PreviousCarId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- brand -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateBrand">* Brand</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateBrand">
-                                    <option selected value="0">None</option>
-                                    <option value="1">Suzuki Alto - Premium - Manual * 7</option>
-                                    <option value="2">Suzuki Alto K10 - Auto * 8</option>
-                                    <option value="3">Perodua (Daihatsu) Axia - Auto * 2</option>
-                                    <option value="4">Toyota Prius C/ Aqua - Auto * 8</option>
-                                    <option value="5">Suzuki Celerio - Auto * 5</option>
-                                    <option value="6">Toyota Corolla Axio/ NZE141 * 4</option>
-                                    <option value="7">Perodua Bezza Prime Sedan - Auto (2017) * 5</option>
-                                    <option value="8">Toyota Allion NZT 260 * 3</option>
-                                    <option value="9">Toyota Axio NKR 165 * 2</option>
-                                    <option value="10">Toyota Axio NKR 165 * 2</option>
-                                    <option value="11">Mercedes * 2</option>
-                                    <option value="12">BMW i8 * 2</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- colour -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateColour">* Colour</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateColour">
-                                    <option selected value="0">None</option>
-                                    <option value="1">White/white pearl</option>
-                                    <option value="2">Black/black effect</option>
-                                    <option value="3">Silver</option>
-                                    <option value="4">Gray</option>
-                                    <option value="5">Red</option>
-                                    <option value="6">Blue</option>
-                                    <option value="7">Brown/beige</option>
-                                    <option value="8">Yellow/Gold</option>
-                                    <option value="9">Green</option>
-                                    <option value="10">Others</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- type -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateType">* Type</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateType">
-                                    <option selected value="0">None</option>
-                                    <option value="1">General</option>
-                                    <option value="2">Premium</option>
-                                    <option value="3">Luxury</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <!-- registration no -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateRegistrationNo">* Registration NO</label>
-                                <input type="text" id="updateRegistrationNo" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- fuel type -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateFuelType">* Fuel Type</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateFuelType">
-                                    <option selected value="0">None</option>
-                                    <option value="1">Petrol</option>
-                                    <option value="2">Diesel</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- transmission type -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateTransmissionType">* Transmission Type</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateTransmissionType">
-                                    <option selected value="0">None</option>
-                                    <option value="1">Manual</option>
-                                    <option value="2">Auto</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- no of passengers -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateNoOfPassengers">* NO Of Passenagers</label>
-                                <input type="number" id="updateNoOfPassengers" class="form-control  border border-2 border-white bg-light rounded-3" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <!-- daily rate price -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateDailyRatePrice">* Daily Rate Price</label>
-                                <input type="text" id="updateDailyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- monthly rate price -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateMonthlyRatePrice">* Monthly Rate Price</label>
-                                <input type="text" id="updateMonthlyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- free km per day -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateFreeKMPerDay">* Free KM Per Day</label>
-                                <input type="number" id="updateFreeKMPerDay" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- free km per month -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateFreeKMPerMonth">* Free KM Per Month</label>
-                                <input type="number" id="updateFreeKMPerMonth" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <!-- price for extra km -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updatePriceForExtraKM">* Price For Extra KM</label>
-                                <input type="text" id="updatePriceForExtraKM" class="form-control  border border-2 border-white bg-light rounded-3 shadow" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- available or not -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateAvailableOrNot">* Available Or Not</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateAvailableOrNot">
-                                    <option selected value="0">None</option>
-                                    <option value="1">Available</option>
-                                    <option value="2">Not Available</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- damage or not -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateDamageOrNot">* Damage Or Not</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateDamageOrNot">
-                                    <option selected value="0">None</option>
-                                    <option value="1">Damage</option>
-                                    <option value="2">Not Damage</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <!-- under maintain or not -->
-                            <div class="form-outline mb-2 ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateUnderMaintainOrNot">* Under Maintain Or Not</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateUnderMaintainOrNot">
-                                    <option selected value="0">None</option>
-                                    <option value="1">Maintained</option>
-                                    <option value="2">Under Maintain</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row mb-0">
-                        <div class="col">
-                            <!-- total distance travelled -->
-                            <div class="form-outline ms-4 me-4">
-                                <label class="form-label text-dark fw-light fs-4" for="updateTotalDistanceTravelled">* Total Distance Travelled</label>
-                                <input type="number" id="updateTotalDistanceTravelled" class=" form-control  border border-2 border-white bg-light rounded-3 shadow" />
-                            </div>
-                        </div>
-                        <div class="col"></div>
-                        <div class="col"></div>
-                        <div class="col"></div>
-                    </div>
-
-                    <hr class="divider-horizontal-blurry" style="" />
-
-                    <div class="row mt-0">
-
-                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
-                            <form  style="border: 2px solid white;" class="h-100">
-                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateFrontView">Upload front view</label>
-                                <input type="file" class="form-control shadow" id="updateFrontView" />
-                            </form>
-                        </div>
-                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
-                            <form  class="h-100">
-                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateBackView">Upload back view</label>
-                                <input type="file" class="form-control shadow" id="updateBackView" />
-                            </form>
-                        </div>
-                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
-                            <form class="h-100">
-                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateSideView">Upload side view</label>
-                                <input type="file" class="form-control shadow" id="updateSideView" />
-                            </form>
-                        </div>
-                        <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
-                            <form class="h-100">
-                                <label class="form-label mt-2 text-dark fw-light fs-4" for="updateInteriorView">Upload interior view</label>
-                                <input type="file" class="form-control shadow" id="updateInteriorView" />
-                            </form>
-                        </div>
-
-                    </div>
-
-                    <hr class="divider-horizontal-blurry mt-5 w-75 " style=" position: relative; top: 20px;left: 0;right: 0;bottom: 0;margin: auto" />
-
-                    <!--button panel-->
-                    <div class="row">
-                        <div class="col text-center">
-
-                        </div>
-                        <div class="col text-center mt-5">
-                            <div class="col">
-                                <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
-                                    <i class="fas fa-pen-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
     <!--View Driver Details Page-->
     <section id="DriverDetailsPage" style="width: 100%; height: 100vh ;">
 
@@ -1417,12 +1165,12 @@
     </section>
 
     <!--Add New Driver Page-->
-    <section id="DriverAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+    <section id="DriverManagePage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
         <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
 
             <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
-                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- ADD DRIVER -</h1>
+                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- MANAGE DRIVER -</h1>
             </div>
 
             <div class=" mt-0 ms-2 me-5">
@@ -1494,100 +1242,6 @@
                                 </button>
                                 <button type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-plus"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!--Update Driver Page-->
-    <section id="DriverUpdatePage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
-
-        <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
-
-            <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
-                <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- UPDATE DRIVER -</h1>
-            </div>
-
-            <div class=" mt-0 ms-2 me-5">
-                <form class="ms-5 me-5" style="position: relative; top: 50px;">
-
-                    <div class="row">
-                        <!-- driver id -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="updateDriverId">* Driver Id</label>
-                            <input type="text" id="updateDriverId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- driver name -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="updateDriverName">* Name</label>
-                            <input type="text" id="updateDriverName" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- driver address -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="updateDriverAddress">* Address</label>
-                            <input type="text" id="updateDriverAddress" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- driver age -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="updateDriverAge">* Age</label>
-                            <input type="number" id="updateDriverAge" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- driver contact -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="updateDriverContact">* Contact</label>
-                            <input type="tel" id="updateDriverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- driver release or not -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="updateDriverReleaseOrNot">* Release Or Not</label>
-                            <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="updateDriverReleaseOrNot">
-                                <option selected value="0">None</option>
-                                <option value="1">Release</option>
-                                <option value="2">Not Release</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <hr class="divider-horizontal-blurry mb-0" style="" />
-
-                    <!--button panel-->
-                    <div class="row mt-4">
-                        <div class="col text-center">
-
-                        </div>
-                        <div class="col text-center ">
-                            <div class="col" style="width: 200px;">
-                                <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
-                                    <i class="fas fa-pen-alt"></i>
                                 </button>
                                 <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-times"></i>
@@ -2361,7 +2015,6 @@
                         <i class="fas fa-plus-circle"></i>
                         Make Payment</button>
                 </h1>
-
             </div>
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
@@ -2373,13 +2026,13 @@
                         <th>Payment Date</th>
                         <th>Rent Fee</th>
                         <th>Driver Fee</th>
-                        <th>Return Date</th>
-                        <th>Return Time</th>
-                        <th>Return Venue</th>
-                        <th>Destination</th>
-                        <th>Duration</th>
-                        <th>Driver Want Or Not</th>
-                        <th>Request Accept Or Deny</th>
+                        <th>Lose Damage Waiver Fee</th>
+                        <th>Reduced Lose Damage Fee</th>
+                        <th>Harm Or Not</th>
+                        <th>Travelled Distance</th>
+                        <th>Extra KM</th>
+                        <th>Price For Extra KM</th>
+                        <th>Full Payment</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
@@ -2387,43 +2040,37 @@
                     <tbody>
                     <tr>
                         <td>
-                            2022-12-21
-                        </td>
-                        <td>
-                            R00-0001
-                        </td>
-                        <td>
-                            Cus00-0001
+                            P00-0001
                         </td>
                         <td>
                             2022-12-21
                         </td>
                         <td>
-                            10.23
+                            20000
                         </td>
                         <td>
-                            Galle
+                            5000
                         </td>
                         <td>
-                            2022-12-21
+                            1000
                         </td>
                         <td>
-                            14.03
+                            200
                         </td>
                         <td>
-                            Galle
-                        </td>
-                        <td>
-                            Anuradapura
+                            <span class="badge badge-success rounded-pill d-inline">Not Harm</span>
                         </td>
                         <td>
                             12
                         </td>
                         <td>
-                            Want
+                            2
                         </td>
                         <td>
-                            Accept
+                            2000
+                        </td>
+                        <td>
+                            30000
                         </td>
                         <td>
                             <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
@@ -2438,43 +2085,37 @@
                     </tr>
                     <tr>
                         <td>
-                            2022-12-21
-                        </td>
-                        <td>
-                            R00-0001
-                        </td>
-                        <td>
-                            Cus00-0001
+                            P00-0001
                         </td>
                         <td>
                             2022-12-21
                         </td>
                         <td>
-                            10.23
+                            20000
                         </td>
                         <td>
-                            Galle
+                            5000
                         </td>
                         <td>
-                            2022-12-21
+                            1000
                         </td>
                         <td>
-                            14.03
+                            200
                         </td>
                         <td>
-                            Galle
-                        </td>
-                        <td>
-                            Anuradapura
+                            <span class="badge badge-success rounded-pill d-inline">Not Harm</span>
                         </td>
                         <td>
                             12
                         </td>
                         <td>
-                            Not Want
+                            2
                         </td>
                         <td>
-                            Accept
+                            2000
+                        </td>
+                        <td>
+                            30000
                         </td>
                         <td>
                             <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
@@ -2489,43 +2130,37 @@
                     </tr>
                     <tr>
                         <td>
-                            2022-12-21
-                        </td>
-                        <td>
-                            R00-0001
-                        </td>
-                        <td>
-                            Cus00-0001
+                            P00-0001
                         </td>
                         <td>
                             2022-12-21
                         </td>
                         <td>
-                            10.23
+                            20000
                         </td>
                         <td>
-                            Galle
+                            5000
                         </td>
                         <td>
-                            2022-12-21
+                            1000
                         </td>
                         <td>
-                            14.03
+                            200
                         </td>
                         <td>
-                            Galle
-                        </td>
-                        <td>
-                            Anuradapura
+                            <span class="badge badge-success rounded-pill d-inline">Not Harm</span>
                         </td>
                         <td>
                             12
                         </td>
                         <td>
-                            Not Want
+                            2
                         </td>
                         <td>
-                            Deny
+                            2000
+                        </td>
+                        <td>
+                            30000
                         </td>
                         <td>
                             <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
@@ -2705,6 +2340,19 @@
 
     </section>
 
+    <!--Income Page-->
+    <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown">
+
+        <div>
+
+            <div class="text-center" style="position: relative;top: 45px">
+                <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Income Report</h1>
+            </div>
+
+        </div>
+
+    </section>
+
     <!--Admin Panel-->
     <section id="AdminPanel" style="width: 100%; height: 100vh ;background-color: white">
 
@@ -2774,8 +2422,7 @@
 
     </section>
 
-    <!--<section id="CustomerDashBoard" style="width: 100%; height: 100vh ;background-color: green"></section>
-    <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown"></section>-->
+    <!--<section id="CustomerDashBoard" style="width: 100%; height: 100vh ;background-color: green"></section>-->
 
 </main>
 

@@ -679,42 +679,79 @@
     <!--Contact Page-->
     <section id="contactInfoPage" class="w-100 h-100" style="background-color: white">
 
-        <div class="w-50 h-50 bg-warning" >
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col w-50 h-100 bg-success">
-                        <form>
-                            <!-- Name input -->
+        <div class="container center-block mt-5">
+
+            <div class="row w-100 h-25 text-center mt-2">
+                <figure class="text-center mt-2 text-black">
+                    <blockquote class="blockquote" style="border: 1px solid transparent">
+                        <p class="display-1" style="font-family: emoji">CONTACT US</p>
+                    </blockquote>
+                    <figcaption class=" text-black mt-0" style="font-size: 20px">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="row w-100" style="height: 70%; position:relative;top: 50px">
+
+                <div class="col w-50 center-block shadow img-fluid img-responsive" style="height:80%">
+                    <form class="me-5 ms-5 mt-5">
+                        <div class="row">
+                            <div class="col">
+                                <!--First Name input-->
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="firstName" class="form-control" />
+                                    <label class="form-label" for="firstName">First Name</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <!--Last Name input-->
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="lastName" class="form-control" />
+                                    <label class="form-label" for="lastName">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!--Email input-->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form4Example1" class="form-control" />
-                                <label class="form-label" for="form4Example1">Name</label>
+                                <input type="email" id="contactEmail" class="form-control" />
+                                <label class="form-label" for="contactEmail">Email address</label>
                             </div>
+                        </div>
 
-                            <!-- Email input -->
+                        <div class="row">
+                            <!--Message input-->
                             <div class="form-outline mb-4">
-                                <input type="email" id="form4Example2" class="form-control" />
-                                <label class="form-label" for="form4Example2">Email address</label>
+                                <textarea class="form-control" id="massege" rows="4"></textarea>
+                                <label class="form-label" for="massege">Message</label>
                             </div>
+                        </div>
 
-                            <!-- Message input -->
-                            <div class="form-outline mb-4">
-                                <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                                <label class="form-label" for="form4Example3">Message</label>
-                            </div>
+                        <!--Checkbox-->
+                        <div class="form-check d-flex justify-content-center mb-4">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
+                            <label class="form-check-label" for="form4Example4">
+                                Send me a copy of this message
+                            </label>
+                        </div>
 
-                            <!-- Checkbox -->
-                            <div class="form-check d-flex justify-content-center mb-4">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
-                                <label class="form-check-label" for="form4Example4">
-                                    Send me a copy of this message
-                                </label>
-                            </div>
+                        <!--Submit button-->
+                        <button type="button" class="btn btn-primary btn-block mb-4 w-50">Send</button>
+                    </form>
+                </div>
 
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
-                        </form>
+                <div class="col ms-5 ">
+                    <div class="w-75 h-100 center-block ms-5 border-2 border-light thumbnail img-responsive shadow">
+                        <h2 class="mb-4 ms-5">Contact Info</h2>
+                        <h3 class="ms-5 ">Address :</h3>
+                        <h4 class="ms-5 text-primary">NO:4/2, Main Street, Galle</h4>
+                        <h3 class="ms-5">Phone :</h3>
+                        <h4 class="ms-5 text-primary">+94 718220009</h4>
+                        <h3 class="ms-5">Email :</h3>
+                        <h4 class="ms-5 text-primary">rentcar@gmail.com</h4>
                     </div>
-                    <div class="col w-50 h-100 bg-primary">d</div>
                 </div>
             </div>
 

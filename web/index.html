@@ -2598,6 +2598,7 @@
 
         <img src="assets/images/1200x-1.jpg" alt="bg image" style="width: 100%; height: 75vh" class="img-fluid">
 
+        <!--heading-->
         <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);position: absolute;top: -50%;bottom: 0;left: 0;right: 0;margin: auto; height: 75%">
             <div class="w-75 h-25" style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;">
                 <figure class="text-center text-white">
@@ -2607,6 +2608,7 @@
                     <figcaption class="blockquote-footer text-white" style="font-size: 25px">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.</figcaption>
                 </figure>
+
             </div>
 
             <div class="h-25 w-75 text-center" style="position: absolute;top: 75%;bottom: 0;left: 0;right: 0;margin: auto">
@@ -2615,6 +2617,7 @@
 
         </div>
 
+        <!--sort section and available cars-->
         <div class="row w-100 h-25 mt-3 text-center" style="position: relative;top: 25%">
             <figure class="text-center mt-3 text-black">
                 <blockquote class="blockquote" style="border: 1px solid transparent">
@@ -2626,54 +2629,322 @@
                 <figcaption class=" text-black mt-0" style="font-size: 20px;display: inline">
                     Cars Available
                 </figcaption>
+                <div>
+                    <label for="sort" class="form-label" style="display: inline">SORT :</label>
+                    <select aria-label="Default select example" class="form-select shadow center-block w-25 mb-5" style="height: 38px;z-index: 2;display: inline" id="sort">
+                        <option selected value="0">Recommended</option>
+                        <option value="1">Low to High</option>
+                        <option value="2">High to Low</option>
+                    </select>
+                </div>
             </figure>
+
+
         </div>
 
-        <div class="center-block " style="width: 80%;height: 75vh;position: relative;top:20%;">
+        <!--all cars-->
+        <div class="center-block " style="width: 80%;height: 75vh;position: relative;top:22%;">
 
            <div class="row h-100">
                <div class="col center-block bg-white mt-5 me-3 ms-3 thumbnail shadow" style="height: 100%;">
+
                    <div class="bg-info w-100" style="height: 10%;position: relative;">
                        <p class="text-white text-center fa-2x">BMW</p>
                    </div>
+
                    <img src="assets/images/1200x-1.jpg" alt="" class="img-responsive img-thumbnail shadow w-100 h-25">
-                   <h5>available</h5>
-                   <h5>$250/DAY</h5>
-                   <h5>$500/MONTH</h5>
-                   <h5>brand</h5>
-                   <h5>type</h5>
-                   <h5>fuel type</h5>
-                   <h5>transmission type</h5>
-                   <h5>passengers</h5>
-                   <h5>free km for day</h5>
-                   <h5>free km for month</h5>
-                   <h5>extra km price</h5>
-                   <hr class="divider-horizontal-blurry" />
+
+                   <h3 class="text-center text-primary" id="availableOrNotLabel1">Available</h3>
+
+                   <hr class="divider-horizontal-blurry mt-0" />
+
+                   <h4 class="fw-light text-danger ms-5 me-5 mb-5" style="display: inline"><p style="display: inline">$</p>250<p style="display: inline">/day</p></h4>
+                   <h4 class="text-danger  fw-light mb-5" style="display: inline"><p style="display: inline">$</p>500<p style="display: inline">/month</p></h4>
+
+                   <div class="container-fluid mt-5">
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelType1">
+                               <i class="fas fa-car text-primary ms-2"></i>
+                               General
+                           </div>
+                           <div class="col" id="labelPPassengers1" style="display: inline">
+                               <i class="fas fa-chair text-primary ms-2"></i>
+                               5
+                               <p style="display: inline">seats</p>
+                           </div>
+                       </div>
+
+                       <div class="row  mb-3">
+                           <div class="col " id="labelColour1">
+                               <i class="fas fa-palette text-primary ms-2"></i>
+                               Black
+                           </div>
+                           <div class="col ">
+                               <i class="far fa-snowflake text-primary ms-2"></i>
+                               A/C
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelFuelType1">
+                               <i class="fas fa-oil-can text-primary ms-2"></i>
+                               Petrol
+                           </div>
+                           <div class="col " id="labelTransmissionType1">
+                               <i class="fab fa-adn text-primary ms-2"></i>
+                               Auto
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " style="display: inline" id="labelFreeKMForDay1">
+                               <i class="fas fa-road text-primary ms-2"></i>
+                               2
+                               <p style="display: inline;">km free/day</p>
+                           </div>
+                           <div class="col " style="display: inline" id="labelExtraKMPrice1">
+                               <i class="fas fa-dollar-sign text-primary ms-2"></i>
+                               12.00
+                               <p style="display: inline"> /extra km</p>
+                           </div>
+                       </div>
+
+                   </div>
+
+                   <hr class="divider-horizontal-blurry " />
+
+                   <div class="center-block">
+                       <button type="button" class="center-block btn btn-success  btnRentNow" >Rent Now</button>
+                   </div>
+
                </div>
                <div class="col center-block bg-white mt-5 me-3 ms-3 thumbnail shadow" style="height: 100%;">
+
                    <div class="bg-info w-100" style="height: 10%;position: relative;">
                        <p class="text-white text-center fa-2x">BMW</p>
                    </div>
+
                    <img src="assets/images/1200x-1.jpg" alt="" class="img-responsive img-thumbnail shadow w-100 h-25">
+
+                   <h3 class="text-center text-primary">Available</h3>
+
+                   <hr class="divider-horizontal-blurry mt-0" />
+
+                   <h4 class="fw-light text-danger ms-5 me-5 mb-5" style="display: inline"><p style="display: inline">$</p>250<p style="display: inline">/day</p></h4>
+                   <h4 class="text-danger  fw-light mb-5" style="display: inline"><p style="display: inline">$</p>500<p style="display: inline">/month</p></h4>
+
+                   <div class="container-fluid mt-5">
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelType2">
+                               <i class="fas fa-car text-primary ms-2"></i>
+                               General
+                           </div>
+                           <div class="col" id="labelPPassengers2" style="display: inline">
+                               <i class="fas fa-chair text-primary ms-2"></i>
+                               5
+                               <p style="display: inline">seats</p>
+                           </div>
+                       </div>
+
+                       <div class="row  mb-3">
+                           <div class="col " id="labelColour2">
+                               <i class="fas fa-palette text-primary ms-2"></i>
+                               Black
+                           </div>
+                           <div class="col ">
+                               <i class="far fa-snowflake text-primary ms-2"></i>
+                               A/C
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelFuelType2">
+                               <i class="fas fa-oil-can text-primary ms-2"></i>
+                               Petrol
+                           </div>
+                           <div class="col " id="labelTransmissionType2">
+                               <i class="fab fa-adn text-primary ms-2"></i>
+                               Auto
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " style="display: inline" id="labelFreeKMForDay2">
+                               <i class="fas fa-road text-primary ms-2"></i>
+                               2
+                               <p style="display: inline;">km free/day</p>
+                           </div>
+                           <div class="col " style="display: inline" id="labelExtraKMPrice2">
+                               <i class="fas fa-dollar-sign text-primary ms-2"></i>
+                               12.00
+                               <p style="display: inline"> /extra km</p>
+                           </div>
+                       </div>
+
+                   </div>
+
+                   <hr class="divider-horizontal-blurry " />
+
+                   <div class="center-block">
+                       <button type="button" class="center-block btn btn-success  btnRentNow" >Rent Now</button>
+                   </div>
+
                </div>
                <div class="col center-block bg-white mt-5 me-3 ms-3 thumbnail shadow" style="height: 100%;">
+
                    <div class="bg-info w-100" style="height: 10%;position: relative;">
                        <p class="text-white text-center fa-2x">BMW</p>
                    </div>
+
                    <img src="assets/images/1200x-1.jpg" alt="" class="img-responsive img-thumbnail shadow w-100 h-25">
+
+                   <h3 class="text-center text-primary">Available</h3>
+
+                   <hr class="divider-horizontal-blurry mt-0" />
+
+                   <h4 class="fw-light text-danger ms-5 me-5 mb-5" style="display: inline"><p style="display: inline">$</p>250<p style="display: inline">/day</p></h4>
+                   <h4 class="text-danger  fw-light mb-5" style="display: inline"><p style="display: inline">$</p>500<p style="display: inline">/month</p></h4>
+
+                   <div class="container-fluid mt-5">
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelType3">
+                               <i class="fas fa-car text-primary ms-2"></i>
+                               General
+                           </div>
+                           <div class="col" id="labelPPassengers3" style="display: inline">
+                               <i class="fas fa-chair text-primary ms-2"></i>
+                               5
+                               <p style="display: inline">seats</p>
+                           </div>
+                       </div>
+
+                       <div class="row  mb-3">
+                           <div class="col " id="labelColour3">
+                               <i class="fas fa-palette text-primary ms-2"></i>
+                               Black
+                           </div>
+                           <div class="col ">
+                               <i class="far fa-snowflake text-primary ms-2"></i>
+                               A/C
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelFuelType3">
+                               <i class="fas fa-oil-can text-primary ms-2"></i>
+                               Petrol
+                           </div>
+                           <div class="col " id="labelTransmissionType3">
+                               <i class="fab fa-adn text-primary ms-2"></i>
+                               Auto
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " style="display: inline" id="labelFreeKMForDay3">
+                               <i class="fas fa-road text-primary ms-2"></i>
+                               2
+                               <p style="display: inline;">km free/day</p>
+                           </div>
+                           <div class="col " style="display: inline" id="labelExtraKMPrice3">
+                               <i class="fas fa-dollar-sign text-primary ms-2"></i>
+                               12.00
+                               <p style="display: inline"> /extra km</p>
+                           </div>
+                       </div>
+
+                   </div>
+
+                   <hr class="divider-horizontal-blurry " />
+
+                   <div class="center-block">
+                       <button type="button" class="center-block btn btn-success  btnRentNow" >Rent Now</button>
+                   </div>
+
                </div>
                <div class="col center-block bg-white mt-5 me-3 ms-3 thumbnail shadow" style="height: 100%;">
+
                    <div class="bg-info w-100" style="height: 10%;position: relative;">
                        <p class="text-white text-center fa-2x">BMW</p>
                    </div>
+
                    <img src="assets/images/1200x-1.jpg" alt="" class="img-responsive img-thumbnail shadow w-100 h-25">
+
+                   <h3 class="text-center text-primary">Available</h3>
+
+                   <hr class="divider-horizontal-blurry mt-0" />
+
+                   <h4 class="fw-light text-danger ms-5 me-5 mb-5" style="display: inline"><p style="display: inline">$</p>250<p style="display: inline">/day</p></h4>
+                   <h4 class="text-danger  fw-light mb-5" style="display: inline"><p style="display: inline">$</p>500<p style="display: inline">/month</p></h4>
+
+                   <div class="container-fluid mt-5">
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelType4">
+                               <i class="fas fa-car text-primary ms-2"></i>
+                               General
+                           </div>
+                           <div class="col" id="labelPPassengers4" style="display: inline">
+                               <i class="fas fa-chair text-primary ms-2"></i>
+                               5
+                               <p style="display: inline">seats</p>
+                           </div>
+                       </div>
+
+                       <div class="row  mb-3">
+                           <div class="col " id="labelColour4">
+                               <i class="fas fa-palette text-primary ms-2"></i>
+                               Black
+                           </div>
+                           <div class="col ">
+                               <i class="far fa-snowflake text-primary ms-2"></i>
+                               A/C
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " id="labelFuelType4">
+                               <i class="fas fa-oil-can text-primary ms-2"></i>
+                               Petrol
+                           </div>
+                           <div class="col " id="labelTransmissionType4">
+                               <i class="fab fa-adn text-primary ms-2"></i>
+                               Auto
+                           </div>
+                       </div>
+
+                       <div class="row mb-3">
+                           <div class="col " style="display: inline" id="labelFreeKMForDay4">
+                               <i class="fas fa-road text-primary ms-2"></i>
+                               2
+                               <p style="display: inline;">km free/day</p>
+                           </div>
+                           <div class="col " style="display: inline" id="labelExtraKMPrice4">
+                               <i class="fas fa-dollar-sign text-primary ms-2"></i>
+                               12.00
+                               <p style="display: inline"> /extra km</p>
+                           </div>
+                       </div>
+
+                   </div>
+
+                   <hr class="divider-horizontal-blurry " />
+
+                   <div class="center-block">
+                       <button type="button" class="center-block btn btn-success  btnRentNow" >Rent Now</button>
+                   </div>
+
                </div>
            </div>
 
         </div>
 
-
     </section>
+
+    <section></section>
 
     <section id="RentCars"  style="width: 100%; height: 100vh ;background-color: whitesmoke">
 

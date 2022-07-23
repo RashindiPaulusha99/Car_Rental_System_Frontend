@@ -3227,15 +3227,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
                 <div class="container-fluid">
-                    <button
-                            class="navbar-toggler"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#navbarExample01"
-                            aria-controls="navbarExample01"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                    >
+                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarExample01">
@@ -3253,6 +3245,15 @@
                                 <a class="nav-link" href="#">About</a>
                             </li>
                         </ul>
+
+                        <ul class="navbar-nav flex-row justify-content-end">
+                            <li class="nav-item me-3 me-lg-1">
+                                <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle" height="22" alt="Black and White Portrait of a Man" loading="lazy"/>
+                                    <strong class="d-none d-sm-block ms-1">John</strong>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -3265,7 +3266,145 @@
                 <a class="btn btn-primary" href="" role="button">Call to action</a>
             </div>
             <!-- Jumbotron -->
+
         </header>
+
+       <div class="container-fluid">
+           <div class="row">
+               <div class="col-3">
+                   <!-- Tab navs -->
+                   <div
+                           class="nav flex-column nav-pills text-center"
+                           id="v-pills-tab"
+                           role="tablist"
+                           aria-orientation="vertical"
+                   >
+                       <a
+                               class="nav-link active"
+                               id="v-pills-home-tab"
+                               data-mdb-toggle="pill"
+                               href="#v-pills-home"
+                               role="tab"
+                               aria-controls="v-pills-home"
+                               aria-selected="true"
+                       >Home</a
+                       >
+                       <a
+                               class="nav-link"
+                               id="v-pills-profile-tab"
+                               data-mdb-toggle="pill"
+                               href="#v-pills-profile"
+                               role="tab"
+                               aria-controls="v-pills-profile"
+                               aria-selected="false"
+                       >Profile</a
+                       >
+                       <a
+                               class="nav-link"
+                               id="v-pills-messages-tab"
+                               data-mdb-toggle="pill"
+                               href="#v-pills-messages"
+                               role="tab"
+                               aria-controls="v-pills-messages"
+                               aria-selected="false"
+                       >Messages</a
+                       >
+                   </div>
+                   <!-- Tab navs -->
+               </div>
+
+               <div class="col-9">
+                   <!-- Tab content -->
+                   <div class="tab-content" id="v-pills-tabContent">
+                       <div
+                               class="tab-pane fade show active"
+                               id="v-pills-home"
+                               role="tabpanel"
+                               aria-labelledby="v-pills-home-tab"
+                       >
+                           Home content
+                       </div>
+                       <div
+                               class="tab-pane fade"
+                               id="v-pills-profile"
+                               role="tabpanel"
+                               aria-labelledby="v-pills-profile-tab"
+                       >
+                           Profile content
+                       </div>
+                       <div
+                               class="tab-pane fade"
+                               id="v-pills-messages"
+                               role="tabpanel"
+                               aria-labelledby="v-pills-messages-tab"
+                       >
+                           Messages content
+                       </div>
+                   </div>
+                   <!-- Tab content -->
+               </div>
+           </div>
+       </div>
+
+        <!-- Tabs navs -->
+        <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a
+                        class="nav-link active"
+                        id="ex1-tab-1"
+                        data-mdb-toggle="tab"
+                        href="#ex1-tabs-1"
+                        role="tab"
+                        aria-controls="ex1-tabs-1"
+                        aria-selected="true"
+                >Tab 1</a
+                >
+            </li>
+            <li class="nav-item" role="presentation">
+                <a
+                        class="nav-link"
+                        id="ex1-tab-2"
+                        data-mdb-toggle="tab"
+                        href="#ex1-tabs-2"
+                        role="tab"
+                        aria-controls="ex1-tabs-2"
+                        aria-selected="false"
+                >Tab 2</a
+                >
+            </li>
+            <li class="nav-item" role="presentation">
+                <a
+                        class="nav-link"
+                        id="ex1-tab-3"
+                        data-mdb-toggle="tab"
+                        href="#ex1-tabs-3"
+                        role="tab"
+                        aria-controls="ex1-tabs-3"
+                        aria-selected="false"
+                >Tab 3</a
+                >
+            </li>
+        </ul>
+        <!-- Tabs navs -->
+
+        <!-- Tabs content -->
+        <div class="tab-content" id="ex1-content">
+            <div
+                    class="tab-pane fade show active"
+                    id="ex1-tabs-1"
+                    role="tabpanel"
+                    aria-labelledby="ex1-tab-1"
+            >
+                Tab 1 content
+            </div>
+            <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                Tab 2 content
+            </div>
+            <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+                Tab 3 content
+            </div>
+        </div>
+        <!-- Tabs content -->
 
     </section>
 

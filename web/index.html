@@ -1297,7 +1297,7 @@
 
             <div style="width: 98vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-                <table class="table align-middle mb-0 bg-white table-responsive">
+                <table class="table align-middle mb-0 bg-white table-responsive ">
                     <thead class="bg-light">
                     <tr>
                         <th>Car Id</th>
@@ -1854,7 +1854,7 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-                <table class="table align-middle mb-0 bg-white table-responsive">
+                <table class="table align-middle mb-0 bg-white table-responsive table table-hover text-nowrap">
                     <thead class="bg-light">
                     <tr>
                         <th>Driver Id</th>
@@ -2264,7 +2264,7 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 67px;right: 0;bottom: 0;left: 0;margin: auto">
 
-                <table class="table align-middle mb-0 bg-white table-responsive">
+                <table class="table align-middle mb-0 bg-white table-responsive table table-hover text-nowrap">
                     <thead class="bg-light">
                     <tr>
                         <th>Reserve Date</th>
@@ -2670,7 +2670,7 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-                <table class="table align-middle mb-0 bg-white table-responsive">
+                <table class="table align-middle mb-0 bg-white table-responsive table table-hover text-nowrap">
                     <thead class="bg-light">
                     <tr>
                         <th>Schedule Id</th>
@@ -2822,7 +2822,7 @@
 
             <div style="width: 90vw; height: 70vh; border: 2px solid black;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
 
-                <table class="table align-middle mb-0 bg-white table-responsive">
+                <table class="table align-middle mb-0 bg-white table-responsive table table-hover text-nowrap">
                     <thead class="bg-light">
                     <tr>
                         <th>Payment Id</th>
@@ -3144,7 +3144,7 @@
     </section>
 
     <!--Income Page-->
-    <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: sandybrown">
+    <section id="IncomePage" style="width: 100%; height: 100vh ;background-color: white">
 
         <div>
 
@@ -3154,6 +3154,148 @@
 
         </div>
 
+        <div class="container-fluid" style="position: relative;top: 65px;width: 90vw;height: 50px">
+            <div class="row">
+                <div class="col-6 mb-0 img-fluid img-thumbnail img-responsive">
+                    <div class="btn-group btn-group-xm center-block center-block" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-primary ">Daily Income</button>
+                        <button type="button" class="btn btn-success ">Weekly Income</button>
+                        <button type="button" class="btn btn-danger ">Monthly Income</button>
+                        <button type="button" class="btn btn-warning ">Annually Income</button>
+                    </div>
+                </div>
+
+                <div class="col-3 mt-0 bg-white img-fluid img-thumbnail img-responsive mb-0">
+                    <div class="container">
+                        <div class="input-group date" style="width: 250px">
+                            <input type="text" id="startDate" class="form-control" placeholder="Start Date">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                        <label style="font-size: 15px" for="startDate" class="text-black">Start Date</label>
+                    </div>
+                </div>
+                <div class="col-3 mt-0 img-fluid img-thumbnail img-responsive">
+                    <div class="container ">
+                        <div class="input-group date" style="width: 250px">
+                            <input type="text" id="endDate" class="form-control" placeholder="End Date">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                        <label style="font-size: 15px" for="endDate" class="text-black">End Date</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="row w-75">
+            <div class="col w-25 ">
+                <div class="container ">
+                    <label style="font-size: 15px" for="pickUpDate" class="text-white">When will I pickup you </label>
+                    <div class="input-group date" style="width: 250px">
+                        <input type="text" id="pickUpDate" class="form-control" placeholder="Pickup date">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col w-25 ">
+                <div class="container ">
+                    <label style="font-size: 15px" for="pickUpDate" class="text-white">When will I pickup you </label>
+                    <div class="input-group date" style="width: 250px">
+                        <input type="text" id="pickUpDate" class="form-control" placeholder="Pickup date">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <div style="width: 90vw; height: 60vh; border: 2px solid black;position: relative; top: 140px;right: 0;bottom: 0;left: 0;margin: auto">
+
+            <table class="table align-middle mb-0 bg-white table-responsive table table-hover text-nowrap">
+                <thead class="bg-light">
+                <tr>
+                    <th>Reserve Id</th>
+                    <th>Customer Id</th>
+                    <th>Reserve Date</th>
+                    <th>Rent Fee</th>
+                    <th>Driver Fee</th>
+                    <th>Lose Damage Waiver Payment</th>
+                    <th>Full Payment</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        R00-0001
+                    </td>
+                    <td>
+                        Cu00-0001
+                    </td>
+                    <td>
+                        2022-12-12
+                    </td>
+                    <td>
+                        25000.00
+                    </td>
+                    <td>
+                        1000.00
+                    </td>
+                    <td>
+                        1000.00
+                    </td>
+                    <td>
+                        27000.00
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        R00-0001
+                    </td>
+                    <td>
+                        Cu00-0001
+                    </td>
+                    <td>
+                        2022-12-12
+                    </td>
+                    <td>
+                        25000.00
+                    </td>
+                    <td>
+                        1000.00
+                    </td>
+                    <td>
+                        1000.00
+                    </td>
+                    <td>
+                        27000.00
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        R00-0001
+                    </td>
+                    <td>
+                        Cu00-0001
+                    </td>
+                    <td>
+                        2022-12-12
+                    </td>
+                    <td>
+                        25000.00
+                    </td>
+                    <td>
+                        1000.00
+                    </td>
+                    <td>
+                        1000.00
+                    </td>
+                    <td>
+                        27000.00
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
     </section>
 
     <!--Admin Panel-->
@@ -3617,7 +3759,6 @@
 
         </div>
     </section>
-
 
     <!--<section id="CustomerDashBoard" style="width: 100%; height: 250% ;background-color: whitesmoke;">
 

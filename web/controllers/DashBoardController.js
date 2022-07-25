@@ -24,7 +24,7 @@ $("#AdminPanel").css('display','none');
 $("#IncomePage").css('display','none');
 $("#Reservation").css('display','none');
 $("#CustomerDashBoard").css('display','none');
-$("#RentCars").css('display','none');
+$("#moreSpace").css('display','none');
 
 $("#btnLogin").click(function () {
     $('#login_page_container').css('transform','scale(1)');
@@ -57,7 +57,6 @@ $("#btnLogin").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
 });
 
 $("#btnCancelLogin").click(function () {
@@ -91,7 +90,6 @@ $("#btnCancelLogin").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
 });
 
 $("#btnForgotPW").click(function () {
@@ -125,7 +123,6 @@ $("#btnForgotPW").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
 });
 
 $("#btnCancelForgotPW").click(function () {
@@ -159,7 +156,6 @@ $("#btnCancelForgotPW").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
 });
 
 $("#btnRegisterInLoginPage").click(function () {
@@ -193,10 +189,9 @@ $("#btnRegisterInLoginPage").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
 });
 
-$("#btnSighUp").click(function () {
+$("#btnSignUp").click(function () {
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(1)');
@@ -227,7 +222,6 @@ $("#btnSighUp").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
 });
 
 $("#btnOpenRegisterForm").click(function () {
@@ -261,7 +255,6 @@ $("#btnOpenRegisterForm").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
 });
 
 $("#btnCancelRegister").click(function () {
@@ -295,5 +288,39 @@ $("#btnCancelRegister").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
-    $("#RentCars").css('display','none');
+});
+
+$("#btnSearchForRent").click(function () {
+    $('#login_page_container').css('transform','scale(0)');
+    $('#ForgotPasswordPage').css('transform','scale(0)');
+    $('#RegisterPage').css('transform','scale(0)');
+
+    $("#moreSpace").css('display','block');
+    $("#NavBar").css('display','block');
+    $("#CustomerDashBoard").css('display','block');
+    $("#RentCars").css('display','block');
+    $("#CopyRightPage").css('display','block');
+    $("#WelcomePage").css('display','none');
+    $("#ViewCars").css('display','none');
+    $("#Services").css('display','none');
+    $("#OurCompany").css('display','none');
+    $("#OurHistory").css('display','none');
+    $("#OurTeam").css('display','none');
+    $("#Testimony").css('display','none');
+    $("#Blog").css('display','none');
+    $("#ContactInfoPage").css('display','none');
+    $("#CarManagePage").css('display','none');
+    $("#CarDetailsPage").css('display','none');
+    $("#DriverManagePage").css('display','none');
+    $("#DriverDetailsPage").css('display','none');
+    $("#SchedulePage").css('display','none');
+    $("#ViewCustomerInformationPage").css('display','none');
+    $("#ViewReserveDetailsPage").css('display','none');
+    $("#ReserveDetailsPage").css('display','none');
+    $("#ChangeDriver").css('display','none');
+    $("#PaymentAddPage").css('display','none');
+    $("#PaymentPage").css('display','none');
+    $("#AdminPanel").css('display','none');
+    $("#IncomePage").css('display','none');
+    $("#Reservation").css('display','none');
 });

@@ -133,7 +133,7 @@ main > section:nth-child(1) .nav-link:hover::before {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.4);
     background-size: cover;
     transform: scale(0);
     z-index: 6;
@@ -145,7 +145,7 @@ main > section:nth-child(1) .nav-link:hover::before {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.4);
     background-size: cover;
     transform: scale(0);
     z-index: 6;
@@ -157,7 +157,7 @@ main > section:nth-child(1) .nav-link:hover::before {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.4);
     background-size: cover;
     transform: scale(0);
     z-index: 6;

@@ -59,7 +59,6 @@
 
         <!-- Navbar -->
         <nav class=" navbar-expand-lg navbar " style="position: absolute; width: 100%; top: 10px;z-index: 3">
-            <!-- Container wrapper -->
             <div class="container">
                 <img src="assets/logo/car%20rental%20logo.jpg" id="logoImage" height="60" alt="Car Rental Logo"/>
 
@@ -92,16 +91,14 @@
                         <button type="button" class="btn btn-link px-3 me-2 text-white" id="btnLogin" style="text-decoration: none">
                             Login
                         </button>
-                        <button type="button" class="btn px-3 me-2 text-white border border-1 border-light" id="btnRegister" style="text-decoration: none;">
+                        <button type="button" class="btn px-3 me-2 text-white border border-1 border-light" id="btnOpenRegisterForm" style="text-decoration: none;">
                             Sign Up
                         </button>
                     </div>
                 </div>
                 <!-- Collapsible wrapper -->
             </div>
-            <!-- Container wrapper -->
         </nav>
-        <!-- Navbar -->
 
     </section>
 
@@ -252,7 +249,7 @@
 
                     <!-- Register buttons -->
                     <div class="text-center">
-                        <p class="text-black" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegister" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none"> Register</a></p>
+                        <p class="text-black" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegisterInLoginPage" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none"> Register</a></p>
                         <p class="text-black" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px">or sign up with:</p>
                         <button type="button" class="btn btn-primary btn-floating mx-1">
                             <i class="fab fa-facebook-f"></i>
@@ -328,9 +325,9 @@
         </div>
 
         <!--Customer Register Page-->
-        <div id="RegisterPage" style="width: 100%;height: 100vh ;background-image: radial-gradient(circle at top,white,#bacbe6);">
+        <div id="RegisterPage">
 
-            <div class="w-75 border border-3 border-white rounded-1 shadow scrollbar-ripe-malinka" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#EAAA01,#000);">
+            <div class="w-75 border border-3 border-white rounded-1 shadow scrollbar-ripe-malinka" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,white,#bacbe6);">
 
                 <div class="text-center" style="position: relative;top: 20px">
                     <h1 class="mt-1 text-black fw-bold fst-italic" style="font-family: 'PT Serif', serif;">REGISTER</h1>
@@ -450,9 +447,9 @@
 
                 <div class="row  mt-4">
                     <div class="form-check mb-md-0 mt-5 ms-5 checkbox-inline text-center">
-                        <label class="form-check-label mt-2 checkbox-inline text-white" for="loginCheck">
-                            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-                            Accept the <a href="#" class="text-warning stretched-link">Terms and Conditions </a>
+                        <label class="form-check-label mt-2 checkbox-inline text-black" for="loginCheck">
+                            <input class="form-check-input" type="checkbox" value="" id="loginCheck" />
+                            Accept the <a href="#" class="text-primary stretched-link">Terms and Conditions </a>
                         </label>
                     </div>
                 </div>
@@ -1091,19 +1088,22 @@
                                    Quick Links
                                </h6>
                                <p>
-                                   <a href="#!" class="text-reset">Home</a>
+                                   <a href="#homePage" class="text-reset">Home</a>
                                </p>
                                <p>
-                                   <a href="#!" class="text-reset">Cars</a>
+                                   <a href="#carView" class="text-reset">Cars</a>
                                </p>
                                <p>
-                                   <a href="#!" class="text-reset">Services</a>
+                                   <a href="#companyServices" class="text-reset">Services</a>
                                </p>
                                <p>
-                                   <a href="#!" class="text-reset">About</a>
+                                   <a href="#aboutUs" class="text-reset">About</a>
                                </p>
                                <p>
-                                   <a href="#!" class="text-reset">Contact</a>
+                                   <a href="#companyBlog" class="text-reset">Blog</a>
+                               </p>
+                               <p>
+                                   <a href="#contactInfInCompany" class="text-reset">Contact</a>
                                </p>
                            </div>
                            <!-- Grid column -->
@@ -1121,7 +1121,7 @@
                                    <a href="#!" class="text-reset">Settings</a>
                                </p>
                                <p>
-                                   <a href="#!" class="text-reset">Orders</a>
+                                   <a href="#!" class="text-reset">Rent</a>
                                </p>
                                <p>
                                    <a href="#!" class="text-reset">Help</a>
@@ -1153,7 +1153,7 @@
                <!-- Copyright -->
                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
                    © 2021 Copyright:
-                   <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                   <a class="text-reset fw-bold" >All right reserved</a>
                </div>
                <!-- Copyright -->
            </footer>

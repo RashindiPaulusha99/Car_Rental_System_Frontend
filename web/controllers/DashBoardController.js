@@ -25,6 +25,7 @@ $("#IncomePage").css('display','none');
 $("#Reservation").css('display','none');
 $("#CustomerDashBoard").css('display','none');
 $("#moreSpace").css('display','none');
+$("#mainForm").css('display','none');
 
 $("#btnLogin").click(function () {
     $('#login_page_container').css('transform','scale(1)');
@@ -57,6 +58,7 @@ $("#btnLogin").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnCancelLogin").click(function () {
@@ -90,6 +92,7 @@ $("#btnCancelLogin").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnForgotPW").click(function () {
@@ -123,6 +126,7 @@ $("#btnForgotPW").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnCancelForgotPW").click(function () {
@@ -156,6 +160,7 @@ $("#btnCancelForgotPW").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnRegisterInLoginPage").click(function () {
@@ -189,6 +194,7 @@ $("#btnRegisterInLoginPage").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnSignUp").click(function () {
@@ -222,6 +228,7 @@ $("#btnSignUp").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnOpenRegisterForm").click(function () {
@@ -255,6 +262,7 @@ $("#btnOpenRegisterForm").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnCancelRegister").click(function () {
@@ -288,6 +296,7 @@ $("#btnCancelRegister").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnSearchForRent").click(function () {
@@ -322,6 +331,7 @@ $("#btnSearchForRent").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#home").click(function () {
@@ -356,6 +366,7 @@ $("#home").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#service").click(function () {
@@ -390,6 +401,7 @@ $("#service").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#car").click(function () {
@@ -424,6 +436,7 @@ $("#car").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#about").click(function () {
@@ -458,6 +471,7 @@ $("#about").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#blogImages").click(function () {
@@ -492,6 +506,7 @@ $("#blogImages").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#contact").click(function () {
@@ -526,6 +541,7 @@ $("#contact").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $(".btnRentNow").click(function () {
@@ -560,6 +576,7 @@ $(".btnRentNow").click(function () {
     $("#PaymentPage").css('display','none');
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $(".btnRegister").click(function () {
@@ -593,6 +610,7 @@ $(".btnRegister").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $(".btnReset").click(function () {
@@ -626,6 +644,7 @@ $(".btnReset").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#CustomerDashBoard").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnBackReserve").click(function () {
@@ -661,6 +680,7 @@ $("#btnBackReserve").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnLogToSystem").click(function () {
@@ -696,6 +716,7 @@ $("#btnLogToSystem").click(function () {
     $("#PaymentPage").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#btnLogOut").click(function () {
@@ -730,6 +751,7 @@ $("#btnLogOut").click(function () {
     $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });
 
 $("#openViewCars").click(function () {
@@ -737,6 +759,7 @@ $("#openViewCars").click(function () {
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
 
+    $("#AdminPanel").css('display','block');
     $("#CarDetailsPage").css('display','block');
     $("#NavBar").css('display','none');
     $("#WelcomePage").css('display','none');
@@ -761,7 +784,7 @@ $("#openViewCars").click(function () {
     $("#ChangeDriver").css('display','none');
     $("#PaymentAddPage").css('display','none');
     $("#PaymentPage").css('display','none');
-    $("#AdminPanel").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
 });

@@ -4280,24 +4280,23 @@
         </div>-->
 
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: white /*background-image: radial-gradient(circle at top,#b6d4fe,#000);*/">
             <div class="position-sticky">
                 <div class="row h-25">
                     <img src="assets/images/images%20(2).jpg" alt="" class="rounded rounded-circle img-responsive shadow center-block mt-5" style="width: 125px;height: 100px">
                     <h4 class="text-white text-center">John Sendaya</h4>
                 </div>
-
                 <hr class="divider-horizontal-blurry" />
                 <div class="list-group list-group-flush mx-3 mt-4">
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true"><i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active"><i class="fas fa-car fa-fw me-3"></i><span>Cars Details</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-male fa-fw me-3"></i><span>Driver Details</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Customers Details</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar-week fa-fw me-3"></i><span>Rental Details</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar-alt fa-fw me-3"></i><span>Schedule</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-hand-holding-usd fa-fw me-3"></i><span>Payments Details</span></a>
+                    <a href="#" id="openDashboard" class="list-group-item list-group-item-action py-2 ripple" aria-current="true"><i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span></a>
+                    <a href="#" id="openPassword" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+                    <a href="#" id="openAnalitical" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
+                    <a href="#" id="openViewCars" class="list-group-item list-group-item-action py-2 ripple active"><i class="fas fa-car fa-fw me-3"></i><span>Cars Details</span></a>
+                    <a href="#" id="openViewDrivers" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-male fa-fw me-3"></i><span>Driver Details</span></a>
+                    <a href="#" id="openViewCustomers" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Customers Details</span></a>
+                    <a href="#" id="openViewRentals" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar-week fa-fw me-3"></i><span>Rental Details</span></a>
+                    <a href="#" id="openSchedule" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar-alt fa-fw me-3"></i><span>Schedule</span></a>
+                    <a href="#" id="openViewPayments" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-hand-holding-usd fa-fw me-3"></i><span>Payments Details</span></a>
                 </div>
             </div>
         </nav>
@@ -4314,7 +4313,7 @@
 
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">
-                    <img src="assets/logo/logocar.png" height="60" width="90" alt="" loading="lazy" style="margin-top: 2px;"/>
+                    <img src="assets/logo/logocar.png" height="60" width="90" alt="" loading="lazy" style="margin-top: -20px;margin-left: 59px;"/>
                 </a>
 
                <!-- &lt;!&ndash; Search form &ndash;&gt;
@@ -4410,9 +4409,12 @@
         </nav>
         <!-- Navbar -->
 
-        <!--<div id="main" style="margin-top: 58px">
-            <div class="container pt-4">
-                &lt;!&ndash; Section: Main chart &ndash;&gt;
+    </section>
+
+    <section id="mainForm">
+        <div id="main" style="margin-top: 45px;width: 98%;" >
+            <div class="container  me-3 ms-3">
+                <!-- Section: Main chart -->
                 <section class="mb-4">
                     <div class="card">
                         <div class="card-header py-3">
@@ -4423,9 +4425,9 @@
                         </div>
                     </div>
                 </section>
-                &lt;!&ndash; Section: Main chart &ndash;&gt;
+                <!-- Section: Main chart -->
 
-                &lt;!&ndash;Section: Sales Performance KPIs&ndash;&gt;
+                <!--Section: Sales Performance KPIs-->
                 <section class="mb-4">
                     <div class="card">
                         <div class="card-header text-center py-3">
@@ -4458,57 +4460,37 @@
                                     <tr>
                                         <th scope="row">Percentage change</th>
                                         <td>
-                    <span class="text-danger">
-                      <i class="fas fa-caret-down me-1"></i><span>-48.8%%</span>
-                    </span>
+                                            <span class="text-danger"><i class="fas fa-caret-down me-1"></i><span>-48.8%%</span></span>
                                         </td>
                                         <td>
-                    <span class="text-success">
-                      <i class="fas fa-caret-up me-1"></i><span>14.0%</span>
-                    </span>
+                                            <span class="text-success"><i class="fas fa-caret-up me-1"></i><span>14.0%</span></span>
                                         </td>
                                         <td>
-                    <span class="text-success">
-                      <i class="fas fa-caret-up me-1"></i><span>46.4%</span>
-                    </span>
+                                            <span class="text-success"><i class="fas fa-caret-up me-1"></i><span>46.4%</span></span>
                                         </td>
                                         <td>
-                    <span class="text-success">
-                      <i class="fas fa-caret-up me-1"></i><span>29.6%</span>
-                    </span>
+                                            <span class="text-success"><i class="fas fa-caret-up me-1"></i><span>29.6%</span></span>
                                         </td>
                                         <td>
-                    <span class="text-danger">
-                      <i class="fas fa-caret-down me-1"></i><span>-11.5%</span>
-                    </span>
+                                            <span class="text-danger"><i class="fas fa-caret-down me-1"></i><span>-11.5%</span></span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Absolute change</th>
                                         <td>
-                    <span class="text-danger">
-                      <i class="fas fa-caret-down me-1"></i><span>-17,654</span>
-                    </span>
+                                            <span class="text-danger"<i class="fas fa-caret-down me-1"></i><span>-17,654</span></span>
                                         </td>
                                         <td>
-                    <span class="text-success">
-                      <i class="fas fa-caret-up me-1"></i><span>28</span>
-                    </span>
+                                            <span class="text-success"><i class="fas fa-caret-up me-1"></i><span>28</span></span>
                                         </td>
                                         <td>
-                    <span class="text-success">
-                      <i class="fas fa-caret-up me-1"></i><span>111</span>
-                    </span>
+                                            <span class="text-success"><i class="fas fa-caret-up me-1"></i><span>111</span></span>
                                         </td>
                                         <td>
-                    <span class="text-success">
-                      <i class="fas fa-caret-up me-1"></i><span>$1,092.72</span>
-                    </span>
+                                            <span class="text-success"><i class="fas fa-caret-up me-1"></i><span>$1,092.72</span></span>
                                         </td>
                                         <td>
-                    <span class="text-danger">
-                      <i class="fas fa-caret-down me-1"></i><span>$-1.78</span>
-                    </span>
+                                            <span class="text-danger"><i class="fas fa-caret-down me-1"></i><span>$-1.78</span></span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -4517,9 +4499,9 @@
                         </div>
                     </div>
                 </section>
-                &lt;!&ndash;Section: Sales Performance KPIs&ndash;&gt;
+                <!--Section: Sales Performance KPIs-->
 
-                &lt;!&ndash;Section: Minimal statistics cards&ndash;&gt;
+                <!--Section: Minimal statistics cards-->
                 <section>
                     <div class="row">
                         <div class="col-xl-3 col-sm-6 col-12 mb-4">
@@ -4728,9 +4710,9 @@
                         </div>
                     </div>
                 </section>
-                &lt;!&ndash;Section: Minimal statistics cards&ndash;&gt;
+                <!--Section: Minimal statistics cards-->
 
-                &lt;!&ndash;Section: Statistics with subtitles&ndash;&gt;
+                <!--Section: Statistics with subtitles-->
                 <section>
                     <div class="row">
                         <div class="col-xl-6 col-md-12 mb-4">
@@ -4817,10 +4799,9 @@
                         </div>
                     </div>
                 </section>
-                &lt;!&ndash;Section: Statistics with subtitles&ndash;&gt;
+                <!--Section: Statistics with subtitles-->
             </div>
-        </div>-->
-
+        </div>
     </section>
 
 

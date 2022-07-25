@@ -30,6 +30,7 @@ $("#RentCars").css('display','none');
 $("#btnLogin").click(function () {
     $('#login_page_container').css('transform','scale(1)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
+    $('#RegisterPage').css('transform','scale(0)');
 
     $("#NavBar").css('display','block');
     $("#WelcomePage").css('display','block');
@@ -43,7 +44,6 @@ $("#btnLogin").click(function () {
     $("#ContactInfoPage").css('display','none');
     $("#CopyRightPage").css('display','none');
     $("#RegisterPage").css('display','none');
-    $("#ForgotPasswordPage").css('display','none');
     $("#CarManagePage").css('display','none');
     $("#CarDetailsPage").css('display','none');
     $("#DriverManagePage").css('display','none');
@@ -64,7 +64,43 @@ $("#btnLogin").click(function () {
 
 $("#btnForgotPW").click(function () {
     $('#login_page_container').css('transform','scale(0)');
+    $('#RegisterPage').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(1)');
+
+    $("#NavBar").css('display','block');
+    $("#WelcomePage").css('display','block');
+    $("#ViewCars").css('display','none');
+    $("#Services").css('display','none');
+    $("#OurCompany").css('display','none');
+    $("#OurHistory").css('display','none');
+    $("#OurTeam").css('display','none');
+    $("#Testimony").css('display','none');
+    $("#Blog").css('display','none');
+    $("#ContactInfoPage").css('display','none');
+    $("#CopyRightPage").css('display','none');
+    $("#RegisterPage").css('display','none');
+    $("#CarManagePage").css('display','none');
+    $("#CarDetailsPage").css('display','none');
+    $("#DriverManagePage").css('display','none');
+    $("#DriverDetailsPage").css('display','none');
+    $("#SchedulePage").css('display','none');
+    $("#ViewCustomerInformationPage").css('display','none');
+    $("#ViewReserveDetailsPage").css('display','none');
+    $("#ReserveDetailsPage").css('display','none');
+    $("#ChangeDriver").css('display','none');
+    $("#PaymentAddPage").css('display','none');
+    $("#PaymentPage").css('display','none');
+    $("#AdminPanel").css('display','none');
+    $("#IncomePage").css('display','none');
+    $("#Reservation").css('display','none');
+    $("#CustomerDashBoard").css('display','none');
+    $("#RentCars").css('display','none');
+});
+
+$("#btnRegister").click(function () {
+    $('#login_page_container').css('transform','scale(0)');
+    $('#ForgotPasswordPage').css('transform','scale(0)');
+    $('#RegisterPage').css('transform','scale(1)');
 
     $("#NavBar").css('display','block');
     $("#WelcomePage").css('display','block');

@@ -49,6 +49,8 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
 
+
+
 </head>
 <body>
 
@@ -4096,191 +4098,9 @@
 
     <!--Admin Panel-->
     <section id="AdminPanel" style="width: 100%; ;background-color: white">
-<!--
-        &lt;!&ndash; Navbar&ndash;&gt;
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-image: radial-gradient(circle at top,#373b3e,#000);">
-            <div class="container-fluid justify-content-between">
-                &lt;!&ndash; Left elements &ndash;&gt;
-                <div class="d-flex">
-                    &lt;!&ndash; Brand &ndash;&gt;
-                    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
-                        <img src="assets/logo/car%20rental%20logo.jpg" height="60" width="90" alt="car Logo" loading="lazy" style="margin-top: 2px;"/>
-                    </a>
-                </div>
-                &lt;!&ndash; Center elements &ndash;&gt;
-                <ul class="navbar-nav flex-row d-none d-md-flex">
-                    <li class="nav-item me-3 me-lg-1 active">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-home fa-lg text-white"></i></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-car fa-lg text-white"></i></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-hands-helping fa-lg text-white"></i></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-info-circle fa-lg text-white"></i></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-video fa-lg text-white"></i></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link" href="#">
-                            <span><i class="fas fa-phone-volume fa-lg text-white"></i></span>
-                        </a>
-                    </li>
-                </ul>
-                &lt;!&ndash; Center elements &ndash;&gt;
-
-                &lt;!&ndash; Right elements &ndash;&gt;
-                <ul class="navbar-nav flex-row">
-                    <li class="nav-item me-3 me-lg-1">
-                        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
-                            <img src="assets/images/images%20(2).jpg" class="rounded-circle" height="22" alt="Black and White Portrait of a Man" loading="lazy"/>
-                            <strong class="d-none d-sm-block ms-1 text-white">John</strong>
-                        </a>
-                    </li>
-                </ul>
-                &lt;!&ndash; Right elements &ndash;&gt;
-            </div>
-        </nav>
-
-        <div class="" style="position: relative;top: -85px;height: 100vh;width: 250px;background-image: radial-gradient(circle at top,#b6d4fe,#000);">
-
-            <div class="container-fluid">
-
-                <div class="row h-25">
-                    <img src="assets/images/images%20(2).jpg" alt="" class="rounded rounded-circle img-responsive shadow center-block mt-5 mb-4" style="width: 125px;height: 100px">
-                    <h4 class="text-white text-center">John Sendaya</h4>
-                </div>
-
-                <hr class="divider-horizontal-blurry" />
-
-                <div class="row h-25 center-block" >
-                    <div class="row">
-                        <div class="col">
-                            &lt;!&ndash; Tab navs &ndash;&gt;
-                            <div class="nav flex-column nav-tabs" style="border: 1px solid transparent" id="v-tabs-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link text-white fs-4 mb-4" style="text-decoration: none" id="openDashboard" data-mdb-toggle="tab" href="#CarDetailsPage" role="tab" aria-controls="CarDetailsPage" aria-selected="true">
-                                    <i class="fas fa-user-circle fa-lg text-white"></i>
-                                    DashBoard
-                                </a>
-                                <a class="nav-link text-white fs-4 mb-4" style="text-decoration: none" id="openViewCars" data-mdb-toggle="tab" href="#DriverDetailsPage" role="tab" aria-controls="DriverDetailsPage" aria-selected="false">
-                                    <i class="fas fa-car fa-lg text-white"></i>
-                                    Cars Details
-                                </a>
-                                <a class="nav-link text-white fs-4 mb-4" style="text-decoration: none" id="openViewDrivers" data-mdb-toggle="tab" href="#v-tabs-messages" role="tab" aria-controls="v-tabs-messages" aria-selected="false">
-                                    <i class="fas fa-male fa-lg text-white"></i>
-                                    Drivers Details
-                                </a>
-                                <a class="nav-link text-white fs-4 mb-4" style="text-decoration: none" id="openSchedule" data-mdb-toggle="tab" href="#v-tabs-messages" role="tab" aria-controls="v-tabs-messages" aria-selected="false">
-                                    <i class="fas fa-calendar-alt fa-lg text-white"></i>
-                                    Schedule
-                                </a>
-                                <a class="nav-link text-white fs-4 mb-4" style="text-decoration: none" id="openViewCustomers" data-mdb-toggle="tab" href="#v-tabs-messages" role="tab" aria-controls="v-tabs-messages" aria-selected="false">
-                                    <i class="fas fa-users fa-lg text-white"></i>
-                                    Customers Details
-                                </a>
-                                <a class="nav-link text-white fs-4 mb-4" style="text-decoration: none" id="openViewRentals" data-mdb-toggle="tab" href="#v-tabs-messages" role="tab" aria-controls="v-tabs-messages" aria-selected="false">
-                                    <i class="fas fa-calendar-week fa-lg text-white"></i>
-                                    Rentals Details
-                                </a>
-                                <a class="nav-link text-white fs-4 mb-4" style="text-decoration: none" id="openViewPayments" data-mdb-toggle="tab" href="#v-tabs-messages" role="tab" aria-controls="v-tabs-messages" aria-selected="false">
-                                    <i class="fas fa-hand-holding-usd fa-lg text-white"></i>
-                                    Payments Details
-                                </a>
-                            </div>
-                            &lt;!&ndash; Tab navs &ndash;&gt;
-                        </div>
-
-                        &lt;!&ndash;<div class="col-9">
-                            &lt;!&ndash; Tab content &ndash;&gt;
-                            <div class="tab-content" id="v-tabs-tabContent">
-                                <div class="tab-pane " id="v-tabs-home" role="tabpanel" aria-labelledby="v-tabs-home-tab">
-                                    home
-                                </div>
-                                <div class="tab-pane fade" id="v-tabs-profile" role="tabpanel" aria-labelledby="v-tabs-profile-tab">
-                                    message
-                                </div>
-                                <div class="tab-pane fade" id="v-tabs-messages" role="tabpanel" aria-labelledby="v-tabs-messages-tab">
-                                    Messages content
-                                </div>
-                            </div>
-                            &lt;!&ndash; Tab content &ndash;&gt;
-                        </div>&ndash;&gt;
-                    </div>
-                </div>
-
-                <hr class="divider-horizontal-blurry" />
-
-                <div class="row">
-                    <button type="button" class="btn btn-primary btn-sm btn-rounded center-block w-75" id="btnLogOut">LOG OUT</button>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="float-end" style="width: 80% ;height: 79vh;position: absolute;top: -700px">
-            <div class="container">
-
-                <div class="row w-100 mb-5" style="height: 25%;">
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,#f5c2c7,#d63384);">
-                        <h2 class="fw-bold text-center">Registered Users</h2>
-                        <h1 class="fw-bold text-center text-white">10</h1>
-                    </div>
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,#c7dbd2,#198754);">
-                        <h2 class="fw-bold text-center">Total Bookings</h2>
-                        <h1 class="fw-bold text-center text-white">20</h1>
-                    </div>
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,#ffcd39,#fd7e14);">
-                        <h2 class="fw-bold text-center">Available Cars</h2>
-                        <h1 class="fw-bold text-center text-white">32</h1>
-                    </div>
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,orchid,#6f42c1);">
-                        <h2 class="fw-bold text-center">Reserved Cars</h2>
-                        <h1 class="fw-bold text-center text-white">20</h1>
-                    </div>
-                </div>
-
-                <div class="row w-100" style="height: 25%;position: relative;top: 10px;">
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,#e5c7ca,#dc3545);">
-                        <h2 class="fw-bold text-center">Available Drivers</h2>
-                        <h1 class="fw-bold text-center text-white">10</h1>
-                    </div>
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,#bacbe6,#6f42c1);">
-                        <h2 class="fw-bold text-center">Occupied Drivers</h2>
-                        <h1 class="fw-bold text-center text-white">10</h1>
-                    </div>
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,#f2e7c3,yellow);">
-                        <h2 class="fw-bold text-center">Maintained Cars</h2>
-                        <h1 class="fw-bold text-center text-white">10</h1>
-                    </div>
-                    <div class="col ms-5 me-5 mb-5 border-2 border-light img-thumbnail img-responsive shadow" style="background-image: radial-gradient(circle at top,#fcf8e3,#664d03);">
-                        <h2 class="fw-bold text-center">Under Maintained Cars</h2>
-                        <h1 class="fw-bold text-center text-white">2</h1>
-                    </div>
-                </div>
-
-            </div>
-        </div>-->
 
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: white /*background-image: radial-gradient(circle at top,#b6d4fe,#000);*/">
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
             <div class="position-sticky">
                 <div class="row h-25">
                     <img src="assets/images/images%20(2).jpg" alt="" class="rounded rounded-circle img-responsive shadow center-block mt-5" style="width: 125px;height: 100px">
@@ -4297,18 +4117,23 @@
                     <a href="#" id="openViewRentals" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar-week fa-fw me-3"></i><span>Rental Details</span></a>
                     <a href="#" id="openSchedule" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar-alt fa-fw me-3"></i><span>Schedule</span></a>
                     <a href="#" id="openViewPayments" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-hand-holding-usd fa-fw me-3"></i><span>Payments Details</span></a>
+                    <a href="#" id="openIncomeReports" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Income Reports</span></a>
+                </div>
+
+                <div class="center-block">
+                    <button class="btn btn-outline-info border border-2 border-info center-block" id="btnLogOutFromAdminPanel">Log Out</button>
                 </div>
             </div>
         </nav>
         <!-- Sidebar -->
 
         <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgba(0, 0, 0, 0.6);">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+                <button class="navbar-toggler bg-white" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars text-white"></i>
                 </button>
 
                 <!-- Brand -->
@@ -4316,11 +4141,44 @@
                     <img src="assets/logo/logocar.png" height="60" width="90" alt="" loading="lazy" style="margin-top: -20px;margin-left: 59px;"/>
                 </a>
 
-               <!-- &lt;!&ndash; Search form &ndash;&gt;
-                <form class="d-none d-md-flex input-group w-auto my-auto">
-                    <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 200px" />
-                    &lt;!&ndash;<span class="input-group-text border-0"><i class="fas fa-search"></i></span>&ndash;&gt;
-                </form>-->
+                <!--middle links-->
+                <ul class="navbar-nav flex-row d-none center-block d-md-flex">
+                    <li class="nav-item me-3 me-lg-1 active">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-home fa-lg" style="color: whitesmoke"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-car fa-lg" style="color: whitesmoke"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-hands-helping fa-lg" style="color: whitesmoke"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-info-circle fa-lg" style="color: whitesmoke"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-video fa-lg" style="color: whitesmoke"></i></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link" href="#">
+                            <span><i class="fas fa-phone-volume fa-lg" style="color: whitesmoke"></i></span>
+                        </a>
+                    </li>
+                </ul>
 
                 <!-- Right links -->
                 <ul class="navbar-nav ms-auto d-flex flex-row">
@@ -4396,6 +4254,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLinks" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             <img src="assets/images/images%20(2).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                            <strong class="d-none d-sm-block ms-1 text-white">John Senyada</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLinks">
                             <li><a class="dropdown-item" href="#">My profile</a></li>
@@ -4432,7 +4291,7 @@
                     <div class="card">
                         <div class="card-header text-center py-3">
                             <h5 class="mb-0 text-center">
-                                <strong>Sales Performance KPIs</strong>
+                                <strong>Reservation Performance</strong>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -4441,11 +4300,11 @@
                                     <thead>
                                     <tr>
                                         <th scope="col"></th>
-                                        <th scope="col">Product Detail Views</th>
-                                        <th scope="col">Unique Purchases</th>
-                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Reserve</th>
+                                        <th scope="col">Customer</th>
+                                        <th scope="col">Reserve Date</th>
                                         <th scope="col">Product Revenue</th>
-                                        <th scope="col">Avg. Price</th>
+                                        <th scope="col">To Be Received Fee</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -4822,6 +4681,8 @@
 <!--for date picker-->
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+
+<!--for charts-->
 
 
 <script >

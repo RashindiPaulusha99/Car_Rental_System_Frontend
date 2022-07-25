@@ -33,5 +33,8 @@
     <orderEntry type="library" name="stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387" level="application" />
     <orderEntry type="library" name="0188a2dd6ac46416d1fe38c4dc421560" level="application" />
     <orderEntry type="library" name="search" level="application" />
+    <orderEntry type="library" name="Chart.js" level="application" />
+    <orderEntry type="library" name="cdbootstrap" level="application" />
+    <orderEntry type="library" name="9d1d9a82d2" level="application" />
   </component>
 </module>

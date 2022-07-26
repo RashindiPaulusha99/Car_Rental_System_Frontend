@@ -134,8 +134,6 @@ var today = now.getFullYear() + "-" + (month) + "-" + (day);
 
 function generateRegisterIds() {
     $("#generateCusId").text("C00-0001");
-    cusId="C00-0001";
-
     var test = "id";
 
     $.ajax({
@@ -146,14 +144,15 @@ function generateRegisterIds() {
             var tempId = parseInt(customerId.split("-")[1]);
             tempId = tempId + 1;
             if (tempId <= 9) {
-                cusId=("C00-000" + tempId);
+                $("#generateCusId").text("C00-000" + tempId);
             } else if (tempId <= 99) {
-                cusId=("C00-00" + tempId);
+                $("#generateCusId").text("C00-00" + tempId);
             } else if (tempId <= 999) {
-                cusId=("C00-0" + tempId);
+                $("#generateCusId").text("C00-0" + tempId);
             } else {
-                cusId=("C00-" + tempId);
+                $("#generateCusId").text("C00-" + tempId);
             }
+
         },
         error: function (ob, statusText, error) {
         }
@@ -180,9 +179,8 @@ $("#btnRegister").click(function () {
 });
 
 function register() {
-    generateRegisterIds();
     var cusDetail = {
-        customerId: cusId,
+        customerId: $("#generateCusId").text(),
         customerName: $("#customername").val(),
         username: $("#username").val(),
         password: $("#password").val(),
@@ -194,8 +192,6 @@ function register() {
         customerDrivingLicenseNo: $("#drivinglicense").val()
     }
 
-    console.log(cusDetail);
-
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/customer",
         method: "POST",
@@ -203,11 +199,11 @@ function register() {
         data: JSON.stringify(cusDetail),
         success: function (response) {
             console.log("successs");
-            /*if (response.code == 200){
-                alert(cusId + " "+ response.message);
-            }*/
-            alert("Successfully Registered !");
+            if (response.code == 200){
+                alert($("#customername").val() + " "+ response.message);
+            }
             registerToSystem();
+            generateRegisterIds();
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -215,4 +211,6 @@ function register() {
     });
 
 }
+
+
 

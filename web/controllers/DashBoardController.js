@@ -1341,7 +1341,6 @@ $("#btnCancelAddPayment").click(function () {
     $("#ViewCustomerInformationPage").css('display','none');
     $("#ViewReserveDetailsPage").css('display','none');
     $("#ReserveDetailsPage").css('display','none');
-    $("#PaymentPage").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#mainForm").css('display','none');

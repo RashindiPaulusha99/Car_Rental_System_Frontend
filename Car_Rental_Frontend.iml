@@ -36,5 +36,9 @@
     <orderEntry type="library" name="Chart.js" level="application" />
     <orderEntry type="library" name="cdbootstrap" level="application" />
     <orderEntry type="library" name="9d1d9a82d2" level="application" />
+    <orderEntry type="library" name="raphael" level="application" />
+    <orderEntry type="library" name="jquery-1.8.2" level="application" />
+    <orderEntry type="library" name="morris.js" level="application" />
+    <orderEntry type="library" name="loader" level="application" />
   </component>
 </module>

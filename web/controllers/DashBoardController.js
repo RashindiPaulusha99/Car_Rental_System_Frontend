@@ -548,6 +548,7 @@ $(".btnRentNow").click(function () {
 
 function registerToSystem(){
     generateRegisterIds();
+    generateUserIds();
     $('#login_page_container').css('transform','scale(1)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -655,7 +656,7 @@ $("#btnBackReserve").click(function () {
     $("#mainForm").css('display','none');
 });
 
-$("#btnLogToSystem").click(function () {
+function logToSystem(){
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -689,7 +690,7 @@ $("#btnLogToSystem").click(function () {
     $("#PaymentPage").css('display','none');
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
-});
+}
 
 $("#btnLogOut").click(function () {
     $('#login_page_container').css('transform','scale(0)');
@@ -832,6 +833,7 @@ $("#openViewDrivers").click(function () {
 });
 
 $("#openViewCustomers").click(function () {
+    loadAllCustomer();
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');

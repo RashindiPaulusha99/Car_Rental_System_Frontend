@@ -112,9 +112,7 @@ $("#drivinglicense").keyup(function (event) {
     if (regExDrivingLNO.test(dl)) {
         $("#drivinglicense").css('border', '2px solid #31d2f2');
         $("#errorDrivingLicense").text("");
-        if (event.key == "Enter") {
-            $('#btnRegister').prop('disabled', false);
-        }
+        $('#btnRegister').prop('disabled', false);
     } else {
         $("#drivinglicense").css('border', '2px solid red');
         $("#errorDrivingLicense").text("Check this field whether correct !");
@@ -160,6 +158,36 @@ function generateRegisterIds() {
     });
 }
 
+function generateUserIds() {
+    $("#generateUserId").text("U00-0001");
+    var test = "id";
+
+    console.log("got");
+
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/user?test="+test,
+        method: "GET",
+        success: function (response) {
+            var userId = response.data;
+            var tempId = parseInt(userId.split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                $("#generateUserId").text("C00-000" + tempId);
+            } else if (tempId <= 99) {
+                $("#generateUserId").text("C00-00" + tempId);
+            } else if (tempId <= 999) {
+                $("#generateUserId").text("C00-0" + tempId);
+            } else {
+                $("#generateUserId").text("C00-" + tempId);
+            }
+
+        },
+        error: function (ob, statusText, error) {
+        }
+
+    });
+}
+
 $("#btnRegister").click(function () {
     if ($("#username").val() == "" || $("#password").val() == "" || $("#customername").val() == "" || $("#customeraddress").val() == "" ||
         $("#contactnumber").val() == "" || $("#email").val() == "" || $("#nic").val() == "" || $("#drivinglicense").val() == ""){
@@ -179,12 +207,18 @@ $("#btnRegister").click(function () {
 });
 
 function register() {
+    var user={
+        userId:$("#generateUserId").text(),
+        username:$("#username").val(),
+        password: $("#password").val()
+    }
+    console.log("react");
+
     var cusDetail = {
         customerId: $("#generateCusId").text(),
-        customerName: $("#customername").val(),
-        username: $("#username").val(),
-        password: $("#password").val(),
+        users:user,
         registeredDate: today,
+        customerName: $("#customername").val(),
         customerAddress: $("#customeraddress").val(),
         customerContact: $("#contactnumber").val(),
         customerEmail: $("#email").val(),
@@ -198,12 +232,68 @@ function register() {
         contentType: "application/json",
         data: JSON.stringify(cusDetail),
         success: function (response) {
-            console.log("successs");
             if (response.code == 200){
                 alert($("#customername").val() + " "+ response.message);
+                registerUser(user);
+                registerToSystem();
+                generateRegisterIds();
+                generateUserIds();
             }
-            registerToSystem();
-            generateRegisterIds();
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+
+}
+
+function registerUser(users) {
+    var user={
+        userId:users.userId,
+        username:users.username,
+        password: users.password
+    }
+    console.log(user);
+
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/user",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(user),
+        success: function (response) {
+            if (response.code == 200){
+                generateRegisterIds();
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+
+}
+
+function loadAllCustomer() {
+
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/customer",
+        method: "GET",
+        success: function (response) {
+
+            $("#tblCustomers tbody").empty();
+            for (var responseKey of response.data) {
+                let raw = `<tr><td> ${responseKey.registeredDate} </td><td> ${responseKey.customerId} </td><td> 
+                                <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                </div>  
+                                </td><td> ${responseKey.customerName} </td><td> ${responseKey.customerAddress} </td><td> ${responseKey.customerContact} </td><td> ${responseKey.customerNicNo} </td><td> ${responseKey.customerDrivingLicenseNo} </td><td><div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                </div>   
+                                </td><td> <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                </div>   
+                                </td></tr>`;
+                $("#tblCustomers tbody").append(raw);
+            }
         },
         error: function (ob) {
             alert(ob.responseJSON.message);

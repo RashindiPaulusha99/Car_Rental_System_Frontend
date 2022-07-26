@@ -2098,26 +2098,26 @@
     <!--View Car Details Page-->
     <section id="CarDetailsPage" style="width: 100%; height: 100vh ;">
 
-        <div >
+        <div>
 
-            <div class="text-center" style="position: relative;top: 45px">
+            <div class="text-center" style="position: relative;top: 80px">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Car Encoding</h1>
             </div>
 
-            <div class="text-center" style="position: relative;top: 66px;left: -572px;">
+            <div class="text-center" style="position: relative;top: 116px;">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
                     <i class="fas fa-taxi fa-1x"></i>
                     Car Information
-                    <button class="btn btn-success ms-5">
+                    <button class="btn btn-success ms-5" id="btnAddCar">
                         <i class="fas fa-plus-circle"></i>
                         Add</button>
                 </h1>
 
             </div>
 
-            <div style="width: 98vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+            <div style="width: 98vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto" class="table-responsive text-nowrap">
 
-                <table class="table align-middle mb-0 bg-white table-responsive table table-hover">
+                <table class="table align-middle mb-0 bg-white table table-responsive table-bordered table-hover w-auto" style="position: relative;left: 243px;top: 44px;">
                     <thead class="bg-light">
                     <tr>
                         <th>Car Id</th>
@@ -2389,9 +2389,9 @@
     </section>
 
     <!--Add New Car Page-->
-    <section id="CarManagePage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+    <section id="CarManagePage">
 
-        <div class="w-75 border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 630px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+        <div class="w-75 border border-3 border-white rounded-1 shadow bg-white" style="position: relative;top: 70px;bottom: 0;right: 0;left: 50px;margin: auto;height: 630px;">
 
             <div class="text-center  border-bottom border-2 " style="position: relative;top: 20px;">
                 <h1 class="mt-1 text-dark fw-bold fst-italic mb-0 " style="font-family: 'PT Serif', serif;">- MANAGE CAR -</h1>
@@ -2405,14 +2405,14 @@
                             <!-- car id -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="carId">* Car Id</label>
-                                <input type="text" id="carId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="carId" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- brand -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="brand">* Brand</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="brand">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="brand">
                                     <option selected value="0">None</option>
                                     <option value="1">Suzuki Alto - Premium - Manual * 7</option>
                                     <option value="2">Suzuki Alto K10 - Auto * 8</option>
@@ -2433,7 +2433,7 @@
                             <!-- colour -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="colour">* Colour</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="colour">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="colour">
                                     <option selected value="0">None</option>
                                     <option value="1">White/white pearl</option>
                                     <option value="2">Black/black effect</option>
@@ -2452,7 +2452,7 @@
                             <!-- type -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="type">* Type</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="type">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="type">
                                     <option selected value="0">None</option>
                                     <option value="1">General</option>
                                     <option value="2">Premium</option>
@@ -2467,14 +2467,14 @@
                             <!-- registration no -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="registrationNo">* Registration NO</label>
-                                <input type="text" id="registrationNo" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="registrationNo" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- fuel type -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="fuelType">* Fuel Type</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="fuelType">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="fuelType">
                                     <option selected value="0">None</option>
                                     <option value="1">Petrol</option>
                                     <option value="2">Diesel</option>
@@ -2485,7 +2485,7 @@
                             <!-- transmission type -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="transmissionType">* Transmission Type</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="transmissionType">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="transmissionType">
                                     <option selected value="0">None</option>
                                     <option value="1">Manual</option>
                                     <option value="2">Auto</option>
@@ -2506,28 +2506,28 @@
                             <!-- daily rate price -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="dailyRatePrice">* Daily Rate Price</label>
-                                <input type="text" id="dailyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="dailyRatePrice" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- monthly rate price -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="monthlyRatePrice">* Monthly Rate Price</label>
-                                <input type="text" id="monthlyRatePrice" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="monthlyRatePrice" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- free km per day -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="freeKMPerDay">* Free KM Per Day</label>
-                                <input type="number" id="freeKMPerDay" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="number" id="freeKMPerDay" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- free km per month -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="freeKMPerMonth">* Free KM Per Month</label>
-                                <input type="number" id="freeKMPerMonth" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="number" id="freeKMPerMonth" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -2537,14 +2537,14 @@
                             <!-- price for extra km -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="priceForExtraKM">* Price For Extra KM</label>
-                                <input type="text" id="priceForExtraKM" class="form-control  border border-2 border-white bg-light rounded-3 shadow" />
+                                <input type="text" id="priceForExtraKM" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col">
                             <!-- available or not -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="availableOrNot">* Available Or Not</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="availableOrNot">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="availableOrNot">
                                     <option selected value="0">None</option>
                                     <option value="1">Available</option>
                                     <option value="2">Not Available</option>
@@ -2555,7 +2555,7 @@
                             <!-- damage or not -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="damageOrNot">* Damage Or Not</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="damageOrNot">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="damageOrNot">
                                     <option selected value="0">None</option>
                                     <option value="1">Damage</option>
                                     <option value="2">Not Damage</option>
@@ -2566,7 +2566,7 @@
                             <!-- under maintain or not -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="availableOrNot">* Under Maintain Or Not</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="underMaintainOrNot">
+                                <select aria-label="Default select example" class="form-select" style="height: 38px" id="underMaintainOrNot">
                                     <option selected value="0">None</option>
                                     <option value="1">Maintained</option>
                                     <option value="2">Under Maintain</option>
@@ -2580,7 +2580,7 @@
                             <!-- total distance travelled -->
                             <div class="form-outline ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="totalDistanceTravelled">* Total Distance Travelled</label>
-                                <input type="number" id="totalDistanceTravelled" class=" form-control  border border-2 border-white bg-light rounded-3 shadow" />
+                                <input type="number" id="totalDistanceTravelled" class=" form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                         <div class="col"></div>
@@ -2595,25 +2595,25 @@
                         <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form  style="border: 2px solid white;" class="h-100">
                                 <label class="form-label mt-2 text-dark fw-light fs-4" for="uploadFrontView">Upload front view</label>
-                                <input type="file" class="form-control shadow" id="uploadFrontView" />
+                                <input type="file" class="form-control" id="uploadFrontView" />
                             </form>
                         </div>
                         <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form  class="h-100">
                                 <label class="form-label mt-2 text-dark fw-light fs-4" for="uploadBackView">Upload back view</label>
-                                <input type="file" class="form-control shadow" id="uploadBackView" />
+                                <input type="file" class="form-control" id="uploadBackView" />
                             </form>
                         </div>
                         <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form class="h-100">
                                 <label class="form-label mt-2 text-dark fw-light fs-4" for="uploadSideView">Upload side view</label>
-                                <input type="file" class="form-control shadow" id="uploadSideView" />
+                                <input type="file" class="form-control" id="uploadSideView" />
                             </form>
                         </div>
                         <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
                             <form class="h-100">
                                  <label class="form-label mt-2 text-dark fw-light fs-4" for="uploadInteriorView">Upload interior view</label>
-                                 <input type="file" class="form-control shadow" id="uploadInteriorView" />
+                                 <input type="file" class="form-control" id="uploadInteriorView" />
                             </form>
                         </div>
 
@@ -2634,7 +2634,7 @@
                                 <button type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-plus"></i>
                                 </button>
-                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow" id="btnCancelAddCar">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
@@ -2657,24 +2657,24 @@
 
         <div >
 
-            <div class="text-center" style="position: relative;top: 45px">
+            <div class="text-center" style="position: relative;top: 80px">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Driver Encoding</h1>
             </div>
 
-            <div class="text-center" style="position: relative;top: 66px;left: -572px;">
+            <div class="text-center" style="position: relative;top: 116px;">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
                     <i class="fad fa-steering-wheel fa-1x"></i>
                     Driver Information
-                    <button class="btn btn-success ms-5">
+                    <button class="btn btn-success ms-5" id="btnAddDriver">
                         <i class="fas fa-plus-circle"></i>
                         Add</button>
                 </h1>
 
             </div>
 
-            <div style="width: 90vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+            <div style="width: 98vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto" class="table-responsive text-nowrap">
 
-                <table class="table align-middle mb-0 bg-white table-responsive table table-hover">
+                <table class="table align-middle mb-0 bg-white table-bordered table table-hover" style="position: relative;left: 243px;top: 44px;">
                     <thead class="bg-light">
                     <tr>
                         <th>Driver Id</th>
@@ -2790,7 +2790,7 @@
     <!--Add New Driver Page-->
     <section id="DriverManagePage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
-        <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+        <div class="border border-3 border-white rounded-1 shadow bg-white" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;">
 
             <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
                 <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- MANAGE DRIVER -</h1>
@@ -2803,7 +2803,7 @@
                         <!-- driver id -->
                         <div class="form-outline mb-2 ms-4 me-4">
                             <label class="form-label text-dark fw-light fs-4" for="driverId">* Driver Id</label>
-                            <input type="text" id="driverId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            <input type="text" id="driverId" class="form-control  border border-2 border-white bg-light rounded-3" />
                         </div>
                     </div>
 
@@ -2811,7 +2811,7 @@
                         <!-- driver name -->
                         <div class="form-outline mb-2 ms-4 me-4">
                             <label class="form-label text-dark fw-light fs-4" for="driverName">* Name</label>
-                            <input type="text" id="driverName" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            <input type="text" id="driverName" class="form-control  border border-2 border-white bg-light rounded-3" />
                         </div>
                     </div>
 
@@ -2819,7 +2819,7 @@
                         <!-- driver address -->
                         <div class="form-outline mb-2 ms-4 me-4">
                             <label class="form-label text-dark fw-light fs-4" for="driverAddress">* Address</label>
-                            <input type="text" id="driverAddress" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            <input type="text" id="driverAddress" class="form-control  border border-2 border-white bg-light rounded-3" />
                         </div>
                     </div>
 
@@ -2827,7 +2827,7 @@
                         <!-- driver age -->
                         <div class="form-outline mb-2 ms-4 me-4">
                             <label class="form-label text-dark fw-light fs-4" for="driverAge">* Age</label>
-                            <input type="number" id="driverAge" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            <input type="number" id="driverAge" class="form-control  border border-2 border-white bg-light rounded-3" />
                         </div>
                     </div>
 
@@ -2835,7 +2835,7 @@
                         <!-- driver contact -->
                         <div class="form-outline mb-2 ms-4 me-4">
                             <label class="form-label text-dark fw-light fs-4" for="driverContact">* Contact</label>
-                            <input type="tel" id="driverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            <input type="tel" id="driverContact" class="form-control  border border-2 border-white bg-light rounded-3" />
                         </div>
                     </div>
 
@@ -2843,7 +2843,7 @@
                         <!-- driver release or not -->
                         <div class="form-outline mb-2 ms-4 me-4">
                             <label class="form-label text-dark fw-light fs-4" for="driverReleaseOrNot">* Release Or Not</label>
-                            <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="driverReleaseOrNot">
+                            <select aria-label="Default select example" class="form-select" style="height: 38px" id="driverReleaseOrNot">
                                 <option selected value="0">None</option>
                                 <option value="1">Release</option>
                                 <option value="2">Not Release</option>
@@ -2866,7 +2866,7 @@
                                 <button type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-plus"></i>
                                 </button>
-                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow" id="btnCancelAddDriver">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
@@ -2889,11 +2889,11 @@
 
         <div >
 
-            <div class="text-center" style="position: relative;top: 45px">
+            <div class="text-center" style="position: relative;top: 80px">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Customer Encoding</h1>
             </div>
 
-            <div class="text-center" style="position: relative;top: 66px;left: -572px;">
+            <div class="text-center" style="position: relative;top: 116px;">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
                     <i class="fas fa-user-friends"></i>
                     Customer Information
@@ -2901,9 +2901,9 @@
 
             </div>
 
-            <div style="width: 90vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+            <div style="width: 98vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto"  class="table-responsive text-nowrap">
 
-                <table class="table align-middle mb-0 bg-white table-responsive table table-hover">
+                <table class="table align-middle mb-0 bg-white table table-hover table-bordered" style="position: relative;left: 243px;top: 44px;">
                     <thead class="bg-light">
                     <tr>
                         <th>Registered Date</th>
@@ -3067,24 +3067,24 @@
 
         <div >
 
-            <div class="text-center" style="position: relative;top: 45px">
+            <div class="text-center" style="position: relative;top: 80px">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Reservations</h1>
             </div>
 
-            <div class="text-center" style="position: relative;top: 66px;left: -572px;">
+            <div class="text-center" style="position: relative;top: 116px;">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
                     <i class="fas fa-list-alt"></i>
                     Reservation Information
                 </h1>
-                <button class="btn ms-5 btn-warning" style="left: 246px;position: relative;top: -35px;">
+                <button class="btn ms-5 btn-warning" style="left: 246px;position: relative;top: -35px;" id="btnChangeDriver">
                     <i class="fas fa-edit"></i>
                     Change Driver</button>
 
             </div>
 
-            <div style="width: 90vw; height: 70vh;position: relative; top: 67px;right: 0;bottom: 0;left: 0;margin: auto">
+            <div style="width: 98vw; height: 70vh;position: relative; top: 67px;right: 0;bottom: 0;left: 0;margin: auto"  class="table-responsive text-nowrap">
 
-                <table class="table align-middle mb-0 bg-white table-responsive table table-hover">
+                <table class="table align-middle mb-0 bg-white table table-hover table-bordered" style="position: relative;left: 243px;top: 44px;">
                     <thead class="bg-light">
                     <tr>
                         <th>Reserve Date</th>
@@ -3373,7 +3373,7 @@
     <!--Change Driver Page-->
     <section id="ChangeDriver" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
-        <div class="h-75 border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+        <div class="h-75 border border-3 border-white rounded-1 shadow bg-white" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;">
 
             <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
                 <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- CHANGE DRIVER -</h1>
@@ -3386,7 +3386,7 @@
                         <!-- select reservation number -->
                         <div class="form-outline mb-2 ms-4 me-2">
                             <label class="form-label text-dark fw-light fs-4" for="chooseReservationIds">* Choose Relevant Reservation</label>
-                            <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="chooseReservationIds">
+                            <select aria-label="Default select example" class="form-select" style="height: 38px" id="chooseReservationIds">
                                 <option selected value="0">None</option>
                             </select>
                         </div>
@@ -3397,7 +3397,7 @@
                             <!-- selected driver id -->
                             <div class="form-outline mb-2 ms-4  mt-3">
                                 <label class="form-label text-dark fw-light fs-4" for="selectedDriverId">* Driver Id</label>
-                                <input type="text" id="selectedDriverId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="selectedDriverId" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
 
@@ -3405,7 +3405,7 @@
                             <!-- selected driver name -->
                             <div class="form-outline mb-2 ms-4  mt-3">
                                 <label class="form-label text-dark fw-light fs-4" for="selectedDriverName">* Name</label>
-                                <input type="text" id="selectedDriverName" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="selectedDriverName" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -3416,7 +3416,7 @@
                         <!-- select new driver id -->
                         <div class="form-outline mb-2 ms-4 me-4 mt-3">
                             <label class="form-label text-dark fw-light fs-4" for="chooseNewDriverIds">* Choose New Driver</label>
-                            <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="chooseNewDriverIds">
+                            <select aria-label="Default select example" class="form-select" style="height: 38px" id="chooseNewDriverIds">
                                 <option selected value="0">None</option>
                             </select>
                         </div>
@@ -3427,7 +3427,7 @@
                             <!-- new driver name -->
                             <div class="form-outline mb-2 ms-4  mt-3">
                                 <label class="form-label text-dark fw-light fs-4" for="changedNewDriverName">* New Driver Name</label>
-                                <input type="text" id="changedNewDriverName" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="changedNewDriverName" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
 
@@ -3435,7 +3435,7 @@
                             <!-- new driver contact -->
                             <div class="form-outline mb-2 ms-4  mt-3">
                                 <label class="form-label text-dark fw-light fs-4" for="changedNewDriverContact">* New Driver Contact</label>
-                                <input type="text" id="changedNewDriverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="changedNewDriverContact" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -3453,7 +3453,7 @@
                                     <i class="fas fa-pen-alt"></i>
                                     Change
                                 </button>
-                                <button type="button" class="btn btn-danger  btn-floating ms-2 me-2 shadow">
+                                <button type="button" class="btn btn-danger  btn-floating ms-2 me-2 shadow" id="btnCancelChangeDriver">
                                     <i class="fas fa-times"></i>
                                     Cancel
                                 </button>
@@ -3477,20 +3477,20 @@
 
         <div >
 
-            <div class="text-center" style="position: relative;top: 45px">
+            <div class="text-center" style="position: relative;top: 80px">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Schedule</h1>
             </div>
 
-            <div class="text-center" style="position: relative;top: 66px;left: -572px;">
+            <div class="text-center" style="position: relative;top: 116px;">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
                     <i class="fas fa-list-ul"></i>
                     Schedule Details
                 </h1>
             </div>
 
-            <div style="width: 90vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+            <div style="width: 98vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto" class="table-responsive text-nowrap">
 
-                <table class="table align-middle mb-0 bg-white table-responsive table table-hover">
+                <table class="table align-middle mb-0 bg-white table table-hover table-bordered" style="position: relative;left: 243px;top: 44px;">
                     <thead class="bg-light">
                     <tr>
                         <th>Schedule Id</th>
@@ -3626,23 +3626,23 @@
 
         <div >
 
-            <div class="text-center" style="position: relative;top: 45px">
+            <div class="text-center" style="position: relative;top: 80px">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Payment</h1>
             </div>
 
-            <div class="text-center" style="position: relative;top: 66px;left: -537px;">
+            <div class="text-center" style="position: relative;top: 116px;">
                 <h1 class="mt-1 ms-5 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
                     <i class="fas fa-hand-holding-usd"></i>
                     Payment Details
-                    <button class="btn btn-info ms-5">
+                    <button class="btn btn-info ms-5" id="btnAddPayment">
                         <i class="fas fa-plus-circle"></i>
                         Make Payment</button>
                 </h1>
             </div>
 
-            <div style="width: 90vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+            <div style="width: 98vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto" class="table-responsive text-nowrap">
 
-                <table class="table align-middle mb-0 bg-white table-responsive table table-hover ">
+                <table class="table align-middle mb-0 bg-white table table-hover table-bordered" style="position: relative;left: 243px;top: 44px;">
                     <thead class="bg-light">
                     <tr>
                         <th>Payment Id</th>
@@ -3808,7 +3808,7 @@
     <!--Make Payment Page-->
     <section id="PaymentAddPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
-        <div class="border border-3 border-white rounded-1 shadow" style="width: 50%; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 88%;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+        <div class="border border-3 border-white rounded-1 shadow bg-white" style="width: 50%; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 88%;">
 
             <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
                 <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- Make Payment -</h1>
@@ -3822,7 +3822,7 @@
                             <!-- payment id -->
                             <div class="form-outline mb-2 ms-4 me-4">
                                 <label class="form-label text-dark fw-light fs-4" for="paymentId">* Payment Id</label>
-                                <input type="text" id="paymentId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="paymentId" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
 
@@ -3843,7 +3843,7 @@
                             <!-- rent fee -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="rentFee">* Rent Fee</label>
-                                <input type="text" id="rentFee" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="rentFee" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
 
@@ -3851,7 +3851,7 @@
                             <!-- driver fee -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="driverFee">* Driver Fee</label>
-                                <input type="text" id="driverFee" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="driverFee" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -3861,7 +3861,7 @@
                             <!-- lose damage payment -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="loseDamageWaiverPayment">* Lose Damage Waiver Payment</label>
-                                <input type="text" id="loseDamageWaiverPayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="loseDamageWaiverPayment" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
 
@@ -3869,7 +3869,7 @@
                             <!-- reduced lose damage payment -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="reducedLoseDamageWaiverPayment">* Reduced Lose Damage Payment</label>
-                                <input type="text" id="reducedLoseDamageWaiverPayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="reducedLoseDamageWaiverPayment" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -3879,7 +3879,7 @@
                             <!-- car harm or not -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="carHarmOrNot">* Harm Or Not</label>
-                                <select aria-label="Default select example" class="form-select shadow" style="height: 38px" id="carHarmOrNot">
+                                <select aria-label="Default select example" class="form-select " style="height: 38px" id="carHarmOrNot">
                                     <option selected value="0">None</option>
                                     <option value="1">Harm</option>
                                     <option value="2">Not Harm</option>
@@ -3891,7 +3891,7 @@
                             <!-- travelled distance -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="travelledDistance">* Travelled Distance</label>
-                                <input type="number" id="travelledDistance" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="number" id="travelledDistance" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -3901,7 +3901,7 @@
                             <!-- extra km -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="extraKm" >* Extra KM</label>
-                                <input type="number" id="extraKm" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="number" id="extraKm" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
 
@@ -3909,7 +3909,7 @@
                             <!-- price for extra km -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="priceForTravelledExtraKm">* Price For Extra KM</label>
-                                <input type="text" id="priceForTravelledExtraKm" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="priceForTravelledExtraKm" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -3930,7 +3930,7 @@
                             <!-- full payment -->
                             <div class="form-outline mb-2 ms-4 me-4 mt-2">
                                 <label class="form-label text-dark fw-light fs-4" for="fullPayment">* Full Payment</label>
-                                <input type="text" id="fullPayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="fullPayment" class="form-control  border border-2 border-white bg-light rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -3945,7 +3945,7 @@
                                 <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-pen-alt"></i>
                                 </button>
-                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow" id="btnCancelAddPayment">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
@@ -3968,13 +3968,13 @@
 
         <div>
 
-            <div class="text-center" style="position: relative;top: 45px">
+            <div class="text-center" style="position: relative;top: 80px">
                 <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">Income Report</h1>
             </div>
 
         </div>
 
-        <div class="container-fluid" style="position: relative;top: 65px;width: 90vw;height: 50px">
+        <div class="container-fluid" style="position: relative;top: 100px;left: 75px;width: 75vw;height: 50px">
             <div class="row">
                 <div class="col-6 mb-0 img-fluid img-thumbnail img-responsive">
                     <div class="btn-group btn-group-xm center-block center-block" role="group" aria-label="Basic example">
@@ -4006,9 +4006,9 @@
             </div>
         </div>
 
-        <div style="width: 90vw; height: 60vh;position: relative; top: 140px;right: 0;bottom: 0;left: 0;margin: auto">
+        <div style="width: 98vw; height: 60vh;position: relative; top: 140px;right: 0;bottom: 0;left: 0;margin: auto" class="table-responsive text-nowrap">
 
-            <table class="table align-middle mb-0 bg-white table-responsive table table-hover ">
+            <table class="table align-middle mb-0 bg-white table table-hover table-bordered" style="position: relative;left: 243px;top: 44px;">
                 <thead class="bg-light">
                 <tr>
                     <th>Reserve Id</th>
@@ -4104,7 +4104,7 @@
             <div class="position-sticky">
                 <div class="row h-25">
                     <img src="assets/images/images%20(2).jpg" alt="" class="rounded rounded-circle img-responsive shadow center-block mt-5" style="width: 125px;height: 100px">
-                    <h4 class="text-white text-center">John Sendaya</h4>
+                    <h4 class="text-dark text-center">John Sendaya</h4>
                 </div>
                 <hr class="divider-horizontal-blurry" />
                 <div class="list-group list-group-flush mx-3 mt-4">
@@ -4120,6 +4120,7 @@
                     <a href="#" id="openIncomeReports" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Income Reports</span></a>
                 </div>
 
+                <hr class="divider-horizontal-blurry" />
                 <div class="center-block">
                     <button class="btn btn-outline-info border border-2 border-info center-block" id="btnLogOutFromAdminPanel">Log Out</button>
                 </div>
@@ -4182,73 +4183,6 @@
 
                 <!-- Right links -->
                 <ul class="navbar-nav ms-auto d-flex flex-row">
-                    <!--&lt;!&ndash; Notification dropdown &ndash;&gt;
-                    <li class="nav-item dropdown">
-                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-bell"></i>
-                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Some news</a></li>
-                            <li><a class="dropdown-item" href="#">Another news</a></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    &lt;!&ndash; Icon &ndash;&gt;
-                    <li class="nav-item">
-                        <a class="nav-link me-3 me-lg-0" href="#">
-                            <i class="fas fa-fill-drip"></i>
-                        </a>
-                    </li>
-                    &lt;!&ndash; Icon &ndash;&gt;
-                    <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="#">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-
-                    &lt;!&ndash; Icon dropdown &ndash;&gt;
-                    <li class="nav-item dropdown">
-                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="united kingdom flag m-0"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
-                                    <i class="fa fa-check text-success ms-2"></i></a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
-                            </li>
-                        </ul>
-                    </li>-->
 
                     <!-- Avatar -->
                     <li class="nav-item dropdown">
@@ -4684,8 +4618,7 @@
 
 <!--for charts-->
 
-
-<script >
+<script>
     $(function(){
         $('.input-group.date').datepicker({
             orientation: "auto bottom",
@@ -4708,7 +4641,7 @@
     $(window).on('load',function () {
         $("#container").fadeOut(1000);
     });
-
 </script>
+
 </body>
 </html>

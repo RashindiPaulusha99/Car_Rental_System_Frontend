@@ -119,84 +119,94 @@
         <!--choose rent details-->
         <div class="chooseData w-75 h-25">
 
-           <div class="row">
-                <div class="col w-25 ">
-                    <div class="container">
-                        <label style="font-size: 15px" for="pickUpDate" class="form-label text-white">When will I pickup you </label>
-                        <div class="input-group date" style="width: 90%">
-                            <input type="text" id="pickUpDate" class="form-control" placeholder="Pickup date">
-                            <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
+            <form class="g-3">
+                <div class="row">
+                    <div class="col w-25 ">
+                        <div class="container">
+                            <label style="font-size: 15px" for="pickUpDate" class="form-label text-white">When will I pickup you </label>
+                            <div class="input-group date" style="width: 90%">
+                                <input type="text" id="pickUpDate" class="form-control" placeholder="Pickup date" required/>
+                                <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
+                                <p><small id="errorPickupDate" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col w-25 ">
-                    <div class="container">
-                        <label class="form-label text-white" for="pickUpTime"  style="font-size: 15px;">At what time will I pickup you</label>
-                        <div style="position: relative;width: 90%" >
-                            <input class="form-control" type="text" id="pickUpTime" placeholder="Pickup time"/>
+                    <div class="col w-25 ">
+                        <div class="container">
+                            <label class="form-label text-white" for="pickUpTime"  style="font-size: 15px;">At what time will I pickup you</label>
+                            <div style="position: relative;width: 90%" >
+                                <input class="form-control" type="text" id="pickUpTime" placeholder="Pickup time" required/>
+                                <p><small id="errorPickupTime" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col w-25 ">
-                    <div class="container">
-                        <label style="font-size: 15px" for="returnDate" class="text-white">When will I drop you off</label>
-                        <div class="input-group date" style="width: 90%">
-                            <input type="text" id="returnDate" class="form-control" placeholder="Return date">
-                            <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
+                    <div class="col w-25 ">
+                        <div class="container">
+                            <label style="font-size: 15px" for="returnDate" class="text-white">When will I drop you off</label>
+                            <div class="input-group date" style="width: 90%">
+                                <input type="text" id="returnDate" class="form-control" placeholder="Return date" required/>
+                                <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
+                                <p><small id="errorReturnDate" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col w-25 ">
-                    <div class="container">
-                        <label class="form-label text-white" for="returnTime"  style="font-size: 15px">At what time will I drop you off</label>
-                        <div style="position: relative;width: 90%" >
-                            <input class="form-control" type="text" id="returnTime" placeholder="Return time"/>
+                    <div class="col w-25 ">
+                        <div class="container">
+                            <label class="form-label text-white" for="returnTime"  style="font-size: 15px">At what time will I drop you off</label>
+                            <div style="position: relative;width: 90%" >
+                                <input class="form-control" type="text" id="returnTime" placeholder="Return time" required/>
+                                <p><small id="errorReturnTime" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
+                <div class="row">
 
-            <div class="row">
+                    <div class="col w-50 mt-3">
+                        <div class="form-outline me-5">
+                            <label class="form-label text-white" for="pickUpLocation">Where I pick you</label>
+                            <input type="text" id="pickUpLocation" class="form-control" placeholder="Your pickup location"/>
+                            <p><small id="errorPickupLocation" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                        </div>
+                    </div>
 
-                <div class="col w-50 mt-3">
-                    <div class="form-outline me-5">
-                        <label class="form-label text-white" for="pickUpLocation">Where I pick you</label>
-                        <input type="text" id="pickUpLocation" class="form-control" placeholder="Your pickup location"/>
+                    <div class="col w-50 mt-3">
+                        <div class="form-outline me-5">
+                            <label class="form-label text-white" for="returnLocation">Where I drop you off</label>
+                            <input type="text" id="returnLocation" class="form-control" placeholder="Your drop-off location"/>
+                            <p><small id="errorReturnLocation" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                        </div>
+                    </div>
+
+                    <div class="col w-50 mt-3">
+                        <div class="form-outline me-5">
+                            <label class="form-label text-white" for="destination">Where you go</label>
+                            <input type="text" id="destination" class="form-control" placeholder="Your destination"/>
+                            <p><small id="errorDestination" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                        </div>
+                    </div>
+
+                    <div class="col w-50 mt-3">
+                        <div class="form-outline me-5">
+                            <label class="form-label text-white" for="duration">How far</label>
+                            <input type="text" id="duration" class="form-control" placeholder="Journey duration"/>
+                            <p><small id="errorDuration" class="text-white bg-danger rounded rounded-3 rounded-pill pl-1 mt-0 mb-0"></small></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-5 ">
+                    <div class="text-center">
+                        <button type="button" id="btnSearchForRent" class="btn btn-primary btn-rounded w-25">SEARCH</button>
                     </div>
                 </div>
-
-                <div class="col w-50 mt-3">
-                    <div class="form-outline me-5">
-                        <label class="form-label text-white" for="returnLocation">Where I drop you off</label>
-                        <input type="text" id="returnLocation" class="form-control" placeholder="Your drop-off location"/>
-                    </div>
-                </div>
-
-                <div class="col w-50 mt-3">
-                    <div class="form-outline me-5">
-                        <label class="form-label text-white" for="destination">Where you go</label>
-                        <input type="text" id="destination" class="form-control" placeholder="Your destination"/>
-                    </div>
-                </div>
-
-                <div class="col w-50 mt-3">
-                    <div class="form-outline me-5">
-                        <label class="form-label text-white" for="duration">How far</label>
-                        <input type="text" id="duration" class="form-control" placeholder="Journey duration"/>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row mt-5 ">
-                <div class="text-center">
-                    <button type="button" id="btnSearchForRent" class="btn btn-primary btn-rounded w-25">SEARCH</button>
-                </div>
-            </div>
+            </form>
 
         </div>
 
@@ -4530,6 +4540,7 @@
 
 <script src="controllers/DashBoardController.js"></script>
 <script src="controllers/AdminController.js"></script>
+<!--<script src="controllers/RegisterController.js"></script>-->
 
 <!--for time picker-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>

@@ -295,7 +295,7 @@ $("#btnCancelRegister").click(function () {
     $("#mainForm").css('display','none');
 });
 
-$("#btnSearchForRent").click(function () {
+function searchCars(){
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -328,7 +328,7 @@ $("#btnSearchForRent").click(function () {
     $("#IncomePage").css('display','none');
     $("#Reservation").css('display','none');
     $("#mainForm").css('display','none');
-});
+}
 
 $("#home").click(function () {
     $('#login_page_container').css('transform','scale(0)');

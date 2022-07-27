@@ -162,8 +162,6 @@ function generateUserIds() {
     $("#generateUserId").text("U00-0001");
     var test = "id";
 
-    console.log("got");
-
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/user?test="+test,
         method: "GET",
@@ -172,13 +170,13 @@ function generateUserIds() {
             var tempId = parseInt(userId.split("-")[1]);
             tempId = tempId + 1;
             if (tempId <= 9) {
-                $("#generateUserId").text("C00-000" + tempId);
+                $("#generateUserId").text("U00-000" + tempId);
             } else if (tempId <= 99) {
-                $("#generateUserId").text("C00-00" + tempId);
+                $("#generateUserId").text("U00-00" + tempId);
             } else if (tempId <= 999) {
-                $("#generateUserId").text("C00-0" + tempId);
+                $("#generateUserId").text("U00-0" + tempId);
             } else {
-                $("#generateUserId").text("C00-" + tempId);
+                $("#generateUserId").text("U00-" + tempId);
             }
 
         },
@@ -195,7 +193,7 @@ $("#btnRegister").click(function () {
     }else {
         if ($('#loginCheck').is(':checked')){
             if ($('#uploadmyimage').get(0).files.length === 0 || $('#uploadnicimage').get(0).files.length === 0 || $('#uploaddrivinglicence').get(0).files.length === 0) {
-                alert("No files selected.");
+                alert("No Images Inserted !");
             }else {
                 $('#btnRegister').prop('disabled', false);
                 register();
@@ -212,7 +210,6 @@ function register() {
         username:$("#username").val(),
         password: $("#password").val()
     }
-    console.log("react");
 
     var cusDetail = {
         customerId: $("#generateCusId").text(),
@@ -223,7 +220,9 @@ function register() {
         customerContact: $("#contactnumber").val(),
         customerEmail: $("#email").val(),
         customerNicNo: $("#nic").val(),
-        customerDrivingLicenseNo: $("#drivinglicense").val()
+        customerDrivingLicenseNo: $("#drivinglicense").val(),
+        NICImage: null,
+        DrivingLicenseImage: null
     }
 
     $.ajax({
@@ -233,8 +232,8 @@ function register() {
         data: JSON.stringify(cusDetail),
         success: function (response) {
             if (response.code == 200){
-                alert($("#customername").val() + " "+ response.message);
                 registerUser(user);
+                alert($("#customername").val() + " "+ response.message);
                 registerToSystem();
                 generateRegisterIds();
                 generateUserIds();
@@ -253,7 +252,6 @@ function registerUser(users) {
         username:users.username,
         password: users.password
     }
-    console.log(user);
 
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/user",
@@ -261,6 +259,7 @@ function registerUser(users) {
         contentType: "application/json",
         data: JSON.stringify(user),
         success: function (response) {
+            console.log(response);
             if (response.code == 200){
                 generateRegisterIds();
             }

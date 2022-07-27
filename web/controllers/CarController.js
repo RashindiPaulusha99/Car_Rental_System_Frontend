@@ -152,13 +152,22 @@ $("#btnAddNewCar").click(function () {
         $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" ||  $("#availableOrNot option:selected").val() == ""){
         alert("All Fields Are Required !");
     }else {
-       findRegNoIsDuplicate();
+       if ($("#errorRegNo").text() != "" || $("#errorPassengers").text() != "" || $("#errorDailyRate").text() != "" || $("#errorMonthlyRate").text() != "" ||
+           $("#errorFeeKMDay").text() != "" || $("#errorFreeKMMonth").text() != "" || $("#errorExtraKMPrice").text() != "" || $("#errorTotalDistance").text() != ""){
+           alert("Check Input Fields Whether Correct !");
+       }else {
+           if ($('#uploadFrontView').get(0).files.length === 0 || $('#uploadBackView').get(0).files.length === 0 || $('#uploadSideView').get(0).files.length === 0 || $('#uploadInteriorView').get(0).files.length === 0) {
+               alert("No Images Inserted !");
+           }else {
+               findRegNoIsDuplicate();
+           }
+       }
     }
 });
 
 function findRegNoIsDuplicate() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car" + $("#carId").val(),
+        url: "http://localhost:8081/Car_Rental_System_war/car/" + $("#carId").val(),
         method: "GET",
         success: function (response) {
             console.log(response.data.registrationNo);
@@ -168,11 +177,7 @@ function findRegNoIsDuplicate() {
            }
         },
         error: function (ob) {
-            if ($('#uploadFrontView').get(0).files.length === 0 || $('#uploadBackView').get(0).files.length === 0 || $('#uploadSideView').get(0).files.length === 0 || $('#uploadInteriorView').get(0).files.length === 0) {
-                alert("No Images Inserted !");
-            }else {
-                addNewCar();
-            }
+            addNewCar();
         }
     });
 }
@@ -241,10 +246,10 @@ function loadAllCars() {
                             ${responseKey.monthlyRatePrice} </td><td> 
                             ${responseKey.freeKmForDay} </td><td> 
                             ${responseKey.freeKmForMonth} </td><td> 
-                            ${responseKey.pricePerExtraKM} </td><td> 
-                            ${responseKey.availableOrNot} </td><td> 
-                            ${responseKey.damageOrNot} </td><td> 
-                            ${responseKey.underMaintainOrNot} </td><td> 
+                            ${responseKey.pricePerExtraKM} </td><td>
+                            <span class="badge badge-success rounded-pill d-inline">${responseKey.availableOrNot}</span></td><td> 
+                            <span class="badge badge-success rounded-pill d-inline">${responseKey.damageOrNot}</span></td><td> 
+                            <span class="badge badge-success rounded-pill d-inline">${responseKey.underMaintainOrNot}</span> </td><td> 
                             ${responseKey.totalDistanceTraveled} </td><td>
                             <div class="d-flex align-items-center">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
@@ -261,9 +266,9 @@ function loadAllCars() {
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
                               </button></td>
-                             <td><button type="button" id="btnDeleteCar" class="btn btn-danger btn-sm px-3" data-ripple-color="dark"/>
+                             <td><button type="button" id="btnDeleteCar" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-times"></i>
-                            </button>       
+                            </button>
                             </td></tr>`;
                 $("#tblCars tbody").append(raw);
             }

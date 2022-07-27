@@ -119,10 +119,15 @@ function generateDriverIds() {
 
 $("#btnAddNewDriver").click(function () {
     if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
-        $("#driverAge").val() == "" || $("#driverContact").val() == ""){
+        $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
         alert("All Fields Are Required !");
     }else {
-        addNewDriver();
+        if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
+            $("#errorDAge").text() != "" || $("#errorDContact").text() != ""){
+            alert("Check Input Fields Whether Correct !");
+        }else {
+            addNewDriver();
+        }
     }
 });
 
@@ -173,11 +178,11 @@ function loadAllDrivers() {
 
             $("#tblDriver tbody").empty();
             for (var responseKey of response.data) {
-                let raw = `<tr><td> ${responseKey.driverId} </td><td> ${responseKey.driverName} </td><td> ${responseKey.driverAddress} </td><td> ${responseKey.driverAge} </td><td> ${responseKey.driverContact} </td><td> ${responseKey.releaseOrNot} </td>
+                let raw = `<tr><td> ${responseKey.driverId} </td><td> ${responseKey.driverName} </td><td> ${responseKey.driverAddress} </td><td> ${responseKey.driverAge} </td><td> ${responseKey.driverContact} </td><td> <span class="badge badge-success rounded-pill d-inline">${responseKey.releaseOrNot}</span> </td>
                 <td><button type="button" id="btnEditDriver"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                      <i class="fas fa-pen-alt"></i>
                 </button></td>
-                <td><button type="button" id="btnDeleteDriver" class="btn btn-danger btn-sm px-3" data-ripple-color="dark"/>
+                <td><button type="button" id="btnDeleteDriver" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
                      <i class="fas fa-times"></i>
                  </button>    
                  </td></tr>`;

@@ -188,15 +188,20 @@ function generateUserIds() {
 
 $("#btnRegister").click(function () {
     if ($("#username").val() == "" || $("#password").val() == "" || $("#customername").val() == "" || $("#customeraddress").val() == "" ||
-        $("#contactnumber").val() == "" || $("#email").val() == "" || $("#nic").val() == "" || $("#drivinglicense").val() == ""){
+        $("#contactnumber").val() == "" || $("#email").val() == "" || $("#nic").val() == "" || $("#drivinglicense").val() == "" ){
         alert("All Fields Are Required !");
     }else {
         if ($('#loginCheck').is(':checked')){
             if ($('#uploadmyimage').get(0).files.length === 0 || $('#uploadnicimage').get(0).files.length === 0 || $('#uploaddrivinglicence').get(0).files.length === 0) {
                 alert("No Images Inserted !");
             }else {
-                $('#btnRegister').prop('disabled', false);
-                register();
+                if ($("#errorUsername").text() != "" || $("#errorPassword").text() != "" || $("#errorFullName").text() != "" || $("#errorContact").text() != "" ||
+                    $("#errorAddress").text() != "" || $("#errorEmail").text() != "" || $("#errorDrivingLicense").text() != ""){
+                    alert("Check Input Fields Whether Correct !");
+                }else {
+                    $('#btnRegister').prop('disabled', false);
+                    register();
+                }
             }
         }else {
             alert("You Must Accept Our Terms And Conditions Before Register");

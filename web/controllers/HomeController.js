@@ -123,28 +123,19 @@ $("#btnSearchForRent").click(function () {
         alert("All Fields Are Required !");
         $('#btnSearchForRent').prop('disabled', false);
     }else {
-        searchUserAlreadyExistsToLog()
-        searchCars();
+        if ($("#errorPickupDate").text() != "" || $("#errorPickupTime").text() != "" || $("#errorPickupLocation").text() != "" || $("#errorReturnDate").text() != "" ||
+            $("#errorReturnTime").text() != "" || $("#errorReturnLocation").text() != "" || $("#errorDuration").text() != "" || $("#errorDestination").text() != ""){
+            alert("Check Input Fields Whether Correct !");
+        }else {
+            if (log == "Logged"){
+                searchCars();
+                pasteDate();
+            }else {
+                alert("Before Search Please Log !");
+            }
+        }
     }
 });
 
-function searchUserAlreadyExistsToLog() {
-   /* $.ajax({
-        url: "http://localhost:8080/backend/customer?option=SEARCH&cusId=" + $("#customerId").val(),
-        method: "GET",
-        success: function (response) {
-            if (response.id == $("#customerId").val()) {
-                search = true;
-            }
-        },
-        error: function (ob, statusText, error) {
-            search = false;
-            alert("No Such Customer");
-            loadAllCustomer();
-        }
-    });*/
 
-    
-
-}
 

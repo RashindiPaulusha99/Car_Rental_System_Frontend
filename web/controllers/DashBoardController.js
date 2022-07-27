@@ -23,6 +23,7 @@ $("#CustomerDashBoard").css('display','none');
 $("#moreSpace").css('display','none');
 $("#mainForm").css('display','none');
 $("#SchedulePageForDriver").css('display','none');
+log = "Not Logged";
 
 $("#btnLogin").click(function () {
     $('#login_page_container').css('transform','scale(1)');

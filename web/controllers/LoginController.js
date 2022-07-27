@@ -27,6 +27,8 @@ $("#loginpassword").keyup(function (event) {
 
 /*--------validation end--------------*/
 
+var log;
+
 $("#btnLogToSystem").click(function () {
 
     if ($("#loginusername").val() == "" || $("#loginpassword").val() == ""){
@@ -59,6 +61,7 @@ function searchAdminTable(userId) {
         url: "http://localhost:8081/Car_Rental_System_war/admin/USER/" + userId,
         method: "GET",
         success: function (response) {
+            log = "Logged";
             logToSystem();
         },
         error: function (ob) {
@@ -72,7 +75,8 @@ function searchCustomerTable(userId) {
         url: "http://localhost:8081/Car_Rental_System_war/customer/USER/" + userId,
         method: "GET",
         success: function (response) {
-            searchCars();
+            log = "Logged";
+            $('#login_page_container').css('transform','scale(0)');
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -85,6 +89,7 @@ function searchDriverTable(userId) {
         url: "http://localhost:8081/Car_Rental_System_war/driver/USER/" + userId,
         method: "GET",
         success: function (response) {
+            log = "Logged";
             searchSchedule();
         },
         error: function (ob) {

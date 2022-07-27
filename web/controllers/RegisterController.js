@@ -261,7 +261,7 @@ function registerUser(users) {
         success: function (response) {
             console.log(response);
             if (response.code == 200){
-                generateRegisterIds();
+                clearRegisterFields();
             }
         },
         error: function (ob) {
@@ -299,6 +299,33 @@ function loadAllCustomer() {
         }
     });
 
+}
+
+function clearRegisterFields() {
+    generateRegisterIds();
+    
+    $("#customername").val("");
+    $("#customeraddress").val("");
+    $("#contactnumber").val("");
+    $("#email").val("");
+    $("#nic").val("");
+    $("#drivinglicense").val("");
+    $("#username").val("");
+    $("#password").val("");
+
+    $('#uploadnicimage').clear();
+    $('#uploaddrivinglicence').clear();
+    $('#uploadmyimage').clear();
+
+    $("#customername").css('border', '2px solid transparent');
+    $("#customeraddress").css('border', '2px solid transparent');
+    $("#contactnumber").css('border', '2px solid transparent');
+    $("#email").css('border', '2px solid transparent');
+    $("#nic").css('border', '2px solid transparent');
+    $("#drivinglicense").css('border', '2px solid transparent');
+    $("#email").css('border', '2px solid transparent');
+    $("#username").css('border', '2px solid transparent');
+    $("#password").css('border', '2px solid transparent');
 }
 
 

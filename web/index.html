@@ -2469,7 +2469,7 @@
 
             <div style="width: 98vw; height: 70vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto" class="table-responsive text-nowrap">
 
-                <table class="table align-middle mb-0 bg-white table-bordered table table-hover" style="position: relative;left: 243px;top: 44px;">
+                <table id="tblDriver" class="table align-middle mb-0 bg-white table-bordered table table-hover" style="position: relative;left: 243px;top: 44px;">
                     <thead class="bg-light">
                     <tr>
                         <th>Driver Id</th>
@@ -2483,6 +2483,36 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <!--<tr>
+                        <td>
+                            D00-0001
+                        </td>
+                        <td>
+                            Kamal Perera
+                        </td>
+                        <td>
+                            Panadura
+                        </td>
+                        <td>
+                            30
+                        </td>
+                        <td>
+                            078-7991075
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Not Released</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    <
                     <tr>
                         <td>
                             D00-0001
@@ -2512,67 +2542,7 @@
                                 <i class="fas fa-times"></i>
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            D00-0001
-                        </td>
-                        <td>
-                            Kamal Perera
-                        </td>
-                        <td>
-                            Panadura
-                        </td>
-                        <td>
-                            30
-                        </td>
-                        <td>
-                            078-7991075
-                        </td>
-                        <td>
-                            <span class="badge badge-success rounded-pill d-inline">Not Released</span>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
-                                <i class="fas fa-pen-alt"></i>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            D00-0001
-                        </td>
-                        <td>
-                            Kamal Perera
-                        </td>
-                        <td>
-                            Panadura
-                        </td>
-                        <td>
-                            30
-                        </td>
-                        <td>
-                            078-7991075
-                        </td>
-                        <td>
-                            <span class="badge badge-success rounded-pill d-inline">Not Released</span>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
-                                <i class="fas fa-pen-alt"></i>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </td>
-                    </tr>
+                    </tr>-->
                     </tbody>
                 </table>
 
@@ -2592,51 +2562,76 @@
             </div>
 
             <div class=" mt-0 ms-2 me-5">
-                <form class="ms-5 me-5" style="position: relative; top: 50px;">
+                <form id="formDrivers" class="ms-5 me-5" style="position: relative; top: 50px;">
 
                     <div class="row">
-                        <!-- driver id -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="driverId">* Driver Id</label>
-                            <input type="text" id="driverId" class="form-control bg-white rounded-3" />
+                        <div class="col">
+                            <!-- driver username -->
+                            <div class="form-outline mb-2 ms-4 ">
+                                <label class="form-label text-dark fw-light fs-4" for="driverUsername">* Username</label>
+                                <input type="text" id="driverUsername" class="form-control bg-white rounded-3" name=""/>
+                                <p><small id="errorDriverUsername" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- driver password -->
+                            <div class="form-outline mb-2 ms-4 ">
+                                <label class="form-label text-dark fw-light fs-4" for="driverPassword">* Password</label>
+                                <input type="text" id="driverPassword" class="form-control bg-white rounded-3" name=""/>
+                                <p><small id="errorDPassword" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <!-- driver name -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="driverName">* Name</label>
-                            <input type="text" id="driverName" class="form-control bg-white rounded-3" />
+                        <div class="col">
+                            <!-- driver id -->
+                            <div class="form-outline mb-2 ms-4 ">
+                                <label class="form-label text-dark fw-light fs-4" for="driverId">* Driver Id</label>
+                                <input type="text" id="driverId" class="form-control bg-white rounded-3" name=""/>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- driver name -->
+                            <div class="form-outline mb-2 ms-4 ">
+                                <label class="form-label text-dark fw-light fs-4" for="driverName">* Name</label>
+                                <input type="text" id="driverName" class="form-control bg-white rounded-3" />
+                                <p><small id="errorDName" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <!-- driver address -->
-                        <div class="form-outline mb-2 ms-4 me-4">
+                        <div class="form-outline mb-2 ms-4 me-3">
                             <label class="form-label text-dark fw-light fs-4" for="driverAddress">* Address</label>
                             <input type="text" id="driverAddress" class="form-control bg-white rounded-3" />
+                            <p><small id="errorDAddress" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <!-- driver age -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="driverAge">* Age</label>
-                            <input type="number" id="driverAge" class="form-control bg-white rounded-3" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- driver contact -->
-                        <div class="form-outline mb-2 ms-4 me-4">
-                            <label class="form-label text-dark fw-light fs-4" for="driverContact">* Contact</label>
-                            <input type="tel" id="driverContact" class="form-control bg-white rounded-3" />
+                       <div class="col">
+                           <!-- driver age -->
+                           <div class="form-outline mb-2 ms-4 ">
+                               <label class="form-label text-dark fw-light fs-4" for="driverAge">* Age</label>
+                               <input type="number" id="driverAge" class="form-control bg-white rounded-3" />
+                               <p><small id="errorDAge" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
+                           </div>
+                       </div>
+                        <div class="col">
+                            <!-- driver contact -->
+                            <div class="form-outline mb-2 ms-4 ">
+                                <label class="form-label text-dark fw-light fs-4" for="driverContact">* Contact</label>
+                                <input type="tel" id="driverContact" class="form-control bg-white rounded-3" />
+                                <p><small id="errorDContact" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <!-- driver release or not -->
-                        <div class="form-outline mb-2 ms-4 me-4">
+                        <div class="form-outline mb-2 ms-4 me-3">
                             <label class="form-label text-dark fw-light fs-4" for="driverReleaseOrNot">* Release Or Not</label>
                             <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="driverReleaseOrNot">
                                 <option selected value="0">None</option>
@@ -2655,10 +2650,10 @@
                         </div>
                         <div class="col text-center ">
                             <div class="col" style="width: 200px;">
-                                <button type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
+                                <button id="btnEditPreDriver" type="button" class="btn btn-success btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-pen-alt"></i>
                                 </button>
-                                <button type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
+                                <button id="btnAddNewDriver" type="button" class="btn btn-info btn-lg btn-floating ms-2 me-2 shadow">
                                     <i class="fas fa-plus"></i>
                                 </button>
                                 <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow" id="btnCancelAddDriver">
@@ -4348,6 +4343,7 @@
 <script src="controllers/RegisterController.js"></script>
 <script src="controllers/LoginController.js"></script>
 <script src="controllers/CarController.js"></script>
+<script src="controllers/DriverController.js"></script>
 
 <!--for time picker-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>

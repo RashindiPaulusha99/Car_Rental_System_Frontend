@@ -827,6 +827,7 @@ $("#openDashboard").click(function () {
 });
 
 $("#openViewDrivers").click(function () {
+    loadAllDrivers();
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -1154,6 +1155,9 @@ $("#btnCancelAddCar").click(function () {
 });
 
 $("#btnAddDriver").click(function () {
+    generateDriverIds();
+    generateUserIds();
+
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');

@@ -376,7 +376,9 @@ function deleteCar() {
 $("#btnEditCar").on('click',function () {
     clickEvent();
     $('#CarManagePage').css('transform','scale(1)');
+});
 
+$("#btnUpdateCar").click(function () {
     if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
         $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
         $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||

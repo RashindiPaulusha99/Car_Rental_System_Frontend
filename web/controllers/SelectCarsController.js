@@ -7,6 +7,15 @@ function pasteDate(){
     $("#returnLocationEdit").val($("#returnLocation").val());
     $("#destinationEdit").val($("#destination").val());
     $("#durationEdit").val($("#duration").val());
+
+    $("#pickUpDateEdit").prop("disabled", true);
+    $("#pickUpTimeEdit").prop("disabled", true);
+    $("#returnDateEdit").prop("disabled", true);
+    $("#returnTimeEdit").prop("disabled", true);
+    $("#pickUpLocationEdit").prop("disabled", true);
+    $("#returnLocationEdit").prop("disabled", true);
+    $("#destinationEdit").prop("disabled", true);
+    $("#durationEdit").prop("disabled", true);
 }
 
 $("#pickUpDateEdit").keyup(function (event) {
@@ -97,27 +106,18 @@ $("#durationEdit").keyup(function (event) {
     }
 });
 
-$("pickUpDateEdit").prop("disabled", true);
-$("pickUpTimeEdit").prop("disabled", true);
-$("returnDateEdit").prop("disabled", true);
-$("returnTimeEdit").prop("disabled", true);
-$("pickUpLocationEdit").prop("disabled", true);
-$("returnLocationEdit").prop("disabled", true);
-$("destinationEdit").prop("disabled", true);
-$("durationEdit").prop("disabled", true);
-
 $("#editRentData").click(function () {
     let text = "Do you want to Edit Data?";
 
     if (confirm(text) == true) {
-        $("pickUpDateEdit").prop("disabled", false);
-        $("pickUpTimeEdit").prop("disabled", false);
-        $("returnDateEdit").prop("disabled", false);
-        $("returnTimeEdit").prop("disabled", false);
-        $("pickUpLocationEdit").prop("disabled", false);
-        $("returnLocationEdit").prop("disabled", false);
-        $("destinationEdit").prop("disabled", false);
-        $("durationEdit").prop("disabled", false);
+        $("#pickUpDateEdit").prop("disabled", false);
+        $("#pickUpTimeEdit").prop("disabled", false);
+        $("#returnDateEdit").prop("disabled", false);
+        $("#returnTimeEdit").prop("disabled", false);
+        $("#pickUpLocationEdit").prop("disabled", false);
+        $("#returnLocationEdit").prop("disabled", false);
+        $("#destinationEdit").prop("disabled", false);
+        $("#durationEdit").prop("disabled", false);
     }
 });
 

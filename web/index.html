@@ -527,7 +527,7 @@
                         <div class="input-group date" style="width: 250px">
                             <input type="text" id="pickUpDateEdit" class="form-control" placeholder="Pickup date">
                             <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
-                            <p><small id="errorPickupDateAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <p><small id="errorPickupDateAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
                 </div>
@@ -537,7 +537,7 @@
                         <label class="form-label text-black" for="pickUpTimeEdit"  style="font-size: 15px">At what time will I pickup you</label>
                         <div style="position: relative;width: 250px" >
                             <input class="form-control" type="text" id="pickUpTimeEdit" placeholder="Pickup time"/>
-                            <p><small id="errorPickupTimeAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <p><small id="errorPickupTimeAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
                 </div>
@@ -548,7 +548,7 @@
                         <div class="input-group date" style="width: 250px">
                             <input type="text" id="returnDateEdit" class="form-control" placeholder="Return date">
                             <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
-                            <p><small id="errorDropDateAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <p><small id="errorDropDateAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
                 </div>
@@ -558,7 +558,7 @@
                         <label class="form-label text-black" for="returnTimeEdit"  style="font-size: 15px">At what time will I drop you off</label>
                         <div style="position: relative;width: 250px" >
                             <input class="form-control" type="text" id="returnTimeEdit" placeholder="Return time"/>
-                            <p><small id="errorDroTimeAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <p><small id="errorDroTimeAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
                 </div>
@@ -571,7 +571,7 @@
                     <label class="form-label text-black" for="pickUpLocationEdit">Where I pick you</label>
                     <div class="form-outline " style="position: relative;width: 250px">
                         <input type="text" id="pickUpLocationEdit" class="form-control" placeholder="Your pickup location"/>
-                        <p><small id="errorPickupLocationAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                        <p><small id="errorPickupLocationAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                     </div>
                 </div>
 
@@ -579,7 +579,7 @@
                     <label class="form-label text-black" for="returnLocationEdit">Where I drop you</label>
                     <div class="form-outline" style="position: relative;width: 250px">
                         <input type="text" id="returnLocationEdit" class="form-control" placeholder="Your drop-off location"/>
-                        <p><small id="errorDropLocationAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                        <p><small id="errorDropLocationAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                     </div>
                 </div>
 
@@ -587,7 +587,7 @@
                     <label class="form-label text-black" for="destinationEdit">Where you go</label>
                     <div class="form-outline" style="position: relative;width: 250px">
                         <input type="text" id="destinationEdit" class="form-control" placeholder="Your destination"/>
-                        <p><small id="errorDestinationAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                        <p><small id="errorDestinationAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                     </div>
                 </div>
 
@@ -595,7 +595,7 @@
                     <label class="form-label text-black" for="durationEdit">How far</label>
                     <div class="form-outline" style="position: relative;width: 250px">
                         <input type="text" id="durationEdit" class="form-control" placeholder="Journey duration"/>
-                        <p><small id="errorDurationAgain" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                        <p><small id="errorDurationAgain" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                     </div>
                 </div>
 
@@ -3884,13 +3884,9 @@
                 is3D:true
             };
 
-
             var chart = new google.visualization.PieChart(document.getElementById('piechart3d'));
-
             chart.draw(data, options);
         }
-
-
     });
 
 </script>

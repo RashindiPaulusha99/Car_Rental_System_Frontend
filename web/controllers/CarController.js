@@ -121,7 +121,7 @@ function generateVehicleIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car?test="+test,
+        url: "http://localhost:8080/Car_Rental_System_war/car?test="+test,
         method: "GET",
         success: function (response) {
             var carId = response.data;
@@ -167,7 +167,7 @@ $("#btnAddNewCar").click(function () {
 
 function findRegNoIsDuplicate() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/" + $("#carId").val(),
+        url: "http://localhost:8080/Car_Rental_System_war/car/" + $("#carId").val(),
         method: "GET",
         success: function (response) {
             console.log(response.data.registrationNo);
@@ -209,7 +209,7 @@ function addNewCar() {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car",
+        url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(carDetail),
@@ -229,7 +229,7 @@ function addNewCar() {
 function loadAllCars() {
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car",
+        url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "GET",
         success: function (response) {
 
@@ -363,7 +363,7 @@ $("#btnDeleteCar").on('click',function () {
 
 function deleteCar() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car?id=" + $.trim(tblCarRow.children(':nth-child(1)').text()),
+        url: "http://localhost:8080/Car_Rental_System_war/car?id=" + $.trim(tblCarRow.children(':nth-child(1)').text()),
         method: "DELETE",
         success: function (response) {
             if (response.code == 200) {
@@ -378,7 +378,9 @@ function deleteCar() {
     });
 }
 
+var clicked;
 $("#btnEditCar").on('click',function () {
+    clicked="click";
     clickEvent();
     $('#CarManagePage').css('transform','scale(1)');
 });
@@ -431,7 +433,7 @@ function updateCar() {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car",
+        url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(carDetails),

@@ -41,7 +41,7 @@ $("#btnLogToSystem").click(function () {
 
 function isExists( username, password) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/user/" + password +"/"+username,
+        url: "http://localhost:8080/Car_Rental_System_war/user/" + password +"/"+username,
         method: "GET",
         success: function (response) {
             if (response.data.username == $("#loginusername").val() && response.data.password == $("#loginpassword").val()) {
@@ -58,7 +58,7 @@ function isExists( username, password) {
 
 function searchAdminTable(userId) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/admin/USER/" + userId,
+        url: "http://localhost:8080/Car_Rental_System_war/admin/USER/" + userId,
         method: "GET",
         success: function (response) {
             log = "Logged";
@@ -72,7 +72,7 @@ function searchAdminTable(userId) {
 
 function searchCustomerTable(userId) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/customer/USER/" + userId,
+        url: "http://localhost:8080/Car_Rental_System_war/customer/USER/" + userId,
         method: "GET",
         success: function (response) {
             log = "Logged";
@@ -86,7 +86,7 @@ function searchCustomerTable(userId) {
 
 function searchDriverTable(userId) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/driver/USER/" + userId,
+        url: "http://localhost:8080/Car_Rental_System_war/driver/USER/" + userId,
         method: "GET",
         success: function (response) {
             log = "Logged";

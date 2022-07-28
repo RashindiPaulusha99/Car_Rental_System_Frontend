@@ -902,6 +902,7 @@ $("#openViewCustomers").click(function () {
 });
 
 $("#openSchedule").click(function () {
+    loadSchedule();
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -1376,6 +1377,7 @@ $("#btnCancelAddPayment").click(function () {
 });
 
 function searchSchedule() {
+    loadSchedule();
     $('#CarManagePage').css('transform','scale(0)');
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');

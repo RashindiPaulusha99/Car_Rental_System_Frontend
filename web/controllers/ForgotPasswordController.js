@@ -44,7 +44,7 @@ $("#btnResetPW").click(function () {
 
 function findUserId( username) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/user/FIND/" +username,
+        url: "http://localhost:8080/Car_Rental_System_war/user/FIND/" +username,
         method: "GET",
         success: function (response) {
             if (response.data.username == $("#enterusername").val()) {
@@ -65,7 +65,7 @@ function resetNewPW(userId) {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/user",
+        url: "http://localhost:8080/Car_Rental_System_war/user",
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(pwDetails),

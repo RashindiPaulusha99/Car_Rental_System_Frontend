@@ -265,11 +265,7 @@ function loadAllCars() {
                              </div></td> 
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
-                              </button></td>
-                             <td><button type="button" id="btnDeleteCar" class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
-                                <i class="fas fa-times"></i>
-                            </button>
-                            </td></tr>`;
+                              </button></td></tr>`;
                 $("#tblCars tbody").append(raw);
             }
 
@@ -343,39 +339,6 @@ function clickEvent() {
 
     });
 
-}
-
-$("#btnDeleteCar").on('click',function () {
-    clickEvent();
-    if (tblCarRow == -1){
-        alert("Please Select A Row !");
-    }else {
-        let text = "Are you sure you want to delete this Driver?";
-        if (confirm(text) == true) {
-            tblCarRow.remove();
-            deleteCar();
-        } else {
-
-        }
-    }
-
-});
-
-function deleteCar() {
-    $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car?id=" + $.trim(tblCarRow.children(':nth-child(1)').text()),
-        method: "DELETE",
-        success: function (response) {
-            if (response.code == 200) {
-                alert($("#carId").val() + " " + response.message);
-                loadAllCars();
-                clearCarFields();
-            }
-        },
-        error: function (ob) {
-            alert(ob.responseJSON.message);
-        }
-    });
 }
 
 var clicked;

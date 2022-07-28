@@ -976,6 +976,7 @@ $("#openViewRentals").click(function () {
 });
 
 $("#openViewPayments").click(function () {
+    loadPayments();
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -1278,7 +1279,8 @@ $("#btnCancelChangeDriver").click(function () {
     $('#PaymentAddPage').css('transform','scale(0)');
 
     $("#AdminPanel").css('display','block');
-    $("#ViewCustomerInformationPage").css('display','block');
+    $("#ViewReserveDetailsPage").css('display','block');
+    $("#ViewCustomerInformationPage").css('display','none');
     $("#CarDetailsPage").css('display','none');
     $("#NavBar").css('display','none');
     $("#WelcomePage").css('display','none');
@@ -1295,7 +1297,6 @@ $("#btnCancelChangeDriver").click(function () {
     $("#moreSpace").css('display','none');
     $("#DriverDetailsPage").css('display','none');
     $("#SchedulePage").css('display','none');
-    $("#ViewReserveDetailsPage").css('display','none');
     $("#ReserveDetailsPage").css('display','none');
     $("#PaymentPage").css('display','none');
     $("#IncomePage").css('display','none');

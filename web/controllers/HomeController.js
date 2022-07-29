@@ -10,13 +10,13 @@ var regExDuration = /^[1-9]{1,10}$/;
 $("#pickUpDate").keyup(function (event) {
     let pickupDate = $("#pickUpDate").val();
     if (regExPickupDate.test(pickupDate)) {
-        $("#pickUpDate").css('border', '2px solid #31d2f2');
+        $("#pickUpDate").css('border', '1px solid blue');
         $("#errorPickupDate").text("");
         if (event.key == "Enter") {
             $("#pickUpTime").focus();
         }
     } else {
-        $("#pickUpDate").css('border', '2px solid red');
+        $("#pickUpDate").css('border', '1px solid red');
         $("#errorPickupDate").text("Check this field whether correct !");
     }
 });
@@ -24,13 +24,13 @@ $("#pickUpDate").keyup(function (event) {
 $("#pickUpTime").keyup(function (event) {
     let pickupTime = $("#pickUpTime").val();
     if (regExPickupTime.test(pickupTime)) {
-        $("#pickUpTime").css('border', '2px solid #31d2f2');
+        $("#pickUpTime").css('border', '1px solid blue');
         $("#errorPickupTime").text("");
         if (event.key == "Enter") {
             $("#returnDate").focus();
         }
     } else {
-        $("#pickUpTime").css('border', '2px solid red');
+        $("#pickUpTime").css('border', '1px solid red');
         $("#errorPickupTime").text("Check this field whether correct !");
     }
 });
@@ -38,13 +38,13 @@ $("#pickUpTime").keyup(function (event) {
 $("#returnDate").keyup(function (event) {
     let returnDate = $("#returnDate").val();
     if (regExReturnDate.test(returnDate)) {
-        $("#returnDate").css('border', '2px solid #31d2f2');
+        $("#returnDate").css('border', '1px solid blue');
         $("#errorReturnDate").text("");
         if (event.key == "Enter") {
             $("#returnTime").focus();
         }
     } else {
-        $("#returnDate").css('border', '2px solid red');
+        $("#returnDate").css('border', '1px solid red');
         $("#errorReturnDate").text("Check this field whether correct !");
     }
 });
@@ -52,13 +52,13 @@ $("#returnDate").keyup(function (event) {
 $("#returnTime").keyup(function (event) {
     let returnTime = $("#returnTime").val();
     if (regExReturnTime.test(returnTime)) {
-        $("#returnTime").css('border', '2px solid #31d2f2');
+        $("#returnTime").css('border', '1px solid blue');
         $("#errorReturnTime").text("");
         if (event.key == "Enter") {
             $("#pickUpLocation").focus();
         }
     } else {
-        $("#returnTime").css('border', '2px solid red');
+        $("#returnTime").css('border', '1px solid red');
         $("#errorReturnTime").text("Check this field whether correct !");
     }
 });
@@ -66,13 +66,13 @@ $("#returnTime").keyup(function (event) {
 $("#pickUpLocation").keyup(function (event) {
     let pickupLocation = $("#pickUpLocation").val();
     if (regExPickupLocation.test(pickupLocation)) {
-        $("#pickUpLocation").css('border', '2px solid #31d2f2');
+        $("#pickUpLocation").css('border', '1px solid blue');
         $("#errorPickupLocation").text("");
         if (event.key == "Enter") {
             $("#returnLocation").focus();
         }
     } else {
-        $("#pickUpLocation").css('border', '2px solid red');
+        $("#pickUpLocation").css('border', '1px solid red');
         $("#errorPickupLocation").text("Check this field whether correct !");
     }
 });
@@ -80,13 +80,13 @@ $("#pickUpLocation").keyup(function (event) {
 $("#returnLocation").keyup(function (event) {
     let returnLocation = $("#returnLocation").val();
     if (regExReturnLocation.test(returnLocation)) {
-        $("#returnLocation").css('border', '2px solid #31d2f2');
+        $("#returnLocation").css('border', '1px solid blue');
         $("#errorReturnLocation").text("");
         if (event.key == "Enter") {
             $("#destination").focus();
         }
     } else {
-        $("#returnLocation").css('border', '2px solid red');
+        $("#returnLocation").css('border', '1px solid red');
         $("#errorReturnLocation").text("Check this field whether correct !");
     }
 });
@@ -94,13 +94,13 @@ $("#returnLocation").keyup(function (event) {
 $("#destination").keyup(function (event) {
     let destination = $("#destination").val();
     if (regExDestination.test(destination)) {
-        $("#destination").css('border', '2px solid #31d2f2');
+        $("#destination").css('border', '1px solid blue');
         $("#errorDestination").text("");
         if (event.key == "Enter") {
             $("#duration").focus();
         }
     } else {
-        $("#destination").css('border', '2px solid red');
+        $("#destination").css('border', '1px solid red');
         $("#errorDestination").text("Check this field whether correct !");
     }
 });
@@ -108,11 +108,11 @@ $("#destination").keyup(function (event) {
 $("#duration").keyup(function (event) {
     let duration = $("#duration").val();
     if (regExDuration.test(duration)) {
-        $("#duration").css('border', '2px solid #31d2f2');
+        $("#duration").css('border', '1px solid blue');
         $("#errorDuration").text("");
         $('#btnSearchForRent').prop('disabled', false);
     } else {
-        $("#duration").css('border', '2px solid red');
+        $("#duration").css('border', '1px solid red');
         $("#errorDuration").text("Check this field whether correct !");
     }
 });
@@ -123,7 +123,7 @@ $("#btnSearchForRent").click(function () {
         alert("All Fields Are Required !");
         $('#btnSearchForRent').prop('disabled', false);
     }else {
-        if ($("#errorPickupDate").text() != "" || $("#errorPickupTime").text() != "" || $("#errorPickupLocation").text() != "" || $("#errorReturnDate").text() != "" ||
+        if ($("#errorPickupDate").text() != "" ||  $("#errorPickupTime").text() != "" || $("#errorPickupLocation").text() != "" || $("#errorReturnDate").text() != "" ||
             $("#errorReturnTime").text() != "" || $("#errorReturnLocation").text() != "" || $("#errorDuration").text() != "" || $("#errorDestination").text() != ""){
             alert("Check Input Fields Whether Correct !");
         }else {

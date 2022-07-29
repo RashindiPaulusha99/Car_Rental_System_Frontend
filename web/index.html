@@ -56,7 +56,7 @@
 <main style="width: 100%; height: 100vh;">
 
     <!--Navigation Bar-->
-    <section id="NavBar" >
+    <section id="NavBar" style="z-index: 6">
 
         <nav class=" navbar-expand-lg navbar " style="position: absolute; width: 100%; top: 10px;z-index: 3">
             <div class="container">
@@ -109,54 +109,48 @@
             <img src="assets/gif/loader.gif" alt="" id="loader">
         </div>
 
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.1); z-index: 4">
-            <div class="heading d-flex justify-content-center align-items-center h-100">
-                <p class="text-white mb-0" style="font-size: 45px; font-family: 'Taviraj', serif;">MAKE YOUR TRIP AWESOME</p>
-            </div>
+        <div class="heading d-flex justify-content-center align-items-center" style="z-index: 2;">
+            <p class="text-white mb-0" style="font-size: 45px; font-family: 'Taviraj', serif;">MAKE YOUR TRIP AWESOME</p>
         </div>
 
-        <div class="chooseData w-75 h-25" style="z-index: 5">
+        <div class="chooseData shadow-lg" style="z-index: 5; width: 80%;height:30%;background-color: rgba(255, 255, 255, 0.7); " >
 
-            <form class="g-3">
+            <form class="g-3 ms-5">
                 <div class="row">
                     <div class="col w-25 ">
                         <div class="container">
-                            <label style="font-size: 15px" for="pickUpDate" class="form-label text-white">When will I pickup you </label>
                             <div class="input-group date" style="width: 90%">
-                                <input type="text" id="pickUpDate" class="form-control" placeholder="Pickup date" required/>
+                                <input type="text" id="pickUpDate" class="form-control form-control-lg form-floating" placeholder="Pickup date" required/>
                                 <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
-                                <p><small id="errorPickupDate" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                                <p><small id="errorPickupDate" class="text-danger pl-1 mt-0 mb-0" style="font-size: 10%"></small></p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col w-25 ">
                         <div class="container">
-                            <label class="form-label text-white" for="pickUpTime"  style="font-size: 15px;">At what time will I pickup you</label>
                             <div style="position: relative;width: 90%" >
-                                <input class="form-control" type="text" id="pickUpTime" placeholder="Pickup time" required/>
-                                <p><small id="errorPickupTime" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                                <input class="form-control form-control-lg" type="text" id="pickUpTime" placeholder="Pickup time" required/>
+                                <p><small id="errorPickupTime" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col w-25 ">
+                    <div class="col w-25">
                         <div class="container">
-                            <label style="font-size: 15px" for="returnDate" class="text-white">When will I drop you off</label>
                             <div class="input-group date" style="width: 90%">
-                                <input type="text" id="returnDate" class="form-control" placeholder="Return date" required/>
+                                <input type="text" id="returnDate" class="form-control form-control-lg" placeholder="Return date" required/>
                                 <span class="input-group-addon bg-dark"><i class="glyphicon glyphicon-calendar text-white"></i></span>
-                                <p><small id="errorReturnDate" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                                <p><small id="errorReturnDate" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col w-25 ">
+                    <div class="col w-25">
                         <div class="container">
-                            <label class="form-label text-white" for="returnTime"  style="font-size: 15px">At what time will I drop you off</label>
                             <div style="position: relative;width: 90%" >
-                                <input class="form-control" type="text" id="returnTime" placeholder="Return time" required/>
-                                <p><small id="errorReturnTime" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                                <input class="form-control form-control-lg" type="text" id="returnTime" placeholder="Return time" required/>
+                                <p><small id="errorReturnTime" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
                     </div>
@@ -167,43 +161,36 @@
 
                     <div class="col w-50 mt-3">
                         <div class="form-outline me-5">
-                            <label class="form-label text-white" for="pickUpLocation">Where I pick you</label>
-                            <input type="text" id="pickUpLocation" class="form-control" placeholder="Your pickup location"/>
-                            <p><small id="errorPickupLocation" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <input type="text" id="pickUpLocation" class="form-control form-control-lg" placeholder="Your pickup location"/>
+                            <p><small id="errorPickupLocation" class="text-danger fs-5 pl-1 mt-0 mb-0" ></small></p>
                         </div>
                     </div>
 
                     <div class="col w-50 mt-3">
                         <div class="form-outline me-5">
-                            <label class="form-label text-white" for="returnLocation">Where I drop you off</label>
-                            <input type="text" id="returnLocation" class="form-control" placeholder="Your drop-off location"/>
-                            <p><small id="errorReturnLocation" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <input type="text" id="returnLocation" class="form-control form-control-lg" placeholder="Your drop-off location"/>
+                            <p><small id="errorReturnLocation" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
 
                     <div class="col w-50 mt-3">
                         <div class="form-outline me-5">
-                            <label class="form-label text-white" for="destination">Where you go</label>
-                            <input type="text" id="destination" class="form-control" placeholder="Your destination"/>
-                            <p><small id="errorDestination" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <input type="text" id="destination" class="form-control form-control-lg" placeholder="Your destination"/>
+                            <p><small id="errorDestination" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
 
                     <div class="col w-50 mt-3">
                         <div class="form-outline me-5">
-                            <label class="form-label text-white" for="duration">How far</label>
-                            <input type="text" id="duration" class="form-control" placeholder="Journey duration"/>
-                            <p><small id="errorDuration" class="text-white fs-5 pl-1 mt-0 mb-0"></small></p>
+                            <input type="text" id="duration" class="form-control form-control-lg" placeholder="Journey duration"/>
+                            <p><small id="errorDuration" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="row mt-5 ">
-                    <div class="text-center">
-                        <button type="button" id="btnSearchForRent" class="btn btn-primary btn-rounded w-25" disabled>SEARCH</button>
-                    </div>
-                </div>
+                <button type="button" id="btnSearchForRent" class="btn btn-primary btn-lg btn-rounded w-25 center-block mt-3" disabled>SEARCH</button>
+
             </form>
 
         </div>
@@ -1490,17 +1477,17 @@
                                             <div class=" d-none d-md-block">
                                                 <h5 class="text-center text-primary mt-3 fa-2x">BMW</h5>
                                                 <h5 class="text-center text-warning fa-3x">*******</h5>
-                                                <h5 class="text-black text-center fw-bold fa-2x">$120/DAY</h5>
-                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer">RENT NOW</button>
+                                                <h5 class="text-black text-center fw-bold fa-2x">$500/DAY</h5>
+                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer">CHECK OUT</button>
                                             </div>
                                         </div>
                                         <div class="col-md w-75 bg-white me-5 ms-5">
                                             <img src="assets/images/Koenigsegg%20Gemera_01%20copy.jpg" class="d-block w-100 center-block img-thumbnail img-fluid shadow-2-strong" alt="error loading" style="height: 45vh">
                                             <div class=" d-none d-md-block">
-                                                <h5 class="text-center text-primary mt-3 fa-2x">BMW</h5>
+                                                <h5 class="text-center text-primary mt-3 fa-2x">Susuki</h5>
                                                 <h5 class="text-center text-warning fa-3x">*******</h5>
                                                 <h5 class="text-black text-center fw-bold fa-2x">$120/DAY</h5>
-                                                <button type="button" class=" btnRentNow btn btn-success mb-3" style="cursor: pointer">RENT NOW</button>
+                                                <button type="button" class=" btnRentNow btn btn-success mb-3" style="cursor: pointer">CHECK OUT</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1512,19 +1499,19 @@
                                         <div class="col-md w-75 bg-white me-5 ms-5">
                                             <img src="assets/images/1_rangerover_tracking.jpg" class="d-block w-100 img-thumbnail img-fluid shadow-2-strong center-block" alt="error loading" style="height: 45vh">
                                             <div class=" d-none d-md-block">
-                                                <h5 class="text-center text-primary mt-3 fa-2x">BMW</h5>
+                                                <h5 class="text-center text-primary mt-3 fa-2x">Perodua</h5>
                                                 <h5 class="text-center text-warning fa-3x">*******</h5>
-                                                <h5 class="text-black text-center fw-bold fa-2x">$120/DAY</h5>
-                                                <button type="button" class=" btnRentNow btn btn-success mb-3" style="cursor: pointer">RENT NOW</button>
+                                                <h5 class="text-black text-center fw-bold fa-2x">$200/DAY</h5>
+                                                <button type="button" class=" btnRentNow btn btn-success mb-3" style="cursor: pointer">CHECK OUT</button>
                                             </div>
                                         </div>
                                         <div class="col-md w-75 bg-white me-5 ms-5">
                                             <img src="assets/images/download%20(1).jpg" class="d-block w-100 center-block img-thumbnail img-fluid shadow-2-strong" alt="error loading" style="height: 45vh">
                                             <div class=" d-none d-md-block">
-                                                <h5 class="text-center text-primary mt-3 fa-2x">BMW</h5>
+                                                <h5 class="text-center text-primary mt-3 fa-2x">Toyota</h5>
                                                 <h5 class="text-center text-warning fa-3x">*******</h5>
-                                                <h5 class="text-black text-center fw-bold fa-2x">$120/DAY</h5>
-                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer">RENT NOW</button>
+                                                <h5 class="text-black text-center fw-bold fa-2x">$250/DAY</h5>
+                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer">CHECK OUT</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1536,10 +1523,10 @@
                                         <div class="col-md w-75 bg-white me-5 ms-5">
                                             <img src="assets/images/photo-1605559424843-9e4c228bf1c2.jpg" class="d-block w-100 img-thumbnail img-fluid shadow-2-strong center-block" alt="error loading" style="height: 45vh">
                                             <div class=" d-none d-md-block">
-                                                <h5 class="text-center text-primary mt-3 fa-2x">BMW</h5>
+                                                <h5 class="text-center text-primary mt-3 fa-2x">Mercedes</h5>
                                                 <h5 class="text-center text-warning fa-3x">*******</h5>
-                                                <h5 class="text-black text-center fw-bold fa-2x">$120/DAY</h5>
-                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer;">RENT NOW</button>
+                                                <h5 class="text-black text-center fw-bold fa-2x">$450/DAY</h5>
+                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer;">CHECK OUT</button>
                                             </div>
                                         </div>
                                         <div class="col-md w-75 bg-white me-5 ms-5">
@@ -1547,8 +1534,8 @@
                                             <div class=" d-none d-md-block">
                                                 <h5 class="text-center text-primary mt-3 fa-2x">BMW</h5>
                                                 <h5 class="text-center text-warning fa-3x">*******</h5>
-                                                <h5 class="text-black text-center fw-bold fa-2x">$120/DAY</h5>
-                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer;">RENT NOW</button>
+                                                <h5 class="text-black text-center fw-bold fa-2x">$500/DAY</h5>
+                                                <button type="button" class="btnRentNow btn btn-success mb-3" style="cursor: pointer;">CHECK OUT</button>
                                             </div>
                                         </div>
                                     </div>

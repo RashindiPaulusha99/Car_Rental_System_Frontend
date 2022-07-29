@@ -1086,6 +1086,7 @@ $("#btnLogOutFromAdminPanel").click(function () {
 
 $("#btnAddCar").click(function () {
     generateVehicleIds();
+    clearCarFields();
 
     $('#CarManagePage').css('transform','scale(1)');
     $('#login_page_container').css('transform','scale(0)');

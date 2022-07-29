@@ -174,7 +174,7 @@ $("#btnAddNewCar").click(function () {
 function findRegNoIsDuplicate() {
     console.log("duplicate");
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car" + $("#carId").val(),
+        url: "http://localhost:8080/Car_Rental_System_war/car/" + $("#carId").val(),
         method: "GET",
         success: function (response) {
             console.log(response.data.registrationNo);
@@ -201,13 +201,13 @@ function addNewCar() {
         type: $("#type option:selected").text(),
         fuelType: $("#fuelType option:selected").text(),
         transmissionType: $("#transmissionType option:selected").text(),
-        NoOfPassengers: $("#noOfPassengers").val().toString(),
+        NoOfPassengers: $("#noOfPassengers").val(),
         freeKmForDay: $("#freeKMPerDay").val(),
         freeKmForMonth: $("#freeKMPerMonth").val(),
         pricePerExtraKM: $("#priceForExtraKM").val(),
         dailyRatePrice: $("#dailyRatePrice").val(),
         monthlyRatePrice: $("#monthlyRatePrice").val(),
-        totalDistanceTraveled: $("#totalDistanceTravelled").val().toString(),
+        totalDistanceTraveled: $("#totalDistanceTravelled").val(),
         availableOrNot:$("#availableOrNot option:selected").text(),
         damageOrNot: $("#damageOrNot option:selected").text(),
         underMaintainOrNot: $("#underMaintainOrNot option:selected").text(),
@@ -251,6 +251,7 @@ function loadAllCars() {
                             ${responseKey.registrationNo} </td><td> 
                             ${responseKey.fuelType} </td><td> 
                             ${responseKey.transmissionType} </td><td> 
+                            ${responseKey.NoOfPassengers} </td><td> 
                             ${responseKey.dailyRatePrice} </td><td> 
                             ${responseKey.monthlyRatePrice} </td><td> 
                             ${responseKey.freeKmForDay} </td><td> 
@@ -330,19 +331,21 @@ function clickEvent() {
             
             var carId = $.trim(tblCarRow.children(':nth-child(1)').text());
             var regNo = $.trim(tblCarRow.children(':nth-child(5)').text());
-            var dailyRate = $.trim(tblCarRow.children(':nth-child(8)').text());
-            var monthlyRate = $.trim(tblCarRow.children(':nth-child(9)').text());
-            var freeKMDay = $.trim(tblCarRow.children(':nth-child(10)').text());
-            var freeKmMonth = $.trim(tblCarRow.children(':nth-child(11)').text());
-            var extraKm = $.trim(tblCarRow.children(':nth-child(12)').text());
-            var totalDistance = $.trim(tblCarRow.children(':nth-child(16)').text());
-            var frontView = $.trim(tblCarRow.children(':nth-child(17)').text());
-            var backView = $.trim(tblCarRow.children(':nth-child(18)').text());
-            var sideView = $.trim(tblCarRow.children(':nth-child(19)').text());
-            var interiorView = $.trim(tblCarRow.children(':nth-child(20)').text());
+            var passengers = $.trim(tblCarRow.children(':nth-child(8)').text());
+            var dailyRate = $.trim(tblCarRow.children(':nth-child(9)').text());
+            var monthlyRate = $.trim(tblCarRow.children(':nth-child(10)').text());
+            var freeKMDay = $.trim(tblCarRow.children(':nth-child(11)').text());
+            var freeKmMonth = $.trim(tblCarRow.children(':nth-child(12)').text());
+            var extraKm = $.trim(tblCarRow.children(':nth-child(13)').text());
+            var totalDistance = $.trim(tblCarRow.children(':nth-child(17)').text());
+            var frontView = $.trim(tblCarRow.children(':nth-child(18)').text());
+            var backView = $.trim(tblCarRow.children(':nth-child(19)').text());
+            var sideView = $.trim(tblCarRow.children(':nth-child(20)').text());
+            var interiorView = $.trim(tblCarRow.children(':nth-child(21)').text());
 
             $("#carId").val(carId);
             $("#registrationNo").val(regNo);
+            $("#noOfPassengers").val(passengers);
             $("#dailyRatePrice").val(dailyRate);
             $("#monthlyRatePrice").val(monthlyRate);
             $("#freeKMPerDay").val(freeKMDay);
@@ -365,18 +368,30 @@ $("#btnUpdateCar").click(function () {
         $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" ||  $("#availableOrNot option:selected").val() == ""){
         alert("All Fields Are Required !");
     } else {
-
-        let text = "Do you really want to update this Car?";
-
-        if (confirm(text) == true) {
-
-            updateCar();
-
-        } else {
-
-        }
+        searchCarId();
     }
 });
+
+function searchCarId() {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/car/" + $("#carId").val(),
+        method: "GET",
+        success: function (response) {
+            if ($("#carId").val() != response.data.carId){
+                let text = "Do you really want to update this Car?";
+
+                if (confirm(text) == true) {
+                    /*updateCar();*/
+                } else {
+
+                }
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
 
 function updateCar() {
 

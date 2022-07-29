@@ -60,7 +60,7 @@
 
         <nav class=" navbar-expand-lg navbar " style="position: absolute; width: 100%; top: 10px;z-index: 3">
             <div class="container">
-                <img src="assets/logo/car%20rental%20logo.jpg" id="logoImage" height="60" alt="Car Rental Logo"/>
+                <img src="assets/logo/logocar.png" id="logoImage" height="60" alt="Car Rental Logo"/>
 
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarButtonsExample">
@@ -109,15 +109,13 @@
             <img src="assets/gif/loader.gif" alt="" id="loader">
         </div>
 
-        <!--heading in welcome page-->
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.1);">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.1); z-index: 4">
             <div class="heading d-flex justify-content-center align-items-center h-100">
                 <p class="text-white mb-0" style="font-size: 45px; font-family: 'Taviraj', serif;">MAKE YOUR TRIP AWESOME</p>
             </div>
         </div>
 
-        <!--choose rent details-->
-        <div class="chooseData w-75 h-25">
+        <div class="chooseData w-75 h-25" style="z-index: 5">
 
             <form class="g-3">
                 <div class="row">
@@ -210,8 +208,33 @@
 
         </div>
 
-       <img src="assets/images/Koenigsegg%20Gemera_01%20copy.jpg" alt="bg image" style="width: 100%; height: 100vh" class="img-fluid">
+        <div class="" style="width: 100%;height: 100vw">
+            <div id="carouselExampleCaptions" class="carousel slide  carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/images/Koenigsegg%20Gemera_01%20copy.jpg" class="d-block w-100 img-fluid shadow-2-strong center-block" alt="error loading" style="width: 100%; height: 100vh">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/120mvB.jpg" class="d-block w-100  img-fluid shadow-2-strong center-block" alt="error loading" style="width: 100%; height: 100vh">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/BUGATTI_La_Voiture_Noire_Side_Black_Black_567142_1280x720.jpg" class="d-block w-100  img-fluid shadow-2-strong center-block" alt="error loading" style="width: 100%; height: 100vh">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/1179614.jpg" class="d-block w-100  img-fluid shadow-2-strong center-block" alt="error loading" style="width: 100%; height: 100vh">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
+        </div>
     </section>
 
     <!--Login Page-->
@@ -518,7 +541,7 @@
         </div>
 
         <!--edit reservation date and time-->
-        <div class="chooseData w-75 bg-white thumbnail shadow" style="height: 35%;position: absolute; top: 75%">
+        <div class="chooseData w-75 bg-white thumbnail shadow" style="height: 38%;position: absolute; top: 70%">
 
             <div class="row ms-3">
                 <div class="col w-25 ">
@@ -601,7 +624,7 @@
 
             </div>
 
-            <div class="row mt-5 ">
+            <div class="row mt-3 ">
                 <div class="text-center">
                     <button id="editRentData" type="button" class="btn btn-info btn-rounded w-25">EDIT</button>
                 </div>
@@ -2157,6 +2180,7 @@
                         <th>Registration NO</th>
                         <th>Fuel Type</th>
                         <th>Transmission Type</th>
+                        <th>No of Passengers</th>
                         <th>Daily Rate</th>
                         <th>Monthly Rate</th>
                         <th>Free KM Per Day</th>
@@ -3888,6 +3912,9 @@
             chart.draw(data, options);
         }
     });
+
+    const myCarousel = document.querySelector('#myCarousel');
+    const carousel = new mdb.Carousel(myCarousel);
 
 </script>
 

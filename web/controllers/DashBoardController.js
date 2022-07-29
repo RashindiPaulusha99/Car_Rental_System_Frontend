@@ -1,3 +1,30 @@
+$("#CustomerDashBoard").css('display','block');
+$("#moreSpace").css('display','block');
+$("#CopyRightPage").css('display','block');
+
+$("#NavBar").css('display','none');
+$("#WelcomePage").css('display','none');
+$("#ViewCars").css('display','none');
+$("#Services").css('display','none');
+$("#OurCompany").css('display','none');
+$("#OurHistory").css('display','none');
+$("#OurTeam").css('display','none');
+$("#Testimony").css('display','none');
+$("#Blog").css('display','none');
+$("#ContactInfoPage").css('display','none');
+$("#CarDetailsPage").css('display','none');
+$("#DriverDetailsPage").css('display','none');
+$("#SchedulePage").css('display','none');
+$("#ViewCustomerInformationPage").css('display','none');
+$("#ViewReserveDetailsPage").css('display','none');
+$("#ReserveDetailsPage").css('display','none');
+$("#PaymentPage").css('display','none');
+$("#AdminPanel").css('display','none');
+$("#IncomePage").css('display','none');
+$("#Reservation").css('display','none');
+$("#mainForm").css('display','none');
+$("#SchedulePageForDriver").css('display','none');
+/*
 $("#NavBar").css('display','block');
 $("#WelcomePage").css('display','block');
 $("#ViewCars").css('display','block');
@@ -1450,4 +1477,5 @@ $("#btnLogOutFromDriverSchedule").click(function () {
     $("#Reservation").css('display','none');
     $("#mainForm").css('display','none');
 });
+*/
 

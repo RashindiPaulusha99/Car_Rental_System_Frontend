@@ -201,7 +201,7 @@ function addNewCar() {
         type: $("#type option:selected").text(),
         fuelType: $("#fuelType option:selected").text(),
         transmissionType: $("#transmissionType option:selected").text(),
-        NoOfPassengers: $("#noOfPassengers").val(),
+        noOfPassengers: $("#noOfPassengers").val(),
         freeKmForDay: $("#freeKMPerDay").val(),
         freeKmForMonth: $("#freeKMPerMonth").val(),
         pricePerExtraKM: $("#priceForExtraKM").val(),
@@ -251,7 +251,7 @@ function loadAllCars() {
                             ${responseKey.registrationNo} </td><td> 
                             ${responseKey.fuelType} </td><td> 
                             ${responseKey.transmissionType} </td><td> 
-                            ${responseKey.NoOfPassengers} </td><td> 
+                            ${responseKey.noOfPassengers} </td><td> 
                             ${responseKey.dailyRatePrice} </td><td> 
                             ${responseKey.monthlyRatePrice} </td><td> 
                             ${responseKey.freeKmForDay} </td><td> 
@@ -403,7 +403,7 @@ function updateCar() {
         type: $("#type option:selected").text(),
         fuelType: $("#fuelType option:selected").text(),
         transmissionType: $("#transmissionType option:selected").text(),
-        NoOfPassengers: $("#noOfPassengers").val(),
+        noOfPassengers: $("#noOfPassengers").val(),
         freeKmForDay: $("#freeKMPerDay").val(),
         freeKmForMonth: $("#freeKMPerMonth").val(),
         pricePerExtraKM: $("#priceForExtraKM").val(),

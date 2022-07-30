@@ -622,7 +622,7 @@
     </section>
 
     <!--More Space to view car-->
-    <section id="moreSpace" style="width: 100%;  ;background-color: white;">
+    <section id="moreSpace" style="width: 100%; ;background-color: white;">
 
         <!--sort section and available cars-->
         <div class="row w-100 h-25 mt-3 text-center">
@@ -631,13 +631,13 @@
                 <blockquote class="blockquote" style="border: 1px solid transparent">
                     <p class="display-1" style="font-family: emoji">SELECT VEHICLE YOU LIKE</p>
                 </blockquote>
-                <figcaption id="availableCars" class=" text-black mt-0" style="font-size: 20px ;display: inline">
-                    25
-                </figcaption>
+                <figcaption id="availableCars" class=" text-black mt-0" style="font-size: 20px ;display: inline"></figcaption>
                 <figcaption class=" text-black mt-0" style="font-size: 20px;display: inline">
                     Cars Available
                 </figcaption>
+
                 <div class="row mt-5">
+
                     <div class="col">
                         <div>
                             <label for="sort" class="form-label" style="display: inline">SORT :</label>
@@ -652,23 +652,39 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="col">
                         <div class="row">
                             <div class="col">
                                 <div class="input-group w-100">
                                     <div class="form-outline">
-                                        <input type="search" id="form1" class="form-control me-0"/>
+                                        <input type="search" id="searchCarsToSort" class="form-control me-0"/>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col d-grid gap-2 d-md-flex justify-content-md-start">
-                                <button type="button" class="btn btn-primary ">
+                                <button type="button" class="btn btn-primary " id="btnSearchCarsToSort">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
+
+                            <div class="col d-md-flex justify-content-md-start">
+                                <a class="btn btn-primary btn-floating" style="background-color: #ac2bac;"  role="button">
+                                    <i class="fab fa-instagram"></i>
+                                    Add To Cart
+                                </a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
+
+                <div class="row mt-5 mb-5 bg-white w-100 text-center" id="noResult">
+                    <h1 class="text-muted mt-5 mb-5">Opps ! No Such Result</h1>
+                </div>
+
+
             </figure>
 
         </div>

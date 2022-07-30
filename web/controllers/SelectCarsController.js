@@ -121,13 +121,34 @@ $("#editRentData").click(function () {
     }
 });
 
-loadAllCarsToSee();
+$("#noResult").css('display','none');
 
+countAvailableCars();
+function countAvailableCars() {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/car/AVAILABLECOUNT/" + "Available",
+        method: "GET",
+        success: function (response) {
+            $("#availableCars").text(response.data);
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+loadAllCarsToSee();
 function loadAllCarsToSee() {
     $.ajax({
         url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "GET",
         success: function (response) {
+            if (response.data.length == 0){
+                $("#noResult").css('display','block');
+            }else {
+                $("#noResult").css('display','none');
+            }
+
             var rentFeeDay;
             var rentFeeMonth;
 
@@ -145,9 +166,9 @@ function loadAllCarsToSee() {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6">
+                let raw = ` <tr class="rounded rounded-6 shadow">
                         <td>
-                            <div class="d-flex">
+                            <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
                         </td>
@@ -157,7 +178,7 @@ function loadAllCarsToSee() {
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
                                 <div class="center-block">
                                     <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
-                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.NoOfPassengers}<span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
                                     <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
                                     <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
                                     <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
@@ -166,9 +187,9 @@ function loadAllCarsToSee() {
                         </td>
                         <td>
                             <div style="position: relative; top: 7em">
-                                <p class="text-muted">${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
-                                <p class="text-muted">${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
-                                <p class="text-muted"><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
+                                <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
+                                <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
+                                <p class="text-muted"><i class="fas fa-check text-success me-3"></i><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
                             </div>
                         </td>
                         <td>
@@ -176,8 +197,8 @@ function loadAllCarsToSee() {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td class="border border-1 border-danger">
-                            <h3 class="text-danger text-center  mt-5">DAILY RENTAL</3>
+                        <td class="shadow img-thumbnail">
+                            <h3 class="text-danger text-center  mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
@@ -186,7 +207,6 @@ function loadAllCarsToSee() {
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
-
 
         },
         error: function (ob) {
@@ -208,8 +228,9 @@ $("#sort").click(function () {
         findMonthlyRateAsc($("#sort option:selected").text());
     }else if ($("#sort option:selected").text() == "Monthly Rate Price - Descending"){
         findMonthlyRateDsc($("#sort option:selected").text());
+    }else if($("#sort option:selected").text() == "Recommended"){
+        loadAllCarsToSee();
     }
-
 });
 
 function findPassengersAsc(passengerAsc) {
@@ -247,7 +268,7 @@ function findPassengersAsc(passengerAsc) {
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
                                 <div class="center-block">
                                     <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
-                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i> ${responseKey.NoOfPassengers} <span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
                                     <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
                                     <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
                                     <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
@@ -316,7 +337,7 @@ function findPassengersDsc(passengerDsc) {
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
                                 <div class="center-block">
                                     <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
-                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i> ${responseKey.NoOfPassengers} <span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
                                     <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
                                     <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
                                     <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
@@ -385,7 +406,7 @@ function findDailyRateAsc(dailyRateAsc) {
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
                                 <div class="center-block">
                                     <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
-                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i> ${responseKey.NoOfPassengers} <span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
                                     <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
                                     <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
                                     <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
@@ -454,7 +475,7 @@ function findDailyRateDsc(dailyRateDsc) {
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
                                 <div class="center-block">
                                     <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
-                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i> ${responseKey.NoOfPassengers} <span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
                                     <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
                                     <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
                                     <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
@@ -523,7 +544,7 @@ function findMonthlyRateAsc(monthlyRateAsc) {
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
                                 <div class="center-block">
                                     <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
-                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i> ${responseKey.NoOfPassengers} <span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
                                     <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
                                     <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
                                     <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
@@ -592,7 +613,7 @@ function findMonthlyRateDsc(monthlyRateDsc) {
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
                                 <div class="center-block">
                                     <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
-                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i> ${responseKey.NoOfPassengers} <span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
                                     <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
                                     <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
                                     <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
@@ -626,3 +647,394 @@ function findMonthlyRateDsc(monthlyRateDsc) {
         }
     });
 }
+
+$("#btnSearchCarsToSort").click(function () {
+    findTransmissionType($("#searchCarsToSort").val());
+    findType($("#searchCarsToSort").val());
+    findBrand($("#searchCarsToSort").val());
+    findFuelType($("#searchCarsToSort").val());
+    findColour($("#searchCarsToSort").val());
+});
+
+function findTransmissionType(type) {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPETR/" +type ,
+        method: "GET",
+        success: function (response) {
+            if (response.data.length == 0){
+                $("#noResult").css('display','block');
+            }else {
+                $("#noResult").css('display','none');
+            }
+
+            var rentFeeDay;
+            var rentFeeMonth;
+
+            $("#tblShowCars tbody").empty();
+            for (var responseKey of response.data) {
+
+                if (responseKey.type == "Luxury"){
+                    rentFeeDay = 8000.00;
+                    rentFeeMonth = 25000.00;
+                }else if (responseKey.type = "premium"){
+                    rentFeeDay = 5000.00;
+                    rentFeeMonth = 20000.00;
+                }else if (responseKey.type = "General") {
+                    rentFeeDay = 3000.00;
+                    rentFeeMonth = 10000.00;
+                }
+
+                let raw = ` <tr class="rounded rounded-6">
+                        <td>
+                            <div class="d-flex">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <p class="fw-bold mb-1 mt-1 fs-1">${responseKey.type}</p>
+                                <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
+                                <div class="center-block">
+                                    <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
+                                    <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="position: relative; top: 7em">
+                                <p class="text-muted">${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
+                                <p class="text-muted">${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
+                                <p class="text-muted"><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="center-block" style="position: relative;top: 127px;">
+                                <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
+                            </div>
+                        </td>
+                        <td class="border border-1 border-danger">
+                            <h3 class="text-danger text-center  mt-5">DAILY RENTAL</3>
+                            <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
+                            <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
+                            <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
+                            <button type="button" class="btn btn-outline-success border border-1 border-success center-block w-75 mt-2 mb-0">RENT NOW</button>
+                        </td>
+                    </tr>`;
+                $("#tblShowCars tbody").append(raw);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function findType(type) {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPET/" +type ,
+        method: "GET",
+        success: function (response) {
+            if (response.data.length == 0){
+                $("#noResult").css('display','block');
+            }else {
+                $("#noResult").css('display','none');
+            }
+
+            var rentFeeDay;
+            var rentFeeMonth;
+
+            $("#tblShowCars tbody").empty();
+            for (var responseKey of response.data) {
+
+                if (responseKey.type == "Luxury"){
+                    rentFeeDay = 8000.00;
+                    rentFeeMonth = 25000.00;
+                }else if (responseKey.type = "premium"){
+                    rentFeeDay = 5000.00;
+                    rentFeeMonth = 20000.00;
+                }else if (responseKey.type = "General") {
+                    rentFeeDay = 3000.00;
+                    rentFeeMonth = 10000.00;
+                }
+
+                let raw = ` <tr class="rounded rounded-6">
+                        <td>
+                            <div class="d-flex">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <p class="fw-bold mb-1 mt-1 fs-1">${responseKey.type}</p>
+                                <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
+                                <div class="center-block">
+                                    <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
+                                    <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="position: relative; top: 7em">
+                                <p class="text-muted">${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
+                                <p class="text-muted">${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
+                                <p class="text-muted"><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="center-block" style="position: relative;top: 127px;">
+                                <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
+                            </div>
+                        </td>
+                        <td class="border border-1 border-danger">
+                            <h3 class="text-danger text-center  mt-5">DAILY RENTAL</3>
+                            <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
+                            <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
+                            <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
+                            <button type="button" class="btn btn-outline-success border border-1 border-success center-block w-75 mt-2 mb-0">RENT NOW</button>
+                        </td>
+                    </tr>`;
+                $("#tblShowCars tbody").append(raw);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function findBrand(type) {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPEB/" +type ,
+        method: "GET",
+        success: function (response) {
+            if (response.data.length == 0){
+                $("#noResult").css('display','block');
+            }else {
+                $("#noResult").css('display','none');
+            }
+
+            var rentFeeDay;
+            var rentFeeMonth;
+
+            $("#tblShowCars tbody").empty();
+            for (var responseKey of response.data) {
+
+                if (responseKey.type == "Luxury"){
+                    rentFeeDay = 8000.00;
+                    rentFeeMonth = 25000.00;
+                }else if (responseKey.type = "premium"){
+                    rentFeeDay = 5000.00;
+                    rentFeeMonth = 20000.00;
+                }else if (responseKey.type = "General") {
+                    rentFeeDay = 3000.00;
+                    rentFeeMonth = 10000.00;
+                }
+
+                let raw = ` <tr class="rounded rounded-6">
+                        <td>
+                            <div class="d-flex">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <p class="fw-bold mb-1 mt-1 fs-1">${responseKey.type}</p>
+                                <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
+                                <div class="center-block">
+                                    <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
+                                    <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="position: relative; top: 7em">
+                                <p class="text-muted">${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
+                                <p class="text-muted">${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
+                                <p class="text-muted"><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="center-block" style="position: relative;top: 127px;">
+                                <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
+                            </div>
+                        </td>
+                        <td class="border border-1 border-danger">
+                            <h3 class="text-danger text-center  mt-5">DAILY RENTAL</3>
+                            <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
+                            <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
+                            <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
+                            <button type="button" class="btn btn-outline-success border border-1 border-success center-block w-75 mt-2 mb-0">RENT NOW</button>
+                        </td>
+                    </tr>`;
+                $("#tblShowCars tbody").append(raw);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function findFuelType(type) {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPEF/" +type ,
+        method: "GET",
+        success: function (response) {
+            if (response.data.length == 0){
+                $("#noResult").css('display','block');
+            }else {
+                $("#noResult").css('display','none');
+            }
+
+            var rentFeeDay;
+            var rentFeeMonth;
+
+            $("#tblShowCars tbody").empty();
+            for (var responseKey of response.data) {
+
+                if (responseKey.type == "Luxury"){
+                    rentFeeDay = 8000.00;
+                    rentFeeMonth = 25000.00;
+                }else if (responseKey.type = "premium"){
+                    rentFeeDay = 5000.00;
+                    rentFeeMonth = 20000.00;
+                }else if (responseKey.type = "General") {
+                    rentFeeDay = 3000.00;
+                    rentFeeMonth = 10000.00;
+                }
+
+                let raw = ` <tr class="rounded rounded-6">
+                        <td>
+                            <div class="d-flex">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <p class="fw-bold mb-1 mt-1 fs-1">${responseKey.type}</p>
+                                <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
+                                <div class="center-block">
+                                    <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
+                                    <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="position: relative; top: 7em">
+                                <p class="text-muted">${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
+                                <p class="text-muted">${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
+                                <p class="text-muted"><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="center-block" style="position: relative;top: 127px;">
+                                <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
+                            </div>
+                        </td>
+                        <td class="border border-1 border-danger">
+                            <h3 class="text-danger text-center  mt-5">DAILY RENTAL</3>
+                            <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
+                            <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
+                            <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
+                            <button type="button" class="btn btn-outline-success border border-1 border-success center-block w-75 mt-2 mb-0">RENT NOW</button>
+                        </td>
+                    </tr>`;
+                $("#tblShowCars tbody").append(raw);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function findColour(type) {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPEC/" +type ,
+        method: "GET",
+        success: function (response) {
+            if (response.data.length == 0){
+                $("#noResult").css('display','block');
+            }else {
+                $("#noResult").css('display','none');
+            }
+
+            var rentFeeDay;
+            var rentFeeMonth;
+
+            $("#tblShowCars tbody").empty();
+            for (var responseKey of response.data) {
+
+                if (responseKey.type == "Luxury"){
+                    rentFeeDay = 8000.00;
+                    rentFeeMonth = 25000.00;
+                }else if (responseKey.type = "premium"){
+                    rentFeeDay = 5000.00;
+                    rentFeeMonth = 20000.00;
+                }else if (responseKey.type = "General") {
+                    rentFeeDay = 3000.00;
+                    rentFeeMonth = 10000.00;
+                }
+
+                let raw = ` <tr class="rounded rounded-6">
+                        <td>
+                            <div class="d-flex">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <p class="fw-bold mb-1 mt-1 fs-1">${responseKey.type}</p>
+                                <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
+                                <div class="center-block">
+                                    <p class="mt-5 text-muted"><i class="fas fa-palette text-warning me-2"></i>${responseKey.colour}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${responseKey.noOfPassengers}<span class="ms-1">Seats</span></p>
+                                    <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${responseKey.transmissionType}</p>
+                                    <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${responseKey.fuelType}</p>
+                                    <p class="text-muted mt-0"><i class="far fa-snowflake text-warning me-2"></i>A/C</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="position: relative; top: 7em">
+                                <p class="text-muted">${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
+                                <p class="text-muted">${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
+                                <p class="text-muted"><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="center-block" style="position: relative;top: 127px;">
+                                <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
+                            </div>
+                        </td>
+                        <td class="border border-1 border-danger">
+                            <h3 class="text-danger text-center  mt-5">DAILY RENTAL</3>
+                            <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
+                            <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
+                            <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
+                            <button type="button" class="btn btn-outline-success border border-1 border-success center-block w-75 mt-2 mb-0">RENT NOW</button>
+                        </td>
+                    </tr>`;
+                $("#tblShowCars tbody").append(raw);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+
+

@@ -1,6 +1,7 @@
 $("#CustomerDashBoard").css('display','block');
 $("#moreSpace").css('display','block');
 $("#CopyRightPage").css('display','block');
+loadAllCarsToSee();
 
 $("#NavBar").css('display','none');
 $("#WelcomePage").css('display','none');

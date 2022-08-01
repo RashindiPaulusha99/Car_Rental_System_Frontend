@@ -137,7 +137,7 @@ function countAvailableCars() {
     });
 }
 
-var tblSelectCarRow = -1;
+vartblSelectCarRow = -1;
 loadAllCarsToSee();
 function loadAllCarsToSee() {
     $.ajax({
@@ -168,13 +168,13 @@ function loadAllCarsToSee() {
                 }
 
                 let raw = ` <tr class="rounded rounded-6 nr">
-                        <td class="td">
+                        <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
                             <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
-                        <td class="td">
+                        <td>
                             <div class="">
                                 <p class="fw-bold mb-1 mt-1 fs-1">${responseKey.type}</p>
                                 <p class="mb-5 mt-1 fw-normal fs-3">${responseKey.brand}</p>
@@ -187,19 +187,19 @@ function loadAllCarsToSee() {
                                 </div>
                             </div>
                         </td>
-                        <td class="td">
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i><span class="me-2">Rs.</span>${responseKey.pricePerExtraKM}<span class="ms-2">/extra km</span></p>
                             </div>
                         </td>
-                        <td class="td">
+                        <td>
                             <div class="center-block" style="position: relative;top: 127px;">
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td class="td">
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
@@ -211,8 +211,8 @@ function loadAllCarsToSee() {
             }
 
             $(".btnRent").click(function () {
-                $("#tblShowCars tbody > tr").off("click");
-                $("#tblSelectedCars tbody > tr").off("click");
+                /*$("#tblShowCars tbody > tr").off("click");
+                $("#tblShowCars tbody ").off("click", '.btnRent');*/
 
                 let text = "Do you want to Rent this car ?";
 
@@ -221,7 +221,6 @@ function loadAllCarsToSee() {
                     $("#tblShowCars tbody > tr").click(function () {
                         tblSelectCarRow = $(this).children();
 
-                        console.log(tblSelectCarRow.children()[1].innerText);
                         //openBookingPage();
                         pasteDataToReservationFields();
                         getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
@@ -276,18 +275,14 @@ function loadSelectedCars(carId){
         url: "http://localhost:8080/Car_Rental_System_war/car/" + carId,
         method: "GET",
         success: function (response) {
-            console.log($("#tblSelectedCars tbody tr .id").children()[1].text());
 
-            for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
-                if (carId == $("#tblSelectedCars tbody tr .id").text()) {
-                    alert("You Selected This Car Earlier. Choose Another One !");
-                } else {
-                    let raw = ` <tr>
-                        <td>
+            if ($("#tblSelectedCars tbody  tr").length == 0){
+                let raw = `<tr>
+                        <td >
                             <div class="d-flex align-items-center">
                                 <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
                             </div>
-                           <h6 class="id text-white">${response.data.carId}</h6>
+                           <h6  id="id" class="id text-white">${response.data.carId}</h6>
                         </td>
                         <td>
                         <h3>${response.data.brand}</h3>
@@ -300,7 +295,33 @@ function loadSelectedCars(carId){
                             <h3 class="mt-5 ">Rs.<span>${response.data.dailyRatePrice}</span><span>/day</span></h3>
                         </td>
                     </tr>`;
-                    $("#tblSelectedCars tbody").append(raw);
+                $("#tblSelectedCars tbody").append(raw);
+            }else {
+                for (var i = 0; i < $("#tblSelectedCars tbody  tr").length; i++) {
+                    if (carId == $("#tblSelectedCars tbody > tr").find('td:first').text()){
+                        alert("You Selected This Car Earlier. Choose Another One !");
+                    }else {
+
+                        let raw = `<tr>
+                        <td >
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
+                            </div>
+                           <h6  id="id" class="id text-white">${response.data.carId}</h6>
+                        </td>
+                        <td>
+                        <h3>${response.data.brand}</h3>
+                            <p class="mt-3 text-muted"><i class="fas fa-palette text-warning me-2"></i>${response.data.colour}</p>
+                            <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${response.data.noOfPassengers}<span class="ms-1">Seats</span></p>
+                            <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${response.data.transmissionType}</p>
+                            <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${response.data.fuelType}</p>
+                        </td>
+                        <td>
+                            <h3 class="mt-5 ">Rs.<span>${response.data.dailyRatePrice}</span><span>/day</span></h3>
+                        </td>
+                    </tr>`;
+                        $("#tblSelectedCars tbody").append(raw);
+                    }
                 }
             }
         },

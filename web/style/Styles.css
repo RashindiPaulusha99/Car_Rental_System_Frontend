@@ -272,4 +272,17 @@ main > section:nth-child(1) .nav-link:hover::before {
     width: 150px;
     text-align: center;
     padding: 4px;
+    border: 1px solid #e9ecef;
+    border-right: hidden;
+    border-left: hidden;
 }
+
+#tblShowCars #td1{
+    border-left: 1px solid  #e9ecef;
+}
+
+#tblShowCars #td2{
+    border-right: 1px solid  #e9ecef;
+}
+
+

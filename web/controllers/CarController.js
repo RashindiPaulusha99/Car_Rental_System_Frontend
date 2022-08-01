@@ -145,6 +145,8 @@ function generateVehicleIds() {
 }
 
 $("#btnAddNewCar").click(function () {
+    $("#tblCars tbody > tr").off("click");
+
     let text = "Do you want to save this cars ?";
 
     if (confirm(text) == true) {
@@ -361,6 +363,7 @@ function clickEvent() {
 }
 
 $("#btnUpdateCar").click(function () {
+
     if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
         $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
         $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||

@@ -1,3 +1,5 @@
+$("#tblSchedule tbody > tr").off("click");
+
 function loadSchedule() {
     $.ajax({
         url: "http://localhost:8080/Car_Rental_System_war/schedule",

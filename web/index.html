@@ -668,13 +668,6 @@
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
-
-                            <div class="col d-md-flex justify-content-md-start">
-                                <a class="btn btn-primary btn-floating" style="background-color: #ac2bac;"  role="button">
-                                    <i class="fab fa-instagram"></i>
-                                    Add To Cart
-                                </a>
-                            </div>
                         </div>
                     </div>
 
@@ -1301,191 +1294,197 @@
 
     </section>
 
-   <!-- &lt;!&ndash;reservation&ndash;&gt;
-    <section id="Reservation" style="width: 100%; height: 100vh ;background-color: white">
+    <!--reservation-->
+    <section id="Reservation" style="width: 100% ;background-color: white">
 
         <div class="container center-block ">
 
             <div class="row w-100 h-25 text-center mt-2">
                 <figure class="text-center mt-2 text-black">
                     <blockquote class="blockquote" style="border: 1px solid transparent">
-                        <p class="display-1" style="font-family: emoji">MAKE RESERVATION</p>
+                        <p class="display-1" style="font-family: emoji">BOOKING</p>
                     </blockquote>
                 </figure>
             </div>
         </div>
 
-        <div class="border border-3 border-white rounded-1 w-75 center-block" style="height: 81%">
+        <div class="center-block container-fluid" style="height: 81%">
 
-            <div class="container-fluid">
-                <div class="mt-0 ms-2 me-5">
-                    <form class="ms-5 me-5 " style="position: relative; top: 19px;">
+            <div class="row " style="width: 100%">
 
+                <div class="col w-75">
+                    <div class="row">
+                        <div class="col ms-5 me-5 h-25" style="background-color: #06357a">
+                            <h3 class="text-center text-white bg">Personal Details</h3>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5" >
+                        <div class="col ms-5 me-5 h-25" style="background-color: #20c997">
+                            <div class="row">
+                                <div class="col ms-3 me-3 mb-5 mt-2">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Name</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="PName" />
+                                    </div>
+                                </div>
+                                <div class="col ms-3 me-3 mb-5 mt-2">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Contact</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="PContact"/>
+                                    </div>
+                                </div>
+                                <div class="col ms-3 me-3 mb-5 mt-2">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >NIC</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="PNIC" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col ms-5 me-5 h-25" style="background-color: #06357a">
+                            <h3 class="text-center text-white bg">Booking Details</h3>
+                        </div>
+
+                        <div class="col ms-5 me-5 h-25"  style="background-color: #06357a">
+                            <h3 class="text-center text-white">Fill Out This Fields</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col ms-5 me-5"  style="background-color: #20c997">
+                            <div class="row mt-4">
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Pickup Date</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BPickupDate" />
+                                    </div>
+                                </div>
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Pickup Time</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BPickupTime"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Return Date</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BReturnDate" />
+                                    </div>
+                                </div>
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Return Time</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BReturnTime"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Pickup Location</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BPickupLocation" />
+                                    </div>
+                                </div>
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Return Location</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BReturnLocation"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-4">
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Destination</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BDestination"/>
+                                    </div>
+                                </div>
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit" >Duration</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BDuration"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col ms-5 me-5" style="background-color: #20c997">
+                            <div class="row mt-4">
+                                <div class="col ms-3 me-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkDriverIfWant" />
+                                        <label class="form-check-label fs-4" for="checkDriverIfWant">If you want a driver please click</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit">Driver Name</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BDriverName"/>
+                                    </div>
+                                </div>
+                                <div class="col ms-3 me-3">
+                                    <label class="form-label text-black" for="pickUpTimeEdit">Driver Contact</label>
+                                    <div >
+                                        <input class="form-control" type="text" id="BDriverContact"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="divider-horizontal-blurry mb-0" style="" />
+
+                            <div class="row">
+                                <div class="form-outline mt-4 ms-3">
+                                    <label class="form-label text-black fs-4" for="loseDamagePayment" style="display: inline">Lose Damage Waiver Payment  :</label>
+                                    <input type="text" id="loseDamagePayment" class="form-control  bg-white  w-50" style="display: inline"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col ms-5 me-5">
+                            <button type="button" class="btn  center-block w-100  mt-5 mb-5 bg-dark text-white" id="btnBook" >BOOK</button>
+                        </div>
+                        <div class="col ms-5 me-5">
+                            <button type="button" class="btn  center-block w-100 mt-5 mb-5 bg-danger text-white" id="btnBack" >Back</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col w-25">
+                    <div class="row mb-5">
+                        <div class="col ms-5 me-5 h-25" style="background-color: #06357a">
+                            <h3 class="text-center text-white bg">Selected Cars</h3>
+                        </div>
+                    </div>
+
+                    <form class="ms-5 me-5 ">
                         <div>
-                            <table class="table align-middle mb-0 bg-white table-responsive">
-                                <thead class="">
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Brand</th>
-                                    <th>Colour</th>
-                                    <th>Type</th>
-                                    <th>Fuel Type</th>
-                                    <th>Transmission Type</th>
-                                    <th>Rent Fee</th>
-                                </tr>
-                                </thead>
+                            <table class="table align-middle mb-0 bg-white" id="tblSelectedCars">
+
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="assets/images/1200x-1.jpg" alt="" style="width: 80px; height: 80px" class=""/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Susuki
-                                    </td>
-                                    <td>
-                                        White
-                                    </td>
-                                    <td>
-                                        General
-                                    </td>
-                                    <td>
-                                        Petrol
-                                    </td>
-                                    <td>
-                                        Auto
-                                    </td>
-                                    <td>
-                                        25000.00
-                                    </td>
-                                </tr>
+
                                 </tbody>
                             </table>
 
                         </div>
-
-                        <div class="row mt-5">
-                            <div class="col ms-5">
-                                <label class="form-label text-secondary fw-light fs-4"  style="display: inline">Name  :</label>
-                                <label class="form-label  fw-light fs-4 text-dark" for="reserveCustomerName" id="reserveCustomerName" style="display: inline">Bihara Methmini</label>
-                            </div>
-                            <div class="col ">
-                                <label class="form-label text-secondary fw-light fs-4" style="display: inline">Address  :</label>
-                                <label class="form-label  fw-light fs-4 text-dark" for="reserveCustomerAddress" id="reserveCustomerAddress" style="display: inline">Galle</label>
-                            </div>
-                            <div class="col ">
-                                <label class="form-label text-secondary fw-light fs-4" style="display: inline">Contact  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveCustomerContact" id="reserveCustomerContact" style="display: inline">0785996321</label>
-                            </div>
-                        </div>
-
-                        <hr class="divider-horizontal-blurry mb-1 mt-3" style="" />
-
-                        <div class="row">
-                            <div class="col ms-5 mt-3">
-                                <label class="form-label text-secondary fw-light fs-4" style="display: inline">Pickup Date  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reservePickupDate" id="reservePickupDate" style="display: inline">2022-12-12</label>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="form-label text-secondary fw-light fs-4"  style="display: inline">Pickup Time  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reservePickupTime" id="reservePickupTime" style="display: inline">06.12</label>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="form-label text-secondary fw-light fs-4"  style="display: inline">Pickup Venue  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reservePickupVenue" id="reservePickupVenue" style="display: inline">Galle</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col ms-5 mt-3">
-                                <label class="form-label text-secondary fw-light fs-4" style="display: inline">Return Date  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveReturnDate" id="reserveReturnDate" style="display: inline">2022-12-12</label>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="form-label text-secondary fw-light fs-4"  style="display: inline">Return Time  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveReturnTime" id="reserveReturnTime" style="display: inline">06.12</label>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="form-label text-secondary fw-light fs-4"  style="display: inline">Return Venue  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveReturnVenue" id="reserveReturnVenue" style="display: inline">Galle</label>
-                            </div>
-                        </div>
-
-                        <div class="row ">
-                            <div class="col ms-5 mt-3">
-                                <label class="form-label text-secondary fw-light fs-4" style="display: inline">Destination  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveDestination" id="reserveDestination" style="display: inline">Colombo</label>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="form-label text-secondary fw-light fs-4"  style="display: inline">Duration  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveDuration" id="reserveDuration" style="display: inline">2</label>
-                            </div>
-                            <div class="col mt-3">
-                            </div>
-                        </div>
-
-                        <hr class="divider-horizontal-blurry mb-0" style="" />
-
-                        <div class="row">
-                            <div class="col ms-5 mt-3">
-                                &lt;!&ndash; lose damage payment &ndash;&gt;
-                                <div class="form-outline  me-4">
-                                    <label class="form-label text-secondary fw-light fs-4" for="loseDamagePayment" style="display: inline">Lose Damage Waiver Payment  :</label>
-                                    <input type="text" id="loseDamagePayment" class="form-control  border border-2 border-white bg-light rounded-3 w-25" style="display: inline"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="divider-horizontal-blurry mb-0" style="" />
-
-                        <div class="row">
-                            <div class="col ms-5 mt-3 mb-0">
-                                &lt;!&ndash; driver want or not &ndash;&gt;
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkDriverIfWant" />
-                                    <label class="form-check-label text-secondary" for="checkDriverIfWant">If you want a driver please click</label>
-                                </div>
-                            </div>
-                            <div class="col mt-3 mb-0">
-                                <label class="form-label text-secondary fw-light fs-4" style="display: inline">Driver Name  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveDriverName" id="reserveDriverName" style="display: inline">Colombo</label>
-                            </div>
-                            <div class="col mt-3 mb-0">
-                                <label class="form-label text-secondary fw-light fs-4" style="display: inline">Driver Contact  :</label>
-                                <label class="form-label text-dark fw-light fs-4" for="reserveDriverContact" id="reserveDriverContact" style="display: inline">0758992563</label>
-                            </div>
-                        </div>
-
-                        <hr class="divider-horizontal-blurry mb-0" style="" />
-
-                        &lt;!&ndash;button panel&ndash;&gt;
-                        <div class="row mt-4">
-
-                            <div class="col"></div>
-
-                            <div class="col text-center ">
-                                <button type="button" class="btn btn-info btn-sm btn-floating ms-2 me-2 shadow">
-                                    <i class="fas fa-key"></i>
-                                    Reserve
-                                </button>
-                                <button type="button" class="btn btn-success btn-sm btn-floating ms-2 me-2 shadow" id="btnBackReserve">
-                                    <i class="fas fa-times"></i>
-                                    Back
-                                </button>
-                            </div>
-
-                            <div class="col"></div>
-
-                        </div>
-
                     </form>
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
-
+<!--
     &lt;!&ndash;view cars&ndash;&gt;
     <section id="ViewCars" class="w-100 h-100" style="background-color: whitesmoke">
         <dfn id="carView"></dfn>
@@ -2039,8 +2038,8 @@
 
         </div>
 
-    </section>
--->
+    </section>-->
+
     <!--CopyRight Page-->
     <section id="CopyRightPage" class="w-100 h-75 bg-dark" >
        <div class="container-fluid w-100"  style="position: relative;top: 80px">

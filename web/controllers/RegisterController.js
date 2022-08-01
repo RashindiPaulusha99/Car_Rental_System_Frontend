@@ -187,6 +187,8 @@ function generateUserIds() {
 }
 
 $("#btnRegister").click(function () {
+    $("#tblCustomers tbody > tr").off("click");
+
     if ($("#username").val() == "" || $("#password").val() == "" || $("#customername").val() == "" || $("#customeraddress").val() == "" ||
         $("#contactnumber").val() == "" || $("#email").val() == "" || $("#nic").val() == "" || $("#drivinglicense").val() == "" ){
         alert("All Fields Are Required !");

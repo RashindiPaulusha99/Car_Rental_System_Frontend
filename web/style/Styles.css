@@ -263,3 +263,13 @@ main > section:nth-child(1) .nav-link:hover::before {
 }
 
 /*-------*/
+#tblShowCars {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+#tblShowCars td {
+    width: 150px;
+    text-align: center;
+    padding: 4px;
+}

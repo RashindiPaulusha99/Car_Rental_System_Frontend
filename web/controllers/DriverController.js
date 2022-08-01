@@ -118,6 +118,8 @@ function generateDriverIds() {
 }
 
 $("#btnAddNewDriver").click(function () {
+    $("#tblDriver tbody > tr").off("click");
+
     if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
         $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
         alert("All Fields Are Required !");

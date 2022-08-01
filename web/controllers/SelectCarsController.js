@@ -211,8 +211,7 @@ function loadAllCarsToSee() {
             }
 
             $(".btnRent").click(function () {
-                /*$("#tblShowCars tbody > tr").off("click");
-                $("#tblShowCars tbody ").off("click", '.btnRent');*/
+                $("#tblShowCars tbody > tr").off("click");
 
                 let text = "Do you want to Rent this car ?";
 
@@ -221,12 +220,11 @@ function loadAllCarsToSee() {
                     $("#tblShowCars tbody > tr").click(function () {
                         tblSelectCarRow = $(this).children();
 
-                        //openBookingPage();
+                        openBookingPage();
                         pasteDataToReservationFields();
                         getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                         loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                     });
-
                 }
             });
 
@@ -270,14 +268,15 @@ function getLoseDWPayment(carId){
     });
 }
 
+var ar = new Array();
+var bl=false;
 function loadSelectedCars(carId){
     $.ajax({
         url: "http://localhost:8080/Car_Rental_System_war/car/" + carId,
         method: "GET",
         success: function (response) {
-
-            if ($("#tblSelectedCars tbody  tr").length == 0){
-                let raw = `<tr>
+            if (ar.length == 0){
+                let raw = `<tr class="item">
                         <td >
                             <div class="d-flex align-items-center">
                                 <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
@@ -297,12 +296,17 @@ function loadSelectedCars(carId){
                     </tr>`;
                 $("#tblSelectedCars tbody").append(raw);
             }else {
-                for (var i = 0; i < $("#tblSelectedCars tbody  tr").length; i++) {
-                    if (carId == $("#tblSelectedCars tbody > tr").find('td:first').text()){
-                        alert("You Selected This Car Earlier. Choose Another One !");
-                    }else {
+                for (var i = 0; i <$("#tblSelectedCars tbody  tr").length ; i++) {
+                    if (carId == $("#tblSelectedCars tbody > tr").find('#id')[i].innerText) {
+                        bl = true;
+                    }
+                }
 
-                        let raw = `<tr>
+                if (bl == true){
+                    alert("You Selected This Car Earlier. Choose Another One !");
+                }else {
+                    bl=false;
+                    let raw = `<tr>
                         <td >
                             <div class="d-flex align-items-center">
                                 <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
@@ -320,8 +324,7 @@ function loadSelectedCars(carId){
                             <h3 class="mt-5 ">Rs.<span>${response.data.dailyRatePrice}</span><span>/day</span></h3>
                         </td>
                     </tr>`;
-                        $("#tblSelectedCars tbody").append(raw);
-                    }
+                    $("#tblSelectedCars tbody").append(raw);
                 }
             }
         },
@@ -372,11 +375,12 @@ function findPassengersAsc(passengerAsc) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -391,7 +395,7 @@ function findPassengersAsc(passengerAsc) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -403,18 +407,34 @@ function findPassengersAsc(passengerAsc) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
         }
@@ -443,11 +463,12 @@ function findPassengersDsc(passengerDsc) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -462,7 +483,7 @@ function findPassengersDsc(passengerDsc) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -474,18 +495,34 @@ function findPassengersDsc(passengerDsc) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
         }
@@ -514,11 +551,12 @@ function findDailyRateAsc(dailyRateAsc) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -533,7 +571,7 @@ function findDailyRateAsc(dailyRateAsc) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -545,18 +583,34 @@ function findDailyRateAsc(dailyRateAsc) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
         }
@@ -585,11 +639,12 @@ function findDailyRateDsc(dailyRateDsc) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -604,7 +659,7 @@ function findDailyRateDsc(dailyRateDsc) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -616,18 +671,34 @@ function findDailyRateDsc(dailyRateDsc) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
         }
@@ -656,11 +727,12 @@ function findMonthlyRateAsc(monthlyRateAsc) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -675,7 +747,7 @@ function findMonthlyRateAsc(monthlyRateAsc) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -687,18 +759,34 @@ function findMonthlyRateAsc(monthlyRateAsc) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
         }
@@ -727,11 +815,12 @@ function findMonthlyRateDsc(monthlyRateDsc) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -746,7 +835,7 @@ function findMonthlyRateDsc(monthlyRateDsc) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -758,18 +847,34 @@ function findMonthlyRateDsc(monthlyRateDsc) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
         }
@@ -812,11 +917,12 @@ function findTransmissionType(type) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -831,7 +937,7 @@ function findTransmissionType(type) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -843,18 +949,34 @@ function findTransmissionType(type) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -890,11 +1012,12 @@ function findType(type) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -909,7 +1032,7 @@ function findType(type) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -921,18 +1044,34 @@ function findType(type) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -968,11 +1107,12 @@ function findBrand(type) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -987,7 +1127,7 @@ function findBrand(type) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -999,18 +1139,34 @@ function findBrand(type) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -1046,11 +1202,12 @@ function findFuelType(type) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -1065,7 +1222,7 @@ function findFuelType(type) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -1077,18 +1234,34 @@ function findFuelType(type) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -1124,11 +1297,12 @@ function findColour(type) {
                     rentFeeMonth = 10000.00;
                 }
 
-                let raw = ` <tr class="rounded rounded-6 shadow">
+                let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
                                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
+                            <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
                         <td>
                             <div class="">
@@ -1143,7 +1317,7 @@ function findColour(type) {
                                 </div>
                             </div>
                         </td>
-                        <td>
+                        <td >
                             <div style="position: relative; top: 7em">
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForDay}<span class="ms-2">km free/day</span></p>
                                 <p class="text-muted"><i class="fas fa-check text-success me-3"></i>${responseKey.freeKmForMonth}<span class="ms-2">km free/month</span></p>
@@ -1155,18 +1329,34 @@ function findColour(type) {
                                 <span class="badge badge-warning badge-lg bg-info rounded-pill d-inline fs-1">${responseKey.availableOrNot}</span>
                             </div>
                         </td>
-                        <td>
+                        <td id="tdLast">
                             <h3 class="text-danger text-center mt-5">DAILY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-2">${rentFeeDay}<span>/=</span></h3>
                             <h3 class="text-danger text-center ">MONTHLY RENTAL</h3>
                             <h3 class="text-danger text-center mt-0 mb-5">${rentFeeMonth}<span>/=</span></h3>
-                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0">RENT NOW</button>
+                            <button type="button" class="btn btn-warning center-block w-100 mt-2 mb-0 btnRent" id="btnRent">RENT NOW</button>
                         </td>
                     </tr>`;
                 $("#tblShowCars tbody").append(raw);
             }
 
-            clickEvent();
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
+
+                let text = "Do you want to Rent this car ?";
+
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        openBookingPage();
+                        pasteDataToReservationFields();
+                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                    });
+                }
+            });
         },
         error: function (ob) {
             alert(ob.responseJSON.message);

@@ -213,18 +213,25 @@ function loadAllCarsToSee() {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
 
@@ -275,7 +282,7 @@ function loadSelectedCars(carId){
         url: "http://localhost:8080/Car_Rental_System_war/car/" + carId,
         method: "GET",
         success: function (response) {
-            if (ar.length == 0){
+            if ($("#tblSelectedCars tbody  tr").length == 0){
                 let raw = `<tr class="item">
                         <td >
                             <div class="d-flex align-items-center">
@@ -295,7 +302,12 @@ function loadSelectedCars(carId){
                         </td>
                     </tr>`;
                 $("#tblSelectedCars tbody").append(raw);
+                openBookingPage();
             }else {
+                /*$('#tblSelectedCars > tbody  > tr').each(function(i, 1) {
+                    console.log(index);
+                    console.log(tr);
+                });*/
                 for (var i = 0; i <$("#tblSelectedCars tbody  tr").length ; i++) {
                     if (carId == $("#tblSelectedCars tbody > tr").find('#id')[i].innerText) {
                         bl = true;
@@ -306,6 +318,7 @@ function loadSelectedCars(carId){
                     alert("You Selected This Car Earlier. Choose Another One !");
                 }else {
                     bl=false;
+                    openBookingPage();
                     let raw = `<tr>
                         <td >
                             <div class="d-flex align-items-center">
@@ -1363,6 +1376,8 @@ function findColour(type) {
         }
     });
 }
+
+
 
 
 

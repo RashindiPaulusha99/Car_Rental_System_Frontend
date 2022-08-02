@@ -549,8 +549,10 @@ $(".btnRentNow").click(function () {
     $('#ChangeDriver').css('transform','scale(0)');
     $('#PaymentAddPage').css('transform','scale(0)');
 
-    $("#NavBar").css('display','none');
-    $("#Reservation").css('display','block');
+    $("#NavBar").css('display','block');
+    $("#CustomerDashBoard").css('display','block');
+    $("#moreSpace").css('display','block');
+    $("#Reservation").css('display','none');
     $("#WelcomePage").css('display','none');
     $("#ViewCars").css('display','none');
     $("#Services").css('display','none');
@@ -561,8 +563,6 @@ $(".btnRentNow").click(function () {
     $("#Blog").css('display','none');
     $("#ContactInfoPage").css('display','none');
     $("#CopyRightPage").css('display','none');
-    $("#CustomerDashBoard").css('display','none');
-    $("#moreSpace").css('display','none');
     $("#CarDetailsPage").css('display','none');
     $("#DriverDetailsPage").css('display','none');
     $("#SchedulePage").css('display','none');

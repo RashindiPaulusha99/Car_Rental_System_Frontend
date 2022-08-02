@@ -120,20 +120,27 @@ function generateDriverIds() {
 $("#btnAddNewDriver").click(function () {
     $("#tblDriver tbody > tr").off("click");
 
-    if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
-        $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
-        alert("All Fields Are Required !");
-    }else {
-        if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
-            $("#errorDAge").text() != "" || $("#errorDContact").text() != ""){
-            alert("Check Input Fields Whether Correct !");
+    let text = "Do you want to save this driver ?";
+
+    if (confirm(text) == true) {
+        if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
+            $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
+            alert("All Fields Are Required !");
         }else {
-            addNewDriver();
+            if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
+                $("#errorDAge").text() != "" || $("#errorDContact").text() != ""){
+                alert("Check Input Fields Whether Correct !");
+            }else {
+                addNewDriver();
+            }
         }
+    }else {
+
     }
 });
 
 function addNewDriver() {
+
     var user={
         userId:$("#generateUserId").text(),
         username:$("#driverUsername").val(),
@@ -186,12 +193,65 @@ function loadAllDrivers() {
                 </button></td></tr>`;
                 $("#tblDriver tbody").append(raw);
             }
+
+            generateDriverIds();
+            clearDriverFields();
+            clickDriverTableRow();
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
         }
     });
 
+}
+
+var tblDriverRow =-1;
+
+function clickDriverTableRow() {
+    $("#tblDriver tbody > tr").click(function () {
+
+        tblDriverRow = $(this);
+
+        let text = "Do you want to edit driver ?";
+
+        if (confirm(text) == true) {
+            $('#DriverManagePage').css('transform','scale(1)');
+
+            var driverId = $.trim(tblDriverRow.children(':nth-child(1)').text());
+            var driverName = $.trim(tblDriverRow.children(':nth-child(2)').text());
+            var driverAddress = $.trim(tblDriverRow.children(':nth-child(3)').text());
+            var driverAge = $.trim(tblDriverRow.children(':nth-child(4)').text());
+            var driverContact = $.trim(tblDriverRow.children(':nth-child(5)').text());
+
+            $("#driverReleaseOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblDriverRow.children(':nth-child(6)').text())));
+
+            $("#driverId").val(driverId);
+            $("#driverName").val(driverName);
+            $("#driverAddress").val(driverAddress);
+            $("#driverAge").val(driverAge);
+            $("#driverContact").val(driverContact);
+
+            findUserNameAndPassword(driverId);
+
+        } else {
+
+        }
+    });
+}
+
+function findUserNameAndPassword(driverId) {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/driver/" + driverId,
+        method: "GET",
+        success: function (response) {
+            $("#driverUsername").val(response.data.users.username);
+            $("#driverPassword").val(response.data.users.password);
+            $("#driverUserId").val(response.data.users.userId);
+        },
+        error: function (ob) {
+
+        }
+    });
 }
 
 function clearDriverFields() {
@@ -204,11 +264,75 @@ function clearDriverFields() {
     $("#driverAddress").val("");
     $("#driverPassword").val("");
 
-    $("#driverUsername").css('border', '2px solid transparent');
-    $("#driverPassword").css('border', '2px solid transparent');
-    $("#driverName").css('border', '2px solid transparent');
-    $("#driverAddress").css('border', '2px solid transparent');
-    $("#driverAge").css('border', '2px solid transparent');
-    $("#driverContact").css('border', '2px solid transparent');
+    $("#driverUsername").css('border', '1px solid #e9ecef');
+    $("#driverPassword").css('border', '1px solid #e9ecef');
+    $("#driverName").css('border', '1px solid #e9ecef');
+    $("#driverAddress").css('border', '1px solid #e9ecef');
+    $("#driverAge").css('border', '1px solid #e9ecef');
+    $("#driverContact").css('border', '1px solid #e9ecef');
+}
+
+findUserNameAndPassword()
+
+$("#btnEditPreDriver").click(function () {
+    $("#tblDriver tbody > tr").off("click");
+
+    let text = "Do you want to update this driver ?";
+
+    if (confirm(text) == true) {
+        if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
+            $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
+            alert("All Fields Are Required !");
+        }else {
+            if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
+                $("#errorDAge").text() != "" || $("#errorDContact").text() != ""){
+                alert("Check Input Fields Whether Correct !");
+            }else {
+                updateDriver();
+            }
+        }
+    }else {
+
+    }
+
+});
+
+function updateDriver() {
+    var user={
+        userId:$("#driverUserId").text(),
+        username:$("#driverUsername").val(),
+        password: $("#driverPassword").val()
+    }
+
+    var driverDetail = {
+        driverId: $("#driverId").val(),
+        users:user,
+        driverName: $("#driverName").val(),
+        driverAddress: $("#driverAddress").val(),
+        driverAge: $("#driverAge").val(),
+        driverContact: $("#driverContact").val(),
+        releaseOrNot: $("#driverReleaseOrNot option:selected").text()
+    }
+
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/driver",
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(driverDetail),
+        success: function (response) {
+            if (response.code == 200) {
+                alert($("#driverId").val() + " " + response.message);
+            }
+            clearDriverFields();
+            loadAllDrivers();
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function clearDriverAfterUpdate() {
+    $('#driverReleaseOrNot').find('option:last').remove();
 }
 

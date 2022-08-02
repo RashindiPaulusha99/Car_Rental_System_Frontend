@@ -1108,7 +1108,7 @@ $("#btnAddCar").click(function () {
 });
 
 $("#btnCancelAddCar").click(function () {
-    clearCarFields();
+    clearAfterUpdate();
     $('#CarManagePage').css('transform','scale(0)');
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
@@ -1147,6 +1147,7 @@ $("#btnCancelAddCar").click(function () {
 $("#btnAddDriver").click(function () {
     generateDriverIds();
     generateUserIds();
+    clearDriverFields();
 
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
@@ -1184,6 +1185,7 @@ $("#btnAddDriver").click(function () {
 });
 
 $("#btnCancelAddDriver").click(function () {
+    clearDriverAfterUpdate();
     $('#CarManagePage').css('transform','scale(0)');
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');

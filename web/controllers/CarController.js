@@ -301,6 +301,27 @@ function clearCarFields() {
     $("#monthlyRatePrice").val("");
     $("#totalDistanceTravelled").val("");
 
+    $("#registrationNo").css('border', '1px solid #e9ecef');
+    $("#noOfPassengers").css('border', '1px solid #e9ecef');
+    $("#freeKMPerDay").css('border', '1px solid #e9ecef');
+    $("#freeKMPerMonth").css('border', '1px solid #e9ecef');
+    $("#priceForExtraKM").css('border', '1px solid #e9ecef');
+    $("#dailyRatePrice").css('border', '1px solid #e9ecef');
+    $("#monthlyRatePrice").css('border', '1px solid #e9ecef');
+    $("#totalDistanceTravelled").css('border', '1px solid #e9ecef');
+}
+
+function clearAfterUpdate() {
+
+    $("#registrationNo").val("");
+    $("#noOfPassengers").val("");
+    $("#freeKMPerDay").val("");
+    $("#freeKMPerMonth").val("");
+    $("#priceForExtraKM").val("");
+    $("#dailyRatePrice").val("");
+    $("#monthlyRatePrice").val("");
+    $("#totalDistanceTravelled").val("");
+
     $('#brand').find('option:last').remove();
     $('#colour').find('option:last').remove();
     $('#type').find('option:last').remove();
@@ -310,14 +331,14 @@ function clearCarFields() {
     $('#damageOrNot').find('option:last').remove();
     $('#underMaintainOrNot').find('option:last').remove();
 
-    $("#registrationNo").css('border', '2px solid #e9ecef');
-    $("#noOfPassengers").css('border', '2px solid #e9ecef');
-    $("#freeKMPerDay").css('border', '2px solid #e9ecef');
-    $("#freeKMPerMonth").css('border', '2px solid #e9ecef');
-    $("#priceForExtraKM").css('border', '2px solid #e9ecef');
-    $("#dailyRatePrice").css('border', '2px solid #e9ecef');
-    $("#monthlyRatePrice").css('border', '2px solid #e9ecef');
-    $("#totalDistanceTravelled").css('border', '2px solid #e9ecef');
+    $("#registrationNo").css('border', '1px solid #e9ecef');
+    $("#noOfPassengers").css('border', '1px solid #e9ecef');
+    $("#freeKMPerDay").css('border', '1px solid #e9ecef');
+    $("#freeKMPerMonth").css('border', '1px solid #e9ecef');
+    $("#priceForExtraKM").css('border', '1px solid #e9ecef');
+    $("#dailyRatePrice").css('border', '1px solid #e9ecef');
+    $("#monthlyRatePrice").css('border', '1px solid #e9ecef');
+    $("#totalDistanceTravelled").css('border', '1px solid #e9ecef');
 }
 
 var tblCarRow =-1;
@@ -346,14 +367,14 @@ function clickEvent() {
             var sideView = $.trim(tblCarRow.children(':nth-child(20)').text());
             var interiorView = $.trim(tblCarRow.children(':nth-child(21)').text());
 
-            $("#brand").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(2)').text())));
-            $("#colour").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(3)').text())));
-            $("#type").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(4)').text())));
-            $("#transmissionType").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(7)').text())));
-            $("#fuelType").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(6)').text())));
-            $("#availableOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(14)').text())));
-            $("#damageOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(15)').text())));
-            $("#underMaintainOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(16)').text())));
+            $("#brand").append($("<option selected></option>").attr("value", 14).text($.trim(tblCarRow.children(':nth-child(2)').text())));
+            $("#colour").append($("<option selected></option>").attr("value", 11).text($.trim(tblCarRow.children(':nth-child(3)').text())));
+            $("#type").append($("<option selected></option>").attr("value", 4).text($.trim(tblCarRow.children(':nth-child(4)').text())));
+            $("#transmissionType").append($("<option selected></option>").attr("value", 3).text($.trim(tblCarRow.children(':nth-child(7)').text())));
+            $("#fuelType").append($("<option selected></option>").attr("value", 3).text($.trim(tblCarRow.children(':nth-child(6)').text())));
+            $("#availableOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblCarRow.children(':nth-child(14)').text())));
+            $("#damageOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblCarRow.children(':nth-child(15)').text())));
+            $("#underMaintainOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblCarRow.children(':nth-child(16)').text())));
 
             $("#carId").val(carId);
             $("#registrationNo").val(regNo);

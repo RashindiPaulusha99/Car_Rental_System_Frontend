@@ -384,7 +384,7 @@ function searchCarId() {
                 let text = "Do you really want to update this Car?";
 
                 if (confirm(text) == true) {
-                    /*updateCar();*/
+                    updateCar();
                 } else {
 
                 }

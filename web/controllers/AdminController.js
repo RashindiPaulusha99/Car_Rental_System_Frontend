@@ -198,5 +198,228 @@ for (var prop in oData) {
     i++
 }
 
+var now = new Date();
 
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+function loadAdminDPanelData() {
+    totalRegisteredUsers();
+    totalNewUsers();
+    TodayAllReservations();
+    TodayActiveBookings();
+    AvailableCars();
+    ReservedCars();
+    AvailableDrivers();
+    OccupiedDrivers();
+    MaintainedCars();
+    UnderMaintainedCars();
+    AllReservation();
+    TotalIncome();
+}
+
+function totalRegisteredUsers() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/customer/COUNT/" + "count",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#totalRegUsers").text(0);
+            }else {
+                $("#totalRegUsers").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function totalNewUsers() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/customer/COUNTDAILY/" + today,
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#totalNewUsers").text(0);
+            }else {
+                $("#totalNewUsers").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function TodayAllReservations() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/reserve/COUNTDAILY/" + today,
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#todayReservations").text(0);
+            }else {
+                $("#todayReservations").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function TodayActiveBookings() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/reserve/" + today+ "/"+"Accept",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#todayActiveBookings").text(0);
+            }else {
+                $("#todayActiveBookings").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function AllReservation() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/reserve/COUNT/" + "all",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#allReservation").text(0);
+            }else {
+                $("#allReservation").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function AvailableCars() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLECOUNT/"+"Available",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#availableCar").text(0);
+            }else {
+                $("#availableCar").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function ReservedCars() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLECOUNT/"+"Not Available",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#reservedCars").text(0);
+            }else {
+                $("#reservedCars").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function AvailableDrivers() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/driver/AVAILABLE/"+"Release",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#availableDrivers").text(0);
+            }else {
+                $("#availableDrivers").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function OccupiedDrivers() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/driver/AVAILABLE/"+"Not Release",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#occupiedDrivers").text(0);
+            }else {
+                $("#occupiedDrivers").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function MaintainedCars() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/car/COUNTM/"+"Maintained",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#maintainedCars").text(0);
+            }else {
+                $("#maintainedCars").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function UnderMaintainedCars() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/car/COUNTM/"+"Under Maintained",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#underMaintainedCars").text(0);
+            }else {
+                $("#underMaintainedCars").text(response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function TotalIncome() {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/payment/ALLINCOME/" + "amount",
+        method: "GET",
+        success: function (response) {
+            if (response.data == ""){
+                $("#totalIncome").text("Rs."+0);
+            }else {
+                $("#totalIncome").text("Rs. "+response.data);
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
 

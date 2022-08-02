@@ -121,7 +121,7 @@ function generateVehicleIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car?test="+test,
+        url: "http://localhost:8081/Car_Rental_System_war/car?test="+test,
         method: "GET",
         success: function (response) {
             var carId = response.data;
@@ -176,19 +176,15 @@ $("#btnAddNewCar").click(function () {
 function findRegNoIsDuplicate() {
     console.log("duplicate");
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car/" + $("#carId").val(),
+        url: "http://localhost:8081/Car_Rental_System_war/car/SEARCH/" + $("#registrationNo").val(),
         method: "GET",
         success: function (response) {
-            console.log(response.data.registrationNo);
-            console.log($("#registrationNo").val());
            if (response.data.registrationNo == $("#registrationNo").val()){
                alert("Duplicate Registration Number . Please Check !");
-           }else {
-               addNewCar();
            }
         },
         error: function (ob) {
-            alert(ob.responseJSON.message);
+            addNewCar();
         }
     });
 }
@@ -220,7 +216,7 @@ function addNewCar() {
     }
 
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car",
+        url: "http://localhost:8081/Car_Rental_System_war/car",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(carDetail),
@@ -240,7 +236,7 @@ function addNewCar() {
 function loadAllCars() {
 
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car",
+        url: "http://localhost:8081/Car_Rental_System_war/car",
         method: "GET",
         success: function (response) {
 
@@ -264,16 +260,16 @@ function loadAllCars() {
                             <span class="badge badge-success rounded-pill d-inline">${responseKey.underMaintainOrNot}</span> </td><td> 
                             ${responseKey.totalDistanceTraveled} </td><td>
                             <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="assets/images/1_rangerover_tracking.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="assets/images/1_rangerover_tracking.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="assets/images/1_rangerover_tracking.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="assets/images/1_rangerover_tracking.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td> 
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
@@ -304,19 +300,14 @@ function clearCarFields() {
     $("#monthlyRatePrice").val("");
     $("#totalDistanceTravelled").val("");
 
-    $('#uploadFrontView').clear();
-    $('#uploadSideView').clear();
-    $('#uploadBackView').clear();
-    $('#uploadInteriorView').clear();
-
-    $("#registrationNo").css('border', '2px solid transparent');
-    $("#noOfPassengers").css('border', '2px solid transparent');
-    $("#freeKMPerDay").css('border', '2px solid transparent');
-    $("#freeKMPerMonth").css('border', '2px solid transparent');
-    $("#priceForExtraKM").css('border', '2px solid transparent');
-    $("#dailyRatePrice").css('border', '2px solid transparent');
-    $("#monthlyRatePrice").css('border', '2px solid transparent');
-    $("#totalDistanceTravelled").css('border', '2px solid transparent');
+    $("#registrationNo").css('border', '2px solid #e9ecef');
+    $("#noOfPassengers").css('border', '2px solid #e9ecef');
+    $("#freeKMPerDay").css('border', '2px solid #e9ecef');
+    $("#freeKMPerMonth").css('border', '2px solid #e9ecef');
+    $("#priceForExtraKM").css('border', '2px solid #e9ecef');
+    $("#dailyRatePrice").css('border', '2px solid #e9ecef');
+    $("#monthlyRatePrice").css('border', '2px solid #e9ecef');
+    $("#totalDistanceTravelled").css('border', '2px solid #e9ecef');
 }
 
 var tblCarRow =-1;
@@ -377,7 +368,7 @@ $("#btnUpdateCar").click(function () {
 
 function searchCarId() {
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car/" + $("#carId").val(),
+        url: "http://localhost:8081/Car_Rental_System_war/car/" + $("#carId").val(),
         method: "GET",
         success: function (response) {
             if ($("#carId").val() != response.data.carId){
@@ -423,7 +414,7 @@ function updateCar() {
     }
 
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/car",
+        url: "http://localhost:8081/Car_Rental_System_war/car",
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(carDetails),

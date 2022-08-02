@@ -1,4 +1,3 @@
-
 $("#NavBar").css('display','block');
 $("#WelcomePage").css('display','block');
 $("#ViewCars").css('display','block');
@@ -666,6 +665,7 @@ $("#btnBackReserve").click(function () {
 });
 
 function logToSystem(){
+    loadAdminDPanelData();
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -1472,7 +1472,7 @@ $("#btnBack").click(function () {
 });
 
 function openBookingPage() {
-    checkDriver();
+    generateVReserveIds();
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');

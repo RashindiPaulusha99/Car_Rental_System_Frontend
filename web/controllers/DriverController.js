@@ -94,7 +94,7 @@ function generateDriverIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/driver?test="+test,
+        url: "http://localhost:8081/Car_Rental_System_war/driver?test="+test,
         method: "GET",
         success: function (response) {
             var driverId = response.data;
@@ -151,7 +151,7 @@ function addNewDriver() {
     }
 
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/driver",
+        url: "http://localhost:8081/Car_Rental_System_war/driver",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(driverDetail),
@@ -174,7 +174,7 @@ function addNewDriver() {
 function loadAllDrivers() {
 
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/driver",
+        url: "http://localhost:8081/Car_Rental_System_war/driver",
         method: "GET",
         success: function (response) {
 

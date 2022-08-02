@@ -2,7 +2,7 @@ $("#tblPayment tbody > tr").off("click");
 
 function loadPayments() {
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/payment",
+        url: "http://localhost:8081/Car_Rental_System_war/payment",
         method: "GET",
         success: function (response) {
 

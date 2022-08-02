@@ -275,7 +275,6 @@ function getLoseDWPayment(carId){
     });
 }
 
-var ar = new Array();
 var bl=false;
 function loadSelectedCars(carId){
     $.ajax({
@@ -304,10 +303,6 @@ function loadSelectedCars(carId){
                 $("#tblSelectedCars tbody").append(raw);
                 openBookingPage();
             }else {
-                /*$('#tblSelectedCars > tbody  > tr').each(function(i, 1) {
-                    console.log(index);
-                    console.log(tr);
-                });*/
                 for (var i = 0; i <$("#tblSelectedCars tbody  tr").length ; i++) {
                     if (carId == $("#tblSelectedCars tbody > tr").find('#id')[i].innerText) {
                         bl = true;
@@ -434,18 +429,25 @@ function findPassengersAsc(passengerAsc) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -522,18 +524,25 @@ function findPassengersDsc(passengerDsc) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -610,18 +619,25 @@ function findDailyRateAsc(dailyRateAsc) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -698,18 +714,25 @@ function findDailyRateDsc(dailyRateDsc) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -786,18 +809,25 @@ function findMonthlyRateAsc(monthlyRateAsc) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -874,18 +904,25 @@ function findMonthlyRateDsc(monthlyRateDsc) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -976,18 +1013,25 @@ function findTransmissionType(type) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -1071,18 +1115,25 @@ function findType(type) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -1166,18 +1217,25 @@ function findBrand(type) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -1261,18 +1319,25 @@ function findFuelType(type) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -1356,18 +1421,25 @@ function findColour(type) {
             $(".btnRent").click(function () {
                 $("#tblShowCars tbody > tr").off("click");
 
-                let text = "Do you want to Rent this car ?";
+                let text = "Do you want to rent this car ?";
 
                 if (confirm(text) == true) {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
+                    let text = "Do you want to rent another car ?";
 
-                        openBookingPage();
-                        pasteDataToReservationFields();
-                        getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                    });
+                    if (confirm(text) == true) {
+                        alert("Choose a car you like!...");
+                    }else {
+                        $("#tblShowCars tbody > tr").click(function () {
+                            tblSelectCarRow = $(this).children();
+
+                            pasteDataToReservationFields();
+                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        });
+                    }
+                }else {
+
                 }
             });
         },
@@ -1376,6 +1448,23 @@ function findColour(type) {
         }
     });
 }
+
+$("#checkDriverIfWant").click(function () {
+    if ($('#checkDriverIfWant').is(':checked')){
+        $.ajax({
+            url: "http://localhost:8080/Car_Rental_System_war/driver/ASSIGN/" +"Release" ,
+            method: "GET",
+            success: function (response) {
+                $("#BDriverName").val(response.data.driverName);
+                $("#BDriverContact").val(response.data.driverContact);
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+});
+
 
 
 

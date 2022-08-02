@@ -174,17 +174,18 @@ $("#btnAddNewCar").click(function () {
 });
 
 function findRegNoIsDuplicate() {
-    console.log("duplicate");
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/car/SEARCH/" + $("#registrationNo").val(),
         method: "GET",
         success: function (response) {
-           if (response.data.registrationNo == $("#registrationNo").val()){
+           if (response.data == $("#registrationNo").val()){
                alert("Duplicate Registration Number . Please Check !");
+           }else {
+               addNewCar();
            }
         },
         error: function (ob) {
-            addNewCar();
+            alert(ob.responseJSON.message);
         }
     });
 }
@@ -300,6 +301,15 @@ function clearCarFields() {
     $("#monthlyRatePrice").val("");
     $("#totalDistanceTravelled").val("");
 
+    $('#brand').find('option:last').remove();
+    $('#colour').find('option:last').remove();
+    $('#type').find('option:last').remove();
+    $('#fuelType').find('option:last').remove();
+    $('#transmissionType').find('option:last').remove();
+    $('#availableOrNot').find('option:last').remove();
+    $('#damageOrNot').find('option:last').remove();
+    $('#underMaintainOrNot').find('option:last').remove();
+
     $("#registrationNo").css('border', '2px solid #e9ecef');
     $("#noOfPassengers").css('border', '2px solid #e9ecef');
     $("#freeKMPerDay").css('border', '2px solid #e9ecef');
@@ -336,6 +346,15 @@ function clickEvent() {
             var sideView = $.trim(tblCarRow.children(':nth-child(20)').text());
             var interiorView = $.trim(tblCarRow.children(':nth-child(21)').text());
 
+            $("#brand").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(2)').text())));
+            $("#colour").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(3)').text())));
+            $("#type").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(4)').text())));
+            $("#transmissionType").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(7)').text())));
+            $("#fuelType").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(6)').text())));
+            $("#availableOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(14)').text())));
+            $("#damageOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(15)').text())));
+            $("#underMaintainOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblCarRow.children(':nth-child(16)').text())));
+
             $("#carId").val(carId);
             $("#registrationNo").val(regNo);
             $("#noOfPassengers").val(passengers);
@@ -354,38 +373,31 @@ function clickEvent() {
 }
 
 $("#btnUpdateCar").click(function () {
+    let text = "Do you want to update this cars ?";
 
-    if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
-        $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
-        $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
-        $("#freeKMPerDay").val() == "" || $("#freeKMPerMonth").val() == "" || $("#priceForExtraKM").val() == "" || $("#damageOrNot option:selected").val() == "" ||
-        $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" ||  $("#availableOrNot option:selected").val() == ""){
-        alert("All Fields Are Required !");
-    } else {
-        searchCarId();
-    }
-});
-
-function searchCarId() {
-    $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/" + $("#carId").val(),
-        method: "GET",
-        success: function (response) {
-            if ($("#carId").val() != response.data.carId){
-                let text = "Do you really want to update this Car?";
-
-                if (confirm(text) == true) {
+    if (confirm(text) == true) {
+        if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
+            $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
+            $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
+            $("#freeKMPerDay").val() == "" || $("#freeKMPerMonth").val() == "" || $("#priceForExtraKM").val() == "" || $("#damageOrNot option:selected").val() == "" ||
+            $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" ||  $("#availableOrNot option:selected").val() == ""){
+            alert("All Fields Are Required !");
+        } else {
+            if ($("#errorRegNo").text() != "" || $("#errorPassengers").text() != "" || $("#errorDailyRate").text() != "" || $("#errorMonthlyRate").text() != "" ||
+                $("#errorFeeKMDay").text() != "" || $("#errorFreeKMMonth").text() != "" || $("#errorExtraKMPrice").text() != "" || $("#errorTotalDistance").text() != ""){
+                alert("Check Input Fields Whether Correct !");
+            }else {
+                if ($('#uploadFrontView').get(0).files.length === 0 || $('#uploadBackView').get(0).files.length === 0 || $('#uploadSideView').get(0).files.length === 0 || $('#uploadInteriorView').get(0).files.length === 0) {
+                    alert("No Images Inserted !");
+                }else {
                     updateCar();
-                } else {
-
                 }
             }
-        },
-        error: function (ob) {
-            alert(ob.responseJSON.message);
         }
-    });
-}
+    }else {
+
+    }
+});
 
 function updateCar() {
 
@@ -422,6 +434,7 @@ function updateCar() {
             if (response.code == 200) {
                 alert($("#carId").val() + " " + response.message);
             }
+            clearCarFields();
             loadAllCars();
         },
         error: function (ob) {
@@ -429,4 +442,5 @@ function updateCar() {
         }
     });
 }
+
 

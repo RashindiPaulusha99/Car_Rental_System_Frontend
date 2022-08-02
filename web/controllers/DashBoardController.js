@@ -1108,6 +1108,7 @@ $("#btnAddCar").click(function () {
 });
 
 $("#btnCancelAddCar").click(function () {
+    clearCarFields();
     $('#CarManagePage').css('transform','scale(0)');
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');

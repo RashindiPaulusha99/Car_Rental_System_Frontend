@@ -42,7 +42,7 @@ function generateVReserveIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/reserve?test="+test,
+        url: "http://localhost:8081/Car_Rental_System_war/reserve?test=" + test,
         method: "GET",
         success: function (response) {
             var reserveId = response.data;
@@ -65,7 +65,7 @@ function generateVReserveIds() {
     });
 }
 
-function pasteDate(){
+function pasteDate() {
     $("#pickUpDateEdit").val($("#pickUpDate").val());
     $("#pickUpTimeEdit").val($("#pickUpTime").val());
     $("#returnDateEdit").val($("#returnDate").val());
@@ -188,9 +188,10 @@ $("#editRentData").click(function () {
     }
 });
 
-$("#noResult").css('display','none');
+$("#noResult").css('display', 'none');
 
 countAvailableCars();
+
 function countAvailableCars() {
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLECOUNT/" + "Available",
@@ -206,15 +207,16 @@ function countAvailableCars() {
 
 var tblSelectCarRow = -1;
 loadAllCarsToSee();
+
 function loadAllCarsToSee() {
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/car",
         method: "GET",
         success: function (response) {
-            if (response.data.length == 0){
-                $("#noResult").css('display','block');
-            }else {
-                $("#noResult").css('display','none');
+            if (response.data.length == 0) {
+                $("#noResult").css('display', 'block');
+            } else {
+                $("#noResult").css('display', 'none');
             }
 
             var rentFeeDay;
@@ -223,13 +225,13 @@ function loadAllCarsToSee() {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -289,9 +291,8 @@ function loadAllCarsToSee() {
 
                         pasteDataToReservationFields();
                         loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        //getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                     });
-                }else {
+                } else {
 
                 }
             });
@@ -302,7 +303,7 @@ function loadAllCarsToSee() {
     });
 }
 
-function pasteDataToReservationFields(){
+function pasteDataToReservationFields() {
     $("#BPickupDate").val($("#pickUpDateEdit").val());
     $("#BPickupTime").val($("#pickUpTimeEdit").val());
     $("#BReturnDate").val($("#returnDateEdit").val());
@@ -313,21 +314,22 @@ function pasteDataToReservationFields(){
     $("#BDuration").val($("#durationEdit").val());
 }
 
-var lossPayment=0;
-var tblRow;
-var count=1;
-function loadSelectedCars(carId){
+var lossPayment = 0;
+var tblRow = -1;
+var count = 1;
+
+function loadSelectedCars(carId) {
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/car/" + carId,
         method: "GET",
         success: function (response) {
 
-            if (response.data.type == "General"){
-                lossPayment+=10000.00;
-            }else if (response.data.type == "Premium"){
-                lossPayment+=15000.00;
-            }else if (response.data.type == "Luxury"){
-                lossPayment+=20000.00;
+            if (response.data.type == "General") {
+                lossPayment += 10000.00;
+            } else if (response.data.type == "Premium") {
+                lossPayment += 15000.00;
+            } else if (response.data.type == "Luxury") {
+                lossPayment += 20000.00;
             }
 
             let raw = `<tr>
@@ -338,7 +340,7 @@ function loadSelectedCars(carId){
                                         <div class="d-flex align-items-center">
                                             <img src="assets/images/1200x-1.jpg" alt="" style="width: 50px; height: 50px" class=""/>
                                         </div>
-                                        <h6  id="id" class="id text-black">${response.data.carId}</h6>
+                                        <h6  id="id" class="id text-white">${response.data.carId}</h6>
                                     </td>
                                     <td>
                                        ${response.data.brand}
@@ -355,6 +357,9 @@ function loadSelectedCars(carId){
                                             <label class="form-check-label fs-4" for="checkDriverIfWant">If you want a driver please click</label>
                                         </div>
                                     </td>
+                                     <td id="did" class="text-white" style="font-size: 2px">
+                                        
+                                    </td>
                                     <td id="dname">
                                         
                                     </td>
@@ -365,108 +370,47 @@ function loadSelectedCars(carId){
                                         ${lossPayment}
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-danger btn-sm px-3 btnCancelCar" data-ripple-color="dark">
+                                        <button type="button" class="btn btn-danger btn-sm px-3 btnCancelCar" data-ripple-color="dark" id="btnCancelCar">
                                             <i class="fas fa-times"></i>
                                         </button>
                                     </td>
                                 </tr>`;
             $("#tblSelectedCars tbody").append(raw);
-            count+=1;
+            count += 1;
 
-            //openBookingPage();
-            /*if ($("#tblSelectedCars tbody  tr").length == 0){
-                let raw = `<tr class="item">
-                        <td >
-                            <div class="d-flex align-items-center">
-                                <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
-                            </div>
-                           <h6  id="id" class="id text-white">${response.data.carId}</h6>
-                        </td>
-                        <td>
-                        <h3>${response.data.brand}</h3>
-                            <p class="mt-3 text-muted"><i class="fas fa-palette text-warning me-2"></i>${response.data.colour}</p>
-                            <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${response.data.noOfPassengers}<span class="ms-1">Seats</span></p>
-                            <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${response.data.transmissionType}</p>
-                            <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${response.data.fuelType}</p>
-                        </td>
-                        <td>
-                            <h3 class="mt-5 ">Rs.<span>${response.data.dailyRatePrice}</span><span>/day</span></h3>
-                        </td>
-                    </tr>`;
-                $("#tblSelectedCars tbody").append(raw);
-                openBookingPage();
-            }else {
-                for (var i = 0; i <$("#tblSelectedCars tbody  tr").length ; i++) {
-                    if (carId == $("#tblSelectedCars tbody > tr").find('#id')[i].innerText) {
-                        bl = true;
-                    }
-                }
+            openBookingPage();
 
-                if (bl == true){
-                    alert("You Selected This Car Earlier. Choose Another One !");
-                }else {
-                    bl=false;
-                    openBookingPage();
-                    let raw = `<tr>
-                        <td >
-                            <div class="d-flex align-items-center">
-                                <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
-                            </div>
-                           <h6  id="id" class="id text-white">${response.data.carId}</h6>
-                        </td>
-                        <td>
-                        <h3>${response.data.brand}</h3>
-                            <p class="mt-3 text-muted"><i class="fas fa-palette text-warning me-2"></i>${response.data.colour}</p>
-                            <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${response.data.noOfPassengers}<span class="ms-1">Seats</span></p>
-                            <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${response.data.transmissionType}</p>
-                            <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${response.data.fuelType}</p>
-                        </td>
-                        <td>
-                            <h3 class="mt-5 ">Rs.<span>${response.data.dailyRatePrice}</span><span>/day</span></h3>
-                        </td>
-                    </tr>`;
-                    $("#tblSelectedCars tbody").append(raw);
-                }
-            }*/
-
-            $("#tblSelectedCars tbody > tr").off("click");
             $(".checkDriverIfWant").off("click");
 
             findDriverData();
 
-            $(".btnRent").click(function () {
-                $("#tblShowCars tbody > tr").off("click");
+            $("#tblSelectedCars tbody").on('click', '#btnCancelCar', function () {
+                $("#tblSelectedCars tbody > tr").off("click");
 
-                let text = "Do you want to rent this car ?";
+                $("#tblSelectedCars tbody > tr").click(function () {
+                    let text = "Do you want to remove this car ?";
 
-                if (confirm(text) == true) {
+                    if (confirm(text) == true) {
+                        tblRow = $(this);
+                        tblRow.remove();
+                    }else {
 
-                    $("#tblShowCars tbody > tr").click(function () {
-                        tblSelectCarRow = $(this).children();
-
-                        pasteDataToReservationFields();
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        //getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                    });
-                }else {
-
-                }
+                    }
+                });
             });
-
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
         }
     });
-
 }
 
-function findDriverData(){
+function findDriverData() {
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/driver/ASSIGN/" + "Release",
         method: "GET",
         success: function (response) {
-            load(response.data.driverName,response.data.driverContact);
+            load(response.data.driverId,response.data.driverName, response.data.driverContact);
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -476,37 +420,39 @@ function findDriverData(){
 
 var dname;
 var dcontact;
-function load(name,contact){
-    dname=name;
-    dcontact=contact;
+var did;
+
+function load(id,name, contact) {
+    dname = name;
+    dcontact = contact;
+    did = id;
     $(".checkDriverIfWant").click(function () {
         $("#tblSelectedCars tbody > tr").click(function () {
             if ($('.checkDriverIfWant').is(':checked')) {
                 if ($(this).find(".checkDriverIfWant").is(":checked")) {
-                    $(this).find("td:eq(6)").text(dname);
-                    $(this).find("td:eq(7)").text(dcontact);
+                    $(this).find("td:eq(6)").text(did);
+                    $(this).find("td:eq(7)").text(dname);
+                    $(this).find("td:eq(8)").text(dcontact);
                 }
             }
         });
     });
 }
 
-
-
 $("#sort").click(function () {
-    if ($("#sort option:selected").text() == "Passengers - Ascending"){
+    if ($("#sort option:selected").text() == "Passengers - Ascending") {
         findPassengersAsc($("#sort option:selected").text());
-    }else if ($("#sort option:selected").text() == "Passengers - Descending"){
+    } else if ($("#sort option:selected").text() == "Passengers - Descending") {
         findPassengersDsc($("#sort option:selected").text());
-    }else if ($("#sort option:selected").text() == "Daily Rate Price - Ascending"){
+    } else if ($("#sort option:selected").text() == "Daily Rate Price - Ascending") {
         findDailyRateAsc($("#sort option:selected").text());
-    }else if ($("#sort option:selected").text() == "Daily Rate Price - Descending"){
+    } else if ($("#sort option:selected").text() == "Daily Rate Price - Descending") {
         findDailyRateDsc($("#sort option:selected").text());
-    }else if ($("#sort option:selected").text() == "Monthly Rate Price - Ascending"){
+    } else if ($("#sort option:selected").text() == "Monthly Rate Price - Ascending") {
         findMonthlyRateAsc($("#sort option:selected").text());
-    }else if ($("#sort option:selected").text() == "Monthly Rate Price - Descending"){
+    } else if ($("#sort option:selected").text() == "Monthly Rate Price - Descending") {
         findMonthlyRateDsc($("#sort option:selected").text());
-    }else if($("#sort option:selected").text() == "Recommended"){
+    } else if ($("#sort option:selected").text() == "Recommended") {
         loadAllCarsToSee();
     }
 });
@@ -522,13 +468,13 @@ function findPassengersAsc(passengerAsc) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -587,7 +533,7 @@ function findPassengersAsc(passengerAsc) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -596,7 +542,7 @@ function findPassengersAsc(passengerAsc) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -617,13 +563,13 @@ function findPassengersDsc(passengerDsc) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -682,7 +628,7 @@ function findPassengersDsc(passengerDsc) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -691,7 +637,7 @@ function findPassengersDsc(passengerDsc) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -712,13 +658,13 @@ function findDailyRateAsc(dailyRateAsc) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -777,7 +723,7 @@ function findDailyRateAsc(dailyRateAsc) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -786,7 +732,7 @@ function findDailyRateAsc(dailyRateAsc) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -807,13 +753,13 @@ function findDailyRateDsc(dailyRateDsc) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -872,7 +818,7 @@ function findDailyRateDsc(dailyRateDsc) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -881,7 +827,7 @@ function findDailyRateDsc(dailyRateDsc) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -902,13 +848,13 @@ function findMonthlyRateAsc(monthlyRateAsc) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -967,7 +913,7 @@ function findMonthlyRateAsc(monthlyRateAsc) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -976,7 +922,7 @@ function findMonthlyRateAsc(monthlyRateAsc) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -997,13 +943,13 @@ function findMonthlyRateDsc(monthlyRateDsc) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -1062,7 +1008,7 @@ function findMonthlyRateDsc(monthlyRateDsc) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -1071,7 +1017,7 @@ function findMonthlyRateDsc(monthlyRateDsc) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -1091,13 +1037,13 @@ $("#btnSearchCarsToSort").click(function () {
 
 function findTransmissionType(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPETR/" +type ,
+        url: "http://localhost:8081/Car_Rental_System_war/car/TYPETR/" + type,
         method: "GET",
         success: function (response) {
-            if (response.data.length == 0){
-                $("#noResult").css('display','block');
-            }else {
-                $("#noResult").css('display','none');
+            if (response.data.length == 0) {
+                $("#noResult").css('display', 'block');
+            } else {
+                $("#noResult").css('display', 'none');
             }
 
             var rentFeeDay;
@@ -1106,13 +1052,13 @@ function findTransmissionType(type) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -1171,7 +1117,7 @@ function findTransmissionType(type) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -1180,7 +1126,7 @@ function findTransmissionType(type) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -1193,13 +1139,13 @@ function findTransmissionType(type) {
 
 function findType(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPET/" +type ,
+        url: "http://localhost:8081/Car_Rental_System_war/car/TYPET/" + type,
         method: "GET",
         success: function (response) {
-            if (response.data.length == 0){
-                $("#noResult").css('display','block');
-            }else {
-                $("#noResult").css('display','none');
+            if (response.data.length == 0) {
+                $("#noResult").css('display', 'block');
+            } else {
+                $("#noResult").css('display', 'none');
             }
 
             var rentFeeDay;
@@ -1208,13 +1154,13 @@ function findType(type) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -1273,7 +1219,7 @@ function findType(type) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -1282,7 +1228,7 @@ function findType(type) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -1295,13 +1241,13 @@ function findType(type) {
 
 function findBrand(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEB/" +type ,
+        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEB/" + type,
         method: "GET",
         success: function (response) {
-            if (response.data.length == 0){
-                $("#noResult").css('display','block');
-            }else {
-                $("#noResult").css('display','none');
+            if (response.data.length == 0) {
+                $("#noResult").css('display', 'block');
+            } else {
+                $("#noResult").css('display', 'none');
             }
 
             var rentFeeDay;
@@ -1310,13 +1256,13 @@ function findBrand(type) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -1375,7 +1321,7 @@ function findBrand(type) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -1384,7 +1330,7 @@ function findBrand(type) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -1397,13 +1343,13 @@ function findBrand(type) {
 
 function findFuelType(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEF/" +type ,
+        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEF/" + type,
         method: "GET",
         success: function (response) {
-            if (response.data.length == 0){
-                $("#noResult").css('display','block');
-            }else {
-                $("#noResult").css('display','none');
+            if (response.data.length == 0) {
+                $("#noResult").css('display', 'block');
+            } else {
+                $("#noResult").css('display', 'none');
             }
 
             var rentFeeDay;
@@ -1412,13 +1358,13 @@ function findFuelType(type) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -1477,7 +1423,7 @@ function findFuelType(type) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -1486,7 +1432,7 @@ function findFuelType(type) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -1499,13 +1445,13 @@ function findFuelType(type) {
 
 function findColour(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEC/" +type ,
+        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEC/" + type,
         method: "GET",
         success: function (response) {
-            if (response.data.length == 0){
-                $("#noResult").css('display','block');
-            }else {
-                $("#noResult").css('display','none');
+            if (response.data.length == 0) {
+                $("#noResult").css('display', 'block');
+            } else {
+                $("#noResult").css('display', 'none');
             }
 
             var rentFeeDay;
@@ -1514,13 +1460,13 @@ function findColour(type) {
             $("#tblShowCars tbody").empty();
             for (var responseKey of response.data) {
 
-                if (responseKey.type == "Luxury"){
+                if (responseKey.type == "Luxury") {
                     rentFeeDay = 8000.00;
                     rentFeeMonth = 25000.00;
-                }else if (responseKey.type = "premium"){
+                } else if (responseKey.type = "premium") {
                     rentFeeDay = 5000.00;
                     rentFeeMonth = 20000.00;
-                }else if (responseKey.type = "General") {
+                } else if (responseKey.type = "General") {
                     rentFeeDay = 3000.00;
                     rentFeeMonth = 10000.00;
                 }
@@ -1579,7 +1525,7 @@ function findColour(type) {
 
                     if (confirm(text) == true) {
                         alert("Choose a car you like!...");
-                    }else {
+                    } else {
                         $("#tblShowCars tbody > tr").click(function () {
                             tblSelectCarRow = $(this).children();
 
@@ -1588,7 +1534,7 @@ function findColour(type) {
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
                         });
                     }
-                }else {
+                } else {
 
                 }
             });
@@ -1602,38 +1548,40 @@ function findColour(type) {
 var denyOrAccept;
 var driverWantOrNot;
 $("#btnBook").click(function () {
-    if ($("#PName").val() == "" || $("#PContact").val() == "" || $("#PNIC").val() == ""){
+
+    if ($("#PName").val() == "" || $("#PContact").val() == "" || $("#PNIC").val() == "") {
         alert("Some personal detail fields are not filled. So your booking is deny!..");
         denyOrAccept = "Deny";
-    }else if (!regExFullName.test($("#PName").val()) || !regExContact.test($("#PContact").val()) || !regExNIC.test($("#PNIC").val())){
+    } else if (!regExFullName.test($("#PName").val()) || !regExContact.test($("#PContact").val()) || !regExNIC.test($("#PNIC").val())) {
         alert("Some fields are not in correct format. So your booking is deny!..");
         denyOrAccept = "Deny";
-    }else if ($("#BPickupDate").val() == "" || $("#BPickupTime").val() == "" || $("#BPickupLocation").val() == "" || $("#BReturnDate").val() == "" || $("#BReturnTime").val() == "" || $("#BReturnLocation").val() == "" || $("#BDestination").val() == "" || $("#BDuration").val() == ""){
+    } else if ($("#BPickupDate").val() == "" || $("#BPickupTime").val() == "" || $("#BPickupLocation").val() == "" || $("#BReturnDate").val() == "" || $("#BReturnTime").val() == "" || $("#BReturnLocation").val() == "" || $("#BDestination").val() == "" || $("#BDuration").val() == "") {
         alert("Some booking detail fields are not filled. So your booking is deny!..");
         denyOrAccept = "Deny";
-    }else if ($("#tblSelectedCars tbody tr").length == 0){
+    } else if ($("#tblSelectedCars tbody tr").length == 0) {
         alert("Table is empty. So your booking is deny!..");
         denyOrAccept = "Deny";
-    }else {
-        denyOrAccept="Accept";
+    } else {
+        denyOrAccept = "Accept";
     }
 
-    if ($('#checkDriverIfWant').is(':checked')){
-        driverWantOrNot ="Want";
-    }else {
+    if ($('#checkDriverIfWant').is(':checked')) {
+        driverWantOrNot = "Want";
+    } else {
         driverWantOrNot = "Not Want";
     }
 
-    findCustomerToReserve(driverWantOrNot,denyOrAccept)
+    findCustomerToReserve(driverWantOrNot, denyOrAccept)
 });
 
-function findCustomerToReserve(ifDriverWant,acceptOrDeny) {
+function findCustomerToReserve(ifDriverWant, acceptOrDeny) {
 
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/customer/FIND/" + $("#PNIC").val(),
         method: "GET",
         success: function (response) {
-            reserve(ifDriverWant,acceptOrDeny,response.data);
+            console.log(response.data);
+            reserve(ifDriverWant, acceptOrDeny, response.data);
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -1641,27 +1589,27 @@ function findCustomerToReserve(ifDriverWant,acceptOrDeny) {
     });
 }
 
-function reserve(driverWant,requestStatus,customer) {
+function reserve(driverWant, requestStatus, customer) {
 
     var details = new Array();
     for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
         var reserveItems = {
             reserveId: $("#reserveId").val(),
-            carId: $("#orderId").val(),
-            driverId: $("#tblOrder tbody tr").children(':nth-child(6)')[i].innerText,
-            type: $("#tblOrder tbody tr").children(':nth-child(2)')[i].innerText,
-            colour: $("#tblOrder tbody tr").children(':nth-child(3)')[i].innerText,
-            brand: $("#tblOrder tbody tr").children(':nth-child(4)')[i].innerText,
-            driverName: $("#tblOrder tbody tr").children(':nth-child(7)')[i].innerText,
-            driverContact: $("#tblOrder tbody tr").children(':nth-child(5)')[i].innerText,
-            loseDamageWaiverPayment:$("#loseDamagePayment").val()
+            carId: $("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText,
+            driverId: $("#tblSelectedCars tbody tr").children(':nth-child(7)')[i].innerText,
+            type: $("#tblSelectedCars tbody tr").children(':nth-child(5)')[i].innerText,
+            colour: $("#tblSelectedCars tbody tr").children(':nth-child(4)')[i].innerText,
+            brand: $("#tblSelectedCars tbody tr").children(':nth-child(3)')[i].innerText,
+            driverName: $("#tblSelectedCars tbody tr").children(':nth-child(8)')[i].innerText,
+            driverContact: $("#tblSelectedCars tbody tr").children(':nth-child(9)')[i].innerText,
+            loseDamageWaiverPayment: $("#tblSelectedCars tbody tr").children(':nth-child(10)')[i].innerText
         }
         details.push(reserveItems);
     }
 
     var reserveDetail = {
         reserveId: $("#reserveId").val(),
-        reserveDate:today,
+        reserveDate: today,
         pickUpDate: $("#BPickupDate").val(),
         pickUpTime: $("#BPickupTime").val(),
         destination: $("#BDestination").val(),
@@ -1672,8 +1620,8 @@ function reserve(driverWant,requestStatus,customer) {
         returnTime: $("#BReturnTime").val(),
         wantDriverOrNot: driverWant,
         requestAcceptOrDeny: requestStatus,
-        customer:customer,
-        reserveDetails:details
+        customer: customer,
+        reserveDetails: details
     }
 
     $.ajax({
@@ -1682,13 +1630,86 @@ function reserve(driverWant,requestStatus,customer) {
         contentType: "application/json",
         data: JSON.stringify(reserveDetail),
         success: function (response) {
-
+            for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
+               updateDriverTable($("#tblSelectedCars tbody tr").children(':nth-child(7)')[i].innerText,$("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText);
+            }
+            alert(response.message);
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
         }
     });
 }
+
+function updateDriverTable(driverId,carId) {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/driver/" + "Not Release"+ "/"+ driverId,
+        method: "PUT",
+        success: function (response) {
+            updateCarTable(carId,driverId);
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function updateCarTable(carId,driverId) {
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLE/" + "Not Available"+ "/"+ carId,
+        method: "PUT",
+        success: function (response) {
+            updateScheduleTable();
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+function updateScheduleTable() {
+
+    for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
+        var reserveItems = {
+            reserveId: $("#reserveId").val(),
+            carId: $("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText,
+            driverId: $("#tblSelectedCars tbody tr").children(':nth-child(7)')[i].innerText,
+            type: $("#tblSelectedCars tbody tr").children(':nth-child(5)')[i].innerText,
+            colour: $("#tblSelectedCars tbody tr").children(':nth-child(4)')[i].innerText,
+            brand: $("#tblSelectedCars tbody tr").children(':nth-child(3)')[i].innerText,
+            driverName: $("#tblSelectedCars tbody tr").children(':nth-child(8)')[i].innerText,
+            driverContact: $("#tblSelectedCars tbody tr").children(':nth-child(9)')[i].innerText,
+            loseDamageWaiverPayment: $("#tblSelectedCars tbody tr").children(':nth-child(10)')[i].innerText
+        }
+
+        var schedule = {
+            scheduleId: $("#reserveId").val(),
+            pickUpDate: $("#BPickupDate").val(),
+            pickUpTime: $("#BPickupTime").val(),
+            returnDate: $("#BReturnDate").val(),
+            returnTime: $("#BReturnTime").val(),
+            pickUpVenue:$("#BPickupLocation").val() ,
+            returnVenue: $("#BReturnLocation").val(),
+            releaseOrNot: "Not Release",
+            reserveDetails: reserveItems
+        }
+
+        $.ajax({
+            url: "http://localhost:8081/Car_Rental_System_war/schedule",
+            method: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify(schedule),
+            success: function (response) {
+
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+}
+
+
 
 
 

@@ -1482,6 +1482,7 @@ function openBookingPage() {
 }
 
 function gotoSeeCars(){
+
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');
@@ -1518,5 +1519,13 @@ function gotoSeeCars(){
 }
 
 $("#newCar").click(function () {
-    gotoSeeCars();
+
+    let text = "Do you want to rent another car ?";
+
+    if (confirm(text) == true) {
+        gotoSeeCars();
+    }else {
+
+    }
+
 });

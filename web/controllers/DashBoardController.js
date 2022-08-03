@@ -1441,39 +1441,7 @@ $("#btnLogOutFromDriverSchedule").click(function () {
 });
 
 $("#btnBack").click(function () {
-    $('#login_page_container').css('transform','scale(0)');
-    $('#ForgotPasswordPage').css('transform','scale(0)');
-    $('#RegisterPage').css('transform','scale(0)');
-    $('#CarManagePage').css('transform','scale(0)');
-    $('#DriverManagePage').css('transform','scale(0)');
-    $('#ChangeDriver').css('transform','scale(0)');
-    $('#PaymentAddPage').css('transform','scale(0)');
-
-    $("#CustomerDashBoard").css('display','block');
-    $("#moreSpace").css('display','block');
-    $("#CopyRightPage").css('display','block');
-    $("#NavBar").css('display','block');
-    $("#WelcomePage").css('display','none');
-    $("#ViewCars").css('display','none');
-    $("#Services").css('display','none');
-    $("#OurCompany").css('display','none');
-    $("#OurHistory").css('display','none');
-    $("#OurTeam").css('display','none');
-    $("#Testimony").css('display','none');
-    $("#Blog").css('display','none');
-    $("#ContactInfoPage").css('display','none');
-    $("#CarDetailsPage").css('display','none');
-    $("#DriverDetailsPage").css('display','none');
-    $("#SchedulePage").css('display','none');
-    $("#ViewCustomerInformationPage").css('display','none');
-    $("#ViewReserveDetailsPage").css('display','none');
-    $("#ReserveDetailsPage").css('display','none');
-    $("#PaymentPage").css('display','none');
-    $("#AdminPanel").css('display','none');
-    $("#IncomePage").css('display','none');
-    $("#Reservation").css('display','none');
-    $("#mainForm").css('display','none');
-    $("#SchedulePageForDriver").css('display','none');
+    gotoSeeCars();
 });
 
 function openBookingPage() {
@@ -1513,4 +1481,42 @@ function openBookingPage() {
     $("#SchedulePageForDriver").css('display','none');
 }
 
+function gotoSeeCars(){
+    $('#login_page_container').css('transform','scale(0)');
+    $('#ForgotPasswordPage').css('transform','scale(0)');
+    $('#RegisterPage').css('transform','scale(0)');
+    $('#CarManagePage').css('transform','scale(0)');
+    $('#DriverManagePage').css('transform','scale(0)');
+    $('#ChangeDriver').css('transform','scale(0)');
+    $('#PaymentAddPage').css('transform','scale(0)');
 
+    $("#CustomerDashBoard").css('display','block');
+    $("#moreSpace").css('display','block');
+    $("#CopyRightPage").css('display','block');
+    $("#NavBar").css('display','block');
+    $("#WelcomePage").css('display','none');
+    $("#ViewCars").css('display','none');
+    $("#Services").css('display','none');
+    $("#OurCompany").css('display','none');
+    $("#OurHistory").css('display','none');
+    $("#OurTeam").css('display','none');
+    $("#Testimony").css('display','none');
+    $("#Blog").css('display','none');
+    $("#ContactInfoPage").css('display','none');
+    $("#CarDetailsPage").css('display','none');
+    $("#DriverDetailsPage").css('display','none');
+    $("#SchedulePage").css('display','none');
+    $("#ViewCustomerInformationPage").css('display','none');
+    $("#ViewReserveDetailsPage").css('display','none');
+    $("#ReserveDetailsPage").css('display','none');
+    $("#PaymentPage").css('display','none');
+    $("#AdminPanel").css('display','none');
+    $("#IncomePage").css('display','none');
+    $("#Reservation").css('display','none');
+    $("#mainForm").css('display','none');
+    $("#SchedulePageForDriver").css('display','none');
+}
+
+$("#newCar").click(function () {
+    gotoSeeCars();
+});

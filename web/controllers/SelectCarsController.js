@@ -204,7 +204,7 @@ function countAvailableCars() {
     });
 }
 
-vartblSelectCarRow = -1;
+var tblSelectCarRow = -1;
 loadAllCarsToSee();
 function loadAllCarsToSee() {
     $.ajax({
@@ -314,11 +314,14 @@ function pasteDataToReservationFields(){
 }
 
 var lossPayment=0;
-function getLoseDWPayment(carId){
+var tblRow;
+var count=1;
+function loadSelectedCars(carId){
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/car/" + carId,
         method: "GET",
         success: function (response) {
+
             if (response.data.type == "General"){
                 lossPayment+=10000.00;
             }else if (response.data.type == "Premium"){
@@ -326,41 +329,51 @@ function getLoseDWPayment(carId){
             }else if (response.data.type == "Luxury"){
                 lossPayment+=20000.00;
             }
-            $("#loseDamagePayment").val(lossPayment);
 
-        },
-        error: function (ob) {
-            alert(ob.responseJSON.message);
-        }
-    });
-}
-
-var bl=false;
-function loadSelectedCars(carId){
-    $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/" + carId,
-        method: "GET",
-        success: function (response) {
-            let raw = `<tr class="item">
-                        <td >
-                            <div class="d-flex align-items-center">
-                                <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
-                            </div>
-                           <h6  id="id" class="id text-white">${response.data.carId}</h6>
-                        </td>
-                        <td>
-                        <h3>${response.data.brand}</h3>
-                            <p class="mt-3 text-muted"><i class="fas fa-palette text-warning me-2"></i>${response.data.colour}</p>
-                            <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${response.data.noOfPassengers}<span class="ms-1">Seats</span></p>
-                            <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${response.data.transmissionType}</p>
-                            <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${response.data.fuelType}</p>
-                        </td>
-                        <td>
-                            <h3 class="mt-5 ">Rs.<span>${response.data.dailyRatePrice}</span><span>/day</span></h3>
-                        </td>
-                    </tr>`;
+            let raw = `<tr>
+                                    <td id="scope">
+                                        ${count}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/1200x-1.jpg" alt="" style="width: 50px; height: 50px" class=""/>
+                                        </div>
+                                        <h6  id="id" class="id text-black">${response.data.carId}</h6>
+                                    </td>
+                                    <td>
+                                       ${response.data.brand}
+                                    </td>
+                                    <td>
+                                        ${response.data.colour}
+                                    </td>
+                                    <td>
+                                        ${response.data.type}
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input checkDriverIfWant" type="checkbox" value="" id="checkDriverIfWant" />
+                                            <label class="form-check-label fs-4" for="checkDriverIfWant">If you want a driver please click</label>
+                                        </div>
+                                    </td>
+                                    <td id="dname">
+                                        
+                                    </td>
+                                    <td id="dcontact">
+                                        
+                                    </td>
+                                    <td>
+                                        ${lossPayment}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm px-3 btnCancelCar" data-ripple-color="dark">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>`;
             $("#tblSelectedCars tbody").append(raw);
-            openBookingPage();
+            count+=1;
+
+            //openBookingPage();
             /*if ($("#tblSelectedCars tbody  tr").length == 0){
                 let raw = `<tr class="item">
                         <td >
@@ -415,6 +428,33 @@ function loadSelectedCars(carId){
                     $("#tblSelectedCars tbody").append(raw);
                 }
             }*/
+
+            $("#tblSelectedCars tbody > tr").off("click");
+            $(".checkDriverIfWant").off("click");
+            $(".checkDriverIfWant").click(function () {
+
+                $("#tblSelectedCars tbody > tr").click(function () {
+                    if ($('.checkDriverIfWant').is(':checked')) {
+                        if ($(this).find(".checkDriverIfWant").is(":checked")) {
+                            $.ajax({
+                                url: "http://localhost:8081/Car_Rental_System_war/driver/ASSIGN/" + "Release",
+                                method: "GET",
+                                success: function (response) {
+
+                                    //pasteDriverDataToTable(response.data.driverName, response.data.driverContact);
+
+                                    $(this).find("td:eq(6)").text("dddfgd");
+                                    $(this).find("td:eq(7)").text("fsdgdg");
+
+                                },
+                                error: function (ob) {
+                                    alert(ob.responseJSON.message);
+                                }
+                            });
+                        }
+                    }
+                });
+            });
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -422,6 +462,9 @@ function loadSelectedCars(carId){
     });
 
 }
+
+
+
 
 $("#sort").click(function () {
     if ($("#sort option:selected").text() == "Passengers - Ascending"){
@@ -1528,22 +1571,6 @@ function findColour(type) {
         }
     });
 }
-
-$("#checkDriverIfWant").click(function () {
-    if ($('#checkDriverIfWant').is(':checked')){
-        $.ajax({
-            url: "http://localhost:8081/Car_Rental_System_war/driver/ASSIGN/" +"Release" ,
-            method: "GET",
-            success: function (response) {
-                $("#BDriverName").val(response.data.driverName);
-                $("#BDriverContact").val(response.data.driverContact);
-            },
-            error: function (ob) {
-                alert(ob.responseJSON.message);
-            }
-        });
-    }
-});
 
 var denyOrAccept;
 var driverWantOrNot;

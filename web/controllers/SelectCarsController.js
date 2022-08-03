@@ -317,8 +317,12 @@ function loadAllCarsToSee() {
                     $("#tblShowCars tbody > tr").click(function () {
                         tblSelectCarRow = $(this).children();
 
-                        pasteDataToReservationFields();
-                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
+                            pasteDataToReservationFields();
+                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        }
                     });
                 } else {
 
@@ -345,6 +349,7 @@ function pasteDataToReservationFields() {
 var lossPayment = 0;
 var tblRow = -1;
 var count = 1;
+var click="1";
 
 function loadSelectedCars(carId) {
     $.ajax({
@@ -386,7 +391,7 @@ function loadSelectedCars(carId) {
                                         </div>
                                     </td>
                                      <td id="did" class="text-white" style="font-size: 2px">
-                                        
+                                        ${click}
                                     </td>
                                     <td id="dname">
                                         
@@ -405,6 +410,13 @@ function loadSelectedCars(carId) {
                                 </tr>`;
             $("#tblSelectedCars tbody").append(raw);
             count += 1;
+
+           /* for (let i = 0; i < $("#tblSelectedCars tbody tr").lengh; i++) {
+                if (carId == $("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText){
+                    alert("You choosed this car ealier! Select another car!...");
+                    $(this).remove();
+                }
+            }*/
 
             openBookingPage();
 
@@ -461,6 +473,10 @@ function load(id,name, contact) {
                     $(this).find("td:eq(6)").text(did);
                     $(this).find("td:eq(7)").text(dname);
                     $(this).find("td:eq(8)").text(dcontact);
+                }else {
+                    $(this).find("td:eq(6)").text("1");
+                    $(this).find("td:eq(7)").text("none");
+                    $(this).find("td:eq(8)").text("none");
                 }
             }
         });
@@ -1574,7 +1590,6 @@ function findColour(type) {
 }
 
 var denyOrAccept;
-var driverWantOrNot;
 $("#btnBook").click(function () {
 
     if ($("#PName").val() == "" || $("#PContact").val() == "" || $("#PNIC").val() == "") {
@@ -1593,22 +1608,16 @@ $("#btnBook").click(function () {
         denyOrAccept = "Accept";
     }
 
-    if ($('#checkDriverIfWant').is(':checked')) {
-        driverWantOrNot = "Want";
-    } else {
-        driverWantOrNot = "Not Want";
-    }
-
-    findCustomerToReserve(driverWantOrNot, denyOrAccept)
+    findCustomerToReserve(denyOrAccept)
 });
 
-function findCustomerToReserve(ifDriverWant, acceptOrDeny) {
+function findCustomerToReserve(denyOrAccept) {
 
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/customer/FIND/" + $("#PNIC").val(),
         method: "GET",
         success: function (response) {
-            reserve(ifDriverWant, acceptOrDeny, response.data);
+            reserve(response.data,denyOrAccept);
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -1616,10 +1625,18 @@ function findCustomerToReserve(ifDriverWant, acceptOrDeny) {
     });
 }
 
-function reserve(driverWant, requestStatus, customer) {
+var driverWantOrNot;
+function reserve(customer,denyOrAccept) {
 
     var details = new Array();
     for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
+
+        if ($('#checkDriverIfWant').is(':checked')) {
+            driverWantOrNot = "Want";
+        } else {
+            driverWantOrNot = "Not Want";
+        }
+
         var reserveItems = {
             reserveId: $("#reserveId").val(),
             carId: $("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText,
@@ -1627,6 +1644,7 @@ function reserve(driverWant, requestStatus, customer) {
             type: $("#tblSelectedCars tbody tr").children(':nth-child(5)')[i].innerText,
             colour: $("#tblSelectedCars tbody tr").children(':nth-child(4)')[i].innerText,
             brand: $("#tblSelectedCars tbody tr").children(':nth-child(3)')[i].innerText,
+            driverWantOrNot:driverWantOrNot,
             driverName: $("#tblSelectedCars tbody tr").children(':nth-child(8)')[i].innerText,
             driverContact: $("#tblSelectedCars tbody tr").children(':nth-child(9)')[i].innerText,
             loseDamageWaiverPayment: $("#tblSelectedCars tbody tr").children(':nth-child(10)')[i].innerText
@@ -1646,8 +1664,7 @@ function reserve(driverWant, requestStatus, customer) {
         returnVenue: $("#BReturnLocation").val(),
         returnDate: $("#BReturnDate").val(),
         returnTime: $("#BReturnTime").val(),
-        wantDriverOrNot: driverWant,
-        requestAcceptOrDeny: requestStatus,
+        requestAcceptOrDeny: denyOrAccept,
         reserveDetails: details
     }
 
@@ -1657,11 +1674,9 @@ function reserve(driverWant, requestStatus, customer) {
         contentType: "application/json",
         data: JSON.stringify(reserveDetail),
         success: function (response) {
-            /*for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
-               updateDriverTable($("#tblSelectedCars tbody tr").children(':nth-child(7)')[i].innerText,$("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText);
-            }
-            alert(response.message);*/
+            //loadSchedule();
             alert(response.message);
+            //gotoHome();
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -1669,75 +1684,7 @@ function reserve(driverWant, requestStatus, customer) {
     });
 }
 
-/*function updateDriverTable(driverId,carId) {
-    $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/driver/" + "Not Release"+ "/"+ driverId,
-        method: "PUT",
-        success: function (response) {
-            updateCarTable(carId,driverId);
-        },
-        error: function (ob) {
-            alert(ob.responseJSON.message);
-        }
-    });
-}
 
-function updateCarTable(carId,driverId) {
-    $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLE/" + "Not Available"+ "/"+ carId,
-        method: "PUT",
-        success: function (response) {
-            updateScheduleTable();
-        },
-        error: function (ob) {
-            alert(ob.responseJSON.message);
-        }
-    });
-}
-
-function updateScheduleTable() {
-
-    for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
-        var reserveItems = {
-            reserveId: $("#reserveId").val(),
-            carId: $("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText,
-            driverId: $("#tblSelectedCars tbody tr").children(':nth-child(7)')[i].innerText,
-            type: $("#tblSelectedCars tbody tr").children(':nth-child(5)')[i].innerText,
-            colour: $("#tblSelectedCars tbody tr").children(':nth-child(4)')[i].innerText,
-            brand: $("#tblSelectedCars tbody tr").children(':nth-child(3)')[i].innerText,
-            driverName: $("#tblSelectedCars tbody tr").children(':nth-child(8)')[i].innerText,
-            driverContact: $("#tblSelectedCars tbody tr").children(':nth-child(9)')[i].innerText,
-            loseDamageWaiverPayment: $("#tblSelectedCars tbody tr").children(':nth-child(10)')[i].innerText
-        }
-
-        generateScheduleIds();
-
-        var schedule = {
-            scheduleId: $("#reserveId").val(),
-            pickUpDate: $("#BPickupDate").val(),
-            pickUpTime: $("#BPickupTime").val(),
-            returnDate: $("#BReturnDate").val(),
-            returnTime: $("#BReturnTime").val(),
-            pickUpVenue:$("#BPickupLocation").val() ,
-            returnVenue: $("#BReturnLocation").val(),
-            releaseOrNot: "Not Release",
-            reserveDetails: reserveItems
-        }
-
-        $.ajax({
-            url: "http://localhost:8081/Car_Rental_System_war/schedule",
-            method: "PUT",
-            contentType: "application/json",
-            data: JSON.stringify(schedule),
-            success: function (response) {
-
-            },
-            error: function (ob) {
-                alert(ob.responseJSON.message);
-            }
-        });
-    }
-}*/
 
 
 

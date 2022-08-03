@@ -1530,3 +1530,31 @@ $("#newCar").click(function () {
     }
 
 });
+
+function gotoHome() {
+    $("#NavBar").css('display','block');
+    $("#WelcomePage").css('display','block');
+    $("#ViewCars").css('display','block');
+    $("#Services").css('display','block');
+    $("#OurCompany").css('display','block');
+    $("#OurHistory").css('display','block');
+    $("#OurTeam").css('display','block');
+    $("#Testimony").css('display','block');
+    $("#Blog").css('display','block');
+    $("#ContactInfoPage").css('display','block');
+    $("#CopyRightPage").css('display','block');
+    $("#CarDetailsPage").css('display','none');
+    $("#DriverDetailsPage").css('display','none');
+    $("#SchedulePage").css('display','none');
+    $("#ViewCustomerInformationPage").css('display','none');
+    $("#ViewReserveDetailsPage").css('display','none');
+    $("#ReserveDetailsPage").css('display','none');
+    $("#PaymentPage").css('display','none');
+    $("#AdminPanel").css('display','none');
+    $("#IncomePage").css('display','none');
+    $("#Reservation").css('display','none');
+    $("#CustomerDashBoard").css('display','none');
+    $("#moreSpace").css('display','none');
+    $("#mainForm").css('display','none');
+    $("#SchedulePageForDriver").css('display','none');
+}

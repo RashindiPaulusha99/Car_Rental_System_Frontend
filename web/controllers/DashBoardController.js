@@ -1294,6 +1294,7 @@ $("#btnCancelChangeDriver").click(function () {
 });
 
 $("#btnAddPayment").click(function () {
+    loadPayments();
     $('#login_page_container').css('transform','scale(0)');
     $('#ForgotPasswordPage').css('transform','scale(0)');
     $('#RegisterPage').css('transform','scale(0)');

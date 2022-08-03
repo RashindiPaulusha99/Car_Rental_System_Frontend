@@ -2939,6 +2939,7 @@
                                 <div class="input-group date" >
                                     <input type="text" id="paymentDate" class="form-control bg-white">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    <p><small id="errorPaymentDate" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                                 </div>
                             </div>
                         </div>
@@ -2950,6 +2951,7 @@
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="rentFee">* Rent Fee</label>
                                 <input type="text" id="rentFee" class="form-control bg-white rounded-3" />
+                                <p><small id="errorRentFee" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
 
@@ -2958,6 +2960,7 @@
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="driverFee">* Driver Fee</label>
                                 <input type="text" id="driverFee" class="form-control bg-white rounded-3" />
+                                <p><small id="errorDriverFee" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
                     </div>
@@ -2968,6 +2971,7 @@
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="loseDamageWaiverPayment">* Lose Damage Waiver Payment</label>
                                 <input type="text" id="loseDamageWaiverPayment" class="form-control bg-white rounded-3" />
+                                <p><small id="errorDamagePayment" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
 
@@ -2976,6 +2980,7 @@
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="reducedLoseDamageWaiverPayment">* Reduced Lose Damage Payment</label>
                                 <input type="text" id="reducedLoseDamageWaiverPayment" class="form-control bg-white rounded-3" />
+                                <p><small id="errorReduceDamagePayment" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
                     </div>
@@ -2998,6 +3003,7 @@
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="travelledDistance">* Travelled Distance</label>
                                 <input type="number" id="travelledDistance" class="form-control bg-white rounded-3" />
+                                <p><small id="errorTravelledDistance" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
                     </div>
@@ -3008,6 +3014,7 @@
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="extraKm" >* Extra KM</label>
                                 <input type="number" id="extraKm" class="form-control bg-white rounded-3" />
+                                <p><small id="errorTravelledExtraKM" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
 
@@ -3016,6 +3023,7 @@
                             <div class="form-outline mb-2 ms-4 me-4 mt-1">
                                 <label class="form-label text-dark fw-light fs-4" for="priceForTravelledExtraKm">* Price For Extra KM</label>
                                 <input type="text" id="priceForTravelledExtraKm" class="form-control bg-white rounded-3" />
+                                <p><small id="errorPriceExtraKM" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
                             </div>
                         </div>
                     </div>
@@ -3081,7 +3089,7 @@
         </div>
 
         <div class="container-fluid" style="position: relative;top: 100px;left: 75px;width: 75vw;height: 50px">
-            <div class="row center-block">
+            <div class="row center-block" style="width: 61%;">
                 <div class="col mb-0 img-responsive">
                     <div class="btn-group btn-group-xm center-block center-block" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary btn-lg">Daily Income</button>
@@ -3091,15 +3099,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row center-block">
-                <div class="col mt-0 bg-white img-responsive mb-0">
+            <div class="row ">
+                <div class="col mt-0 bg-white img-responsive mb-0 ">
                     <div class="input-group date" style="width: 250px">
                         <input type="text" id="startDate" class="form-control" placeholder="Start Date">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                     </div>
                     <label style="font-size: 15px" for="startDate" class="text-black">Start Date</label>
                 </div>
-                <div class="col mt-0 img-responsive">
+                <div class="col mt-0 img-responsive mb-0 ">
                     <div class="input-group date" style="width: 250px">
                         <input type="text" id="endDate" class="form-control" placeholder="End Date">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>

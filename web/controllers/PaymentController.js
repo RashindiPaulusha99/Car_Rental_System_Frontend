@@ -1,3 +1,89 @@
+var regExPrice = /^[0-9]{1,10}(.)[0-9]{2}$/;
+var regExDate = /^\d{2}\/\d{2}\/\d{4}$/;
+var regExDistance = /^[0-9]{1,5}$/;
+
+$("#paymentDate").keyup(function (event) {
+    let date = $("#paymentDate").val();
+    if (regExDate.test(date)) {
+        $("#paymentDate").css('border', '2px solid #31d2f2');
+        $("#errorDriverUsername").text("");
+        if (event.key == "Enter") {
+            $("#driverPassword").focus();
+        }
+    } else {
+        $("#paymentDate").css('border', '2px solid red');
+        $("#errorDriverUsername").text("Check this field whether correct !");
+    }
+});
+
+$("#driverPassword").keyup(function (event) {
+    let password = $("#driverPassword").val();
+    if (regExDPassword.test(password)) {
+        $("#driverPassword").css('border', '2px solid #31d2f2');
+        $("#errorDPassword").text("");
+        if (event.key == "Enter") {
+            $("#driverName").focus();
+        }
+    } else {
+        $("#driverPassword").css('border', '2px solid red');
+        $("#errorDPassword").text("Check this field whether correct !");
+    }
+});
+
+$("#driverName").keyup(function (event) {
+    let name = $("#driverName").val();
+    if (regExDName.test(name)) {
+        $("#driverName").css('border', '2px solid #31d2f2');
+        $("#errorDName").text("");
+        if (event.key == "Enter") {
+            $("#driverAddress").focus();
+        }
+    } else {
+        $("#driverName").css('border', '2px solid red');
+        $("#errorDName").text("Check this field whether correct !");
+    }
+});
+
+$("#driverAddress").keyup(function (event) {
+    let address = $("#driverAddress").val();
+    if (regExDAddress.test(address)) {
+        $("#driverAddress").css('border', '2px solid #31d2f2');
+        $("#errorDAddress").text("");
+        if (event.key == "Enter") {
+            $("#driverAge").focus();
+        }
+    } else {
+        $("#driverAddress").css('border', '2px solid red');
+        $("#errorDAddress").text("Check this field whether correct !");
+    }
+});
+
+$("#driverAge").keyup(function (event) {
+    let age = $("#driverAge").val();
+    if (regExAge.test(age)) {
+        $("#driverAge").css('border', '2px solid #31d2f2');
+        $("#errorDAge").text("");
+        if (event.key == "Enter") {
+            $("#driverContact").focus();
+        }
+    } else {
+        $("#driverAge").css('border', '2px solid red');
+        $("#errorDAge").text("Check this field whether correct !");
+    }
+});
+
+$("#driverContact").keyup(function (event) {
+    let contact = $("#driverContact").val();
+    if (regExContact.test(contact)) {
+        $("#driverContact").css('border', '2px solid #31d2f2');
+        $("#errorDContact").text("");
+
+    } else {
+        $("#driverContact").css('border', '2px solid red');
+        $("#errorDContact").text("Check this field whether correct !");
+    }
+});
+
 $("#tblPayment tbody > tr").off("click");
 
 function loadPayments() {

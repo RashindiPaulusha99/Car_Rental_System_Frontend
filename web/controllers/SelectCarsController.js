@@ -38,7 +38,7 @@ $("#PNIC").keyup(function (event) {
 });
 
 function generateVReserveIds() {
-    $("#reserveId").val("R00-0001");
+    $("#reserveId").val("RE00-0001");
     var test = "id";
 
     $.ajax({
@@ -49,13 +49,41 @@ function generateVReserveIds() {
             var tempId = parseInt(reserveId.split("-")[1]);
             tempId = tempId + 1;
             if (tempId <= 9) {
-                $("#reserveId").val("R00-000" + tempId);
+                $("#reserveId").val("RE00-000" + tempId);
             } else if (tempId <= 99) {
-                $("#reserveId").val("R00-00" + tempId);
+                $("#reserveId").val("RE00-00" + tempId);
             } else if (tempId <= 999) {
-                $("#reserveId").val("R00-0" + tempId);
+                $("#reserveId").val("RE00-0" + tempId);
             } else {
-                $("#reserveId").val("R00-" + tempId);
+                $("#reserveId").val("RE00-" + tempId);
+            }
+
+        },
+        error: function (ob, statusText, error) {
+        }
+
+    });
+}
+
+function generateScheduleIds() {
+    $("#scheduleId").val("S00-0001");
+    var test = "id";
+
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/schedule?test=" + test,
+        method: "GET",
+        success: function (response) {
+            var scheduleId = response.data;
+            var tempId = parseInt(scheduleId.split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                $("#scheduleId").val("S00-000" + tempId);
+            } else if (tempId <= 99) {
+                $("#scheduleId").val("S00-00" + tempId);
+            } else if (tempId <= 999) {
+                $("#scheduleId").val("S00-0" + tempId);
+            } else {
+                $("#scheduleId").val("S00-" + tempId);
             }
 
         },
@@ -1580,7 +1608,6 @@ function findCustomerToReserve(ifDriverWant, acceptOrDeny) {
         url: "http://localhost:8081/Car_Rental_System_war/customer/FIND/" + $("#PNIC").val(),
         method: "GET",
         success: function (response) {
-            console.log(response.data);
             reserve(ifDriverWant, acceptOrDeny, response.data);
         },
         error: function (ob) {
@@ -1609,8 +1636,9 @@ function reserve(driverWant, requestStatus, customer) {
 
     var reserveDetail = {
         reserveId: $("#reserveId").val(),
-        reserveDate: today,
+        customer: customer,
         pickUpDate: $("#BPickupDate").val(),
+        reserveDate: today,
         pickUpTime: $("#BPickupTime").val(),
         destination: $("#BDestination").val(),
         duration: $("#BDuration").val(),
@@ -1620,7 +1648,6 @@ function reserve(driverWant, requestStatus, customer) {
         returnTime: $("#BReturnTime").val(),
         wantDriverOrNot: driverWant,
         requestAcceptOrDeny: requestStatus,
-        customer: customer,
         reserveDetails: details
     }
 
@@ -1630,9 +1657,10 @@ function reserve(driverWant, requestStatus, customer) {
         contentType: "application/json",
         data: JSON.stringify(reserveDetail),
         success: function (response) {
-            for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
+            /*for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
                updateDriverTable($("#tblSelectedCars tbody tr").children(':nth-child(7)')[i].innerText,$("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText);
             }
+            alert(response.message);*/
             alert(response.message);
         },
         error: function (ob) {
@@ -1641,7 +1669,7 @@ function reserve(driverWant, requestStatus, customer) {
     });
 }
 
-function updateDriverTable(driverId,carId) {
+/*function updateDriverTable(driverId,carId) {
     $.ajax({
         url: "http://localhost:8081/Car_Rental_System_war/driver/" + "Not Release"+ "/"+ driverId,
         method: "PUT",
@@ -1682,6 +1710,8 @@ function updateScheduleTable() {
             loseDamageWaiverPayment: $("#tblSelectedCars tbody tr").children(':nth-child(10)')[i].innerText
         }
 
+        generateScheduleIds();
+
         var schedule = {
             scheduleId: $("#reserveId").val(),
             pickUpDate: $("#BPickupDate").val(),
@@ -1707,7 +1737,7 @@ function updateScheduleTable() {
             }
         });
     }
-}
+}*/
 
 
 

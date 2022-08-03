@@ -223,7 +223,7 @@ function clickDriverTableRow() {
             var driverAge = $.trim(tblDriverRow.children(':nth-child(4)').text());
             var driverContact = $.trim(tblDriverRow.children(':nth-child(5)').text());
 
-            $("#driverReleaseOrNot").append($("<option selected></option>").attr("value", 0).text($.trim(tblDriverRow.children(':nth-child(6)').text())));
+            $("#driverReleaseOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblDriverRow.children(':nth-child(6)').text())));
 
             $("#driverId").val(driverId);
             $("#driverName").val(driverName);

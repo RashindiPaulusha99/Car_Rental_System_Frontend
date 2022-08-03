@@ -6,83 +6,112 @@ $("#paymentDate").keyup(function (event) {
     let date = $("#paymentDate").val();
     if (regExDate.test(date)) {
         $("#paymentDate").css('border', '2px solid #31d2f2');
-        $("#errorDriverUsername").text("");
+        $("#errorPaymentDate").text("");
         if (event.key == "Enter") {
-            $("#driverPassword").focus();
+            $("#rentFee").focus();
         }
     } else {
         $("#paymentDate").css('border', '2px solid red');
-        $("#errorDriverUsername").text("Check this field whether correct !");
+        $("#errorPaymentDate").text("Check this field whether correct !");
     }
 });
 
-$("#driverPassword").keyup(function (event) {
-    let password = $("#driverPassword").val();
-    if (regExDPassword.test(password)) {
-        $("#driverPassword").css('border', '2px solid #31d2f2');
-        $("#errorDPassword").text("");
+$("#rentFee").keyup(function (event) {
+    let rentFee = $("#rentFee").val();
+    if (regExPrice.test(rentFee)) {
+        $("#rentFee").css('border', '2px solid #31d2f2');
+        $("#errorRentFee").text("");
         if (event.key == "Enter") {
-            $("#driverName").focus();
+            $("#driverFee").focus();
         }
     } else {
-        $("#driverPassword").css('border', '2px solid red');
-        $("#errorDPassword").text("Check this field whether correct !");
+        $("#rentFee").css('border', '2px solid red');
+        $("#errorRentFee").text("Check this field whether correct !");
     }
 });
 
-$("#driverName").keyup(function (event) {
-    let name = $("#driverName").val();
-    if (regExDName.test(name)) {
-        $("#driverName").css('border', '2px solid #31d2f2');
-        $("#errorDName").text("");
+$("#driverFee").keyup(function (event) {
+    let driverFee = $("#driverFee").val();
+    if (regExPrice.test(driverFee)) {
+        $("#driverFee").css('border', '2px solid #31d2f2');
+        $("#errorDriverFee").text("");
         if (event.key == "Enter") {
-            $("#driverAddress").focus();
+            $("#loseDamageWaiverPayment").focus();
         }
     } else {
-        $("#driverName").css('border', '2px solid red');
-        $("#errorDName").text("Check this field whether correct !");
+        $("#driverFee").css('border', '2px solid red');
+        $("#errorDriverFee").text("Check this field whether correct !");
     }
 });
 
-$("#driverAddress").keyup(function (event) {
-    let address = $("#driverAddress").val();
-    if (regExDAddress.test(address)) {
-        $("#driverAddress").css('border', '2px solid #31d2f2');
-        $("#errorDAddress").text("");
+$("#loseDamageWaiverPayment").keyup(function (event) {
+    let damage = $("#loseDamageWaiverPayment").val();
+    if (regExPrice.test(damage)) {
+        $("#loseDamageWaiverPayment").css('border', '2px solid #31d2f2');
+        $("#errorDamagePayment").text("");
         if (event.key == "Enter") {
-            $("#driverAge").focus();
+            $("#reducedLoseDamageWaiverPayment").focus();
         }
     } else {
-        $("#driverAddress").css('border', '2px solid red');
-        $("#errorDAddress").text("Check this field whether correct !");
+        $("#loseDamageWaiverPayment").css('border', '2px solid red');
+        $("#errorDamagePayment").text("Check this field whether correct !");
     }
 });
 
-$("#driverAge").keyup(function (event) {
-    let age = $("#driverAge").val();
-    if (regExAge.test(age)) {
-        $("#driverAge").css('border', '2px solid #31d2f2');
-        $("#errorDAge").text("");
+$("#reducedLoseDamageWaiverPayment").keyup(function (event) {
+    let damage = $("#reducedLoseDamageWaiverPayment").val();
+    if (regExPrice.test(damage)) {
+        $("#reducedLoseDamageWaiverPayment").css('border', '2px solid #31d2f2');
+        $("#errorReduceDamagePayment").text("");
         if (event.key == "Enter") {
-            $("#driverContact").focus();
+            $("#travelledDistance").focus();
         }
     } else {
-        $("#driverAge").css('border', '2px solid red');
-        $("#errorDAge").text("Check this field whether correct !");
+        $("#reducedLoseDamageWaiverPayment").css('border', '2px solid red');
+        $("#errorReduceDamagePayment").text("Check this field whether correct !");
     }
 });
 
-$("#driverContact").keyup(function (event) {
-    let contact = $("#driverContact").val();
-    if (regExContact.test(contact)) {
-        $("#driverContact").css('border', '2px solid #31d2f2');
-        $("#errorDContact").text("");
-
+$("#travelledDistance").keyup(function (event) {
+    let distance = $("#travelledDistance").val();
+    if (regExDistance.test(distance)) {
+        $("#travelledDistance").css('border', '2px solid #31d2f2');
+        $("#errorTravelledDistance").text("");
+        if (event.key == "Enter") {
+            $("#extraKm").focus();
+        }
     } else {
-        $("#driverContact").css('border', '2px solid red');
-        $("#errorDContact").text("Check this field whether correct !");
+        $("#travelledDistance").css('border', '2px solid red');
+        $("#errorTravelledDistance").text("Check this field whether correct !");
     }
 });
+
+$("#extraKm").keyup(function (event) {
+    let extra = $("#extraKm").val();
+    if (regExDistance.test(extra)) {
+        $("#extraKm").css('border', '2px solid #31d2f2');
+        $("#errorTravelledExtraKM").text("");
+        if (event.key == "Enter") {
+            $("#priceForTravelledExtraKm").focus();
+        }
+    } else {
+        $("#extraKm").css('border', '2px solid red');
+        $("#errorTravelledExtraKM").text("Check this field whether correct !");
+    }
+});
+
+$("#priceForTravelledExtraKm").keyup(function (event) {
+    let price = $("#priceForTravelledExtraKm").val();
+    if (regExPrice.test(price)) {
+        $("#priceForTravelledExtraKm").css('border', '2px solid #31d2f2');
+        $("#errorPriceExtraKM").text("");
+    } else {
+        $("#priceForTravelledExtraKm").css('border', '2px solid red');
+        $("#errorPriceExtraKM").text("Check this field whether correct !");
+    }
+});
+
+
 
 $("#tblPayment tbody > tr").off("click");
 

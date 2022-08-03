@@ -284,24 +284,17 @@ function loadAllCarsToSee() {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    }else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
-                            pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
-                            loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        pasteDataToReservationFields();
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        //getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                    });
                 }else {
 
                 }
             });
-
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -348,7 +341,27 @@ function loadSelectedCars(carId){
         url: "http://localhost:8081/Car_Rental_System_war/car/" + carId,
         method: "GET",
         success: function (response) {
-            if ($("#tblSelectedCars tbody  tr").length == 0){
+            let raw = `<tr class="item">
+                        <td >
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/1200x-1.jpg" alt="" style="width: 200px; height: 200px" class=""/>
+                            </div>
+                           <h6  id="id" class="id text-white">${response.data.carId}</h6>
+                        </td>
+                        <td>
+                        <h3>${response.data.brand}</h3>
+                            <p class="mt-3 text-muted"><i class="fas fa-palette text-warning me-2"></i>${response.data.colour}</p>
+                            <p class="text-muted mt-0"><i class="fas fa-chair text-warning me-1"></i>${response.data.noOfPassengers}<span class="ms-1">Seats</span></p>
+                            <p class="text-muted mt-0"><i class="fab fa-adn text-warning me-2"></i>${response.data.transmissionType}</p>
+                            <p class="text-muted mt-0"><i class="fas fa-oil-can text-warning me-2"></i>${response.data.fuelType}</p>
+                        </td>
+                        <td>
+                            <h3 class="mt-5 ">Rs.<span>${response.data.dailyRatePrice}</span><span>/day</span></h3>
+                        </td>
+                    </tr>`;
+            $("#tblSelectedCars tbody").append(raw);
+            openBookingPage();
+            /*if ($("#tblSelectedCars tbody  tr").length == 0){
                 let raw = `<tr class="item">
                         <td >
                             <div class="d-flex align-items-center">
@@ -401,7 +414,7 @@ function loadSelectedCars(carId){
                     </tr>`;
                     $("#tblSelectedCars tbody").append(raw);
                 }
-            }
+            }*/
         },
         error: function (ob) {
             alert(ob.responseJSON.message);

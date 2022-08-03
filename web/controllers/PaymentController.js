@@ -111,9 +111,92 @@ $("#priceForTravelledExtraKm").keyup(function (event) {
     }
 });
 
+function generatePaymentIds() {
+    $("#paymentId").val("P00-0001");
+    var test = "id";
 
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/payment?test="+test,
+        method: "GET",
+        success: function (response) {
+            var paymentId = response.data;
+            var tempId = parseInt(paymentId.split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                $("#paymentId").val("P00-000" + tempId);
+            } else if (tempId <= 99) {
+                $("#paymentId").val("P00-00" + tempId);
+            } else if (tempId <= 999) {
+                $("#paymentId").val("P00-0" + tempId);
+            } else {
+                $("#paymentId").val("P00-" + tempId);
+            }
 
-$("#tblPayment tbody > tr").off("click");
+        },
+        error: function (ob, statusText, error) {
+        }
+
+    });
+}
+
+$("#calculateFullIncome").click(function () {
+    $("#tblPayment tbody > tr").off("click");
+
+    let text = "Do you want to make this payment ?";
+
+    if (confirm(text) == true) {
+        if ($("#paymentDate").val() == "" || $("#rentFee").val() == "" || $("#driverFee").val() == "" || $("#extraKm").val() == "" || $("#loseDamageWaiverPayment").val() == "" || $("#priceForTravelledExtraKm").val() == "" ||
+            $("#reducedLoseDamageWaiverPayment").val() == "" || $("#travelledDistance").val() == "" || $("#carHarmOrNot option:selected").val() == ""){
+            alert("All Fields Are Required !");
+        }else {
+            if ($("#errorPaymentDate").text() != "" || $("#errorRentFee").text() != "" || $("#errorDriverFee").text() != "" || $("#errorDamagePayment").text() != "" || $("#errorReduceDamagePayment").text() != "" || $("#errorTravelledDistance").text() != "" ||
+                $("#errorTravelledExtraKM").text() != "" || $("#errorPriceExtraKM").text() != ""){
+                alert("Check Input Fields Whether Correct !");
+            }else {
+                calculateIncome();
+            }
+        }
+    }else {
+
+    }
+});
+
+function calculateIncome() {
+
+    var manageWaiverPayment="";
+
+    var paymentDetail = {
+        paymentId: $("#driverId").val(),
+        paymentDate:$("#paymentDate").val(),
+        rentFee: $("#rentFee").val(),
+        harmOrNot: $("#driverReleaseOrNot option:selected").text(),
+        loseDamagePayment: $("#loseDamageWaiverPayment").val(),
+        reduceLoseDamagePayment: $("#reducedLoseDamageWaiverPayment").val(),
+        driverFee: $("#driverFee").val(),
+        travelledDistance: $("#travelledDistance").val(),
+        extraKm: $("#extraKm").val(),
+        extraKmPrice: $("#priceForTravelledExtraKm").val(),
+        fullPayment: $("#calculateFullIncome").val()
+    }
+
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/payment",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(paymentDetail),
+        success: function (response) {
+            if (response.code == 200){
+                alert($("#paymentId").val() + " "+ response.message);
+                generatePaymentIds();
+                loadPayments();
+
+            }
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
 
 function loadPayments() {
     $.ajax({
@@ -132,6 +215,7 @@ function loadPayments() {
                                 </button></td></tr>`;
                 $("#tblPayment tbody").append(raw);
             }
+            generatePaymentIds();
         },
         error: function (ob) {
             alert(ob.responseJSON.message);

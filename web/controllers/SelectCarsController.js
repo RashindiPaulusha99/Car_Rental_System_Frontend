@@ -431,30 +431,28 @@ function loadSelectedCars(carId){
 
             $("#tblSelectedCars tbody > tr").off("click");
             $(".checkDriverIfWant").off("click");
-            $(".checkDriverIfWant").click(function () {
 
-                $("#tblSelectedCars tbody > tr").click(function () {
-                    if ($('.checkDriverIfWant').is(':checked')) {
-                        if ($(this).find(".checkDriverIfWant").is(":checked")) {
-                            $.ajax({
-                                url: "http://localhost:8081/Car_Rental_System_war/driver/ASSIGN/" + "Release",
-                                method: "GET",
-                                success: function (response) {
+            findDriverData();
 
-                                    //pasteDriverDataToTable(response.data.driverName, response.data.driverContact);
+            $(".btnRent").click(function () {
+                $("#tblShowCars tbody > tr").off("click");
 
-                                    $(this).find("td:eq(6)").text("dddfgd");
-                                    $(this).find("td:eq(7)").text("fsdgdg");
+                let text = "Do you want to rent this car ?";
 
-                                },
-                                error: function (ob) {
-                                    alert(ob.responseJSON.message);
-                                }
-                            });
-                        }
-                    }
-                });
+                if (confirm(text) == true) {
+
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
+
+                        pasteDataToReservationFields();
+                        loadSelectedCars(tblSelectCarRow.children()[1].innerText);
+                        //getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
+                    });
+                }else {
+
+                }
             });
+
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
@@ -463,6 +461,35 @@ function loadSelectedCars(carId){
 
 }
 
+function findDriverData(){
+    $.ajax({
+        url: "http://localhost:8081/Car_Rental_System_war/driver/ASSIGN/" + "Release",
+        method: "GET",
+        success: function (response) {
+            load(response.data.driverName,response.data.driverContact);
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
+}
+
+var dname;
+var dcontact;
+function load(name,contact){
+    dname=name;
+    dcontact=contact;
+    $(".checkDriverIfWant").click(function () {
+        $("#tblSelectedCars tbody > tr").click(function () {
+            if ($('.checkDriverIfWant').is(':checked')) {
+                if ($(this).find(".checkDriverIfWant").is(":checked")) {
+                    $(this).find("td:eq(6)").text(dname);
+                    $(this).find("td:eq(7)").text(dcontact);
+                }
+            }
+        });
+    });
+}
 
 
 

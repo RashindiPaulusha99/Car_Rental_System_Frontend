@@ -1841,7 +1841,6 @@
                         <th>Return Venue</th>
                         <th>Destination</th>
                         <th>Duration</th>
-                        <th>Driver Want Or Not</th>
                         <th>Request Accept Or Deny</th>
                         <th>View</th>
                     </tr>
@@ -1860,7 +1859,7 @@
     <!--Reserve Detail Page-->
     <section id="ReserveDetailsPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
-        <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-image: radial-gradient(circle at top,#bacbe6,#c7dbd2);">
+        <div class=" border border-3 border-white rounded-1 shadow" style="width: 500px; position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-color: white">
 
             <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
                 <h1 class="mt-1 text-dark fw-bold fst-italic " style="font-family: 'PT Serif', serif;">- RESERVE DETAILS -</h1>
@@ -1873,7 +1872,7 @@
                         <!-- reserve id -->
                         <div class="form-outline mb-2 ms-4 me-4">
                             <label class="form-label text-dark fw-light fs-4" for="viewReserveId">* Reserve Id</label>
-                            <input type="text" id="viewReserveId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                            <input type="text" id="viewReserveId" class="form-control bg-white rounded-3" />
                         </div>
                     </div>
 
@@ -1882,7 +1881,10 @@
                             <!-- car id -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewCarId">* Car Id</label>
-                                <input type="text" id="viewCarId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <select aria-label="Default select example" class="form-select fs-5" style="height: 37px" id="viewCarId">
+                                    <option selected value="0"></option>
+                                </select>
+
                             </div>
                         </div>
 
@@ -1890,7 +1892,7 @@
                             <!-- brand -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewBrand">* Brand</label>
-                                <input type="text" id="viewBrand" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="viewBrand" class="form-control bg-white rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -1900,7 +1902,7 @@
                             <!-- colour -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewColour">* Colour</label>
-                                <input type="text" id="viewColour" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="viewColour" class="form-control bg-white rounded-3" />
                             </div>
                         </div>
 
@@ -1908,7 +1910,7 @@
                             <!-- type -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewType">* Type</label>
-                                <input type="text" id="viewType" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="viewType" class="form-control bg-white rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -1918,7 +1920,7 @@
                             <!-- driver Id -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewDriverId">* Driver Id</label>
-                                <input type="number" id="viewDriverId" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="viewDriverId" class="form-control bg-white rounded-3" />
                             </div>
                         </div>
 
@@ -1926,7 +1928,7 @@
                             <!-- driver name -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewDriverName">* Driver Name</label>
-                                <input type="number" id="viewDriverName" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="viewDriverName" class="form-control bg-white rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -1936,7 +1938,7 @@
                             <!-- driver contact -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewDriverContact">* Driver Contact</label>
-                                <input type="text" id="viewDriverContact" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="viewDriverContact" class="form-control bg-white rounded-3" />
                             </div>
                         </div>
 
@@ -1944,7 +1946,7 @@
                             <!-- lose damage payment -->
                             <div class="form-outline mb-2 ms-4 w-100">
                                 <label class="form-label text-dark fw-light fs-4" for="viewLoseDamagePayment">* Lose Damage Paymnet</label>
-                                <input type="text" id="viewLoseDamagePayment" class="form-control shadow  border border-2 border-white bg-light rounded-3" />
+                                <input type="text" id="viewLoseDamagePayment" class="form-control bg-white rounded-3" />
                             </div>
                         </div>
                     </div>
@@ -1958,7 +1960,7 @@
                         </div>
                         <div class="col text-center ">
                             <div class="col" style="width: 200px;">
-                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow">
+                                <button type="button" class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow" id="btnExistReDetails">
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>

@@ -267,7 +267,7 @@ function loadAllCarsToSee() {
                 let raw = ` <tr class="rounded rounded-6 nr">
                         <td>
                             <div class="d-flex ">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
+                                <img src="assets/images/1_rangerover_tracking.jpg" alt="" style="width: 250px; height: 200px" class="center-block"/>
                             </div>
                             <p class="text-white" id="idOfCar">${responseKey.carId}</p>
                         </td>
@@ -1635,7 +1635,7 @@ function reserve(customer,denyOrAccept) {
         success: function (response) {
             alert(response.message);
             loadScheduleDetails();
-            //gotoHome();
+            gotoHome();
         },
         error: function (ob) {
             alert(ob.responseJSON.message);

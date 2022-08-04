@@ -27,40 +27,24 @@ function loadAllReserve(){
 
 var tblReserveRow =-1;
 
-/*$("#tblReserve tbody > tr").off("click");*/
 function clickReserveTableRow() {
     $("#tblReserve tbody > tr").click(function () {
 
         tblReserveRow = $(this);
 
         $('#ReserveDetailsPage').css('transform','scale(1)');
-        loadCarIds();
+        loadCarIds($.trim(tblReserveRow.children(':nth-child(2)').text()));
         $("#viewReserveId").val($.trim(tblReserveRow.children(':nth-child(2)').text()));
         clearReFields();
-        /*var driverId = $.trim(tblDriverRow.children(':nth-child(1)').text());
-        var driverName = $.trim(tblDriverRow.children(':nth-child(2)').text());
-        var driverAddress = $.trim(tblDriverRow.children(':nth-child(3)').text());
-        var driverAge = $.trim(tblDriverRow.children(':nth-child(4)').text());
-        var driverContact = $.trim(tblDriverRow.children(':nth-child(5)').text());
-
-        $("#driverReleaseOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblDriverRow.children(':nth-child(6)').text())));
-
-        $("#driverId").val(driverId);
-        $("#driverName").val(driverName);
-        $("#driverAddress").val(driverAddress);
-        $("#driverAge").val(driverAge);
-        $("#driverContact").val(driverContact);*/
     });
 }
 
-function loadCarIds() {
+function loadCarIds(reserveId) {
     $("#viewCarId").empty();
     $("#viewCarId").append($("<option></option>").attr("value", 0).text("Select ID"));
 
-    var countCarIds = 1;
-
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/reserve/"+$.trim(tblReserveRow.children(':nth-child(2)').text()),
+        url: "http://localhost:8080/Car_Rental_System_war/reserve/"+reserveId,
         method: "GET",
         success: function (response) {
             for (let i = 0; i <response.data.reserveDetails.length ; i++) {
@@ -117,18 +101,84 @@ function relevantReservations() {
     $("#chooseReservationIds").empty();
     $("#chooseReservationIds").append($("<option></option>").attr("value", 0).text("Select ID"));
 
-    var countCarIds = 1;
-
+    var countReIds = 1;
     $.ajax({
-        url: "http://localhost:8080/Car_Rental_System_war/reserve/"+$.trim(tblReserveRow.children(':nth-child(2)').text()),
+        url: "http://localhost:8080/Car_Rental_System_war/reserve",
         method: "GET",
         success: function (response) {
-            for (let i = 0; i <response.data.reserveDetails.length ; i++) {
-                $("#viewCarId").append($("<option></option>").attr("value", i+1).text(response.data.reserveDetails[i].carId));
+            for (var ids of response.data) {
+                $("#chooseReservationIds").append($("<option></option>").attr("value", countReIds).text(ids.reserveId));
+                countReIds++;
             }
-
         },
         error: function (ob) {
         }
     });
 }
+
+$("#chooseReservationIds").click(function () {
+    $("#CarIds").empty();
+    $("#CarIds").append($("<option></option>").attr("value", 0).text("Select ID"));
+
+
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/reserve/" + $("#chooseReservationIds option:selected").text(),
+        method: "GET",
+        success: function (response) {
+            for (let i = 0; i <response.data.reserveDetails.length ; i++) {
+                $("#CarIds").append($("<option></option>").attr("value", i+1).text(response.data.reserveDetails[i].carId));
+            }
+        },
+        error: function (ob) {
+        }
+    });
+});
+
+$("#CarIds").click(function () {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/reserve/" + $("#chooseReservationIds option:selected").text(),
+        method: "GET",
+        success: function (response) {
+            for (let i = 0; i < response.data.reserveDetails.length; i++) {
+                if ($("#CarIds option:selected").text() == response.data.reserveDetails[i].carId){
+                    $("#selectedDriverId").val(response.data.reserveDetails[i].driverId);
+                    $("#selectedDriverName").val(response.data.reserveDetails[i].driverName);
+                }
+            }
+        },
+        error: function (ob) {
+        }
+    });
+});
+
+function chooseDriverIds() {
+    $("#chooseNewDriverIds").empty();
+    $("#chooseNewDriverIds").append($("<option></option>").attr("value", 0).text("Select ID"));
+
+    var countReIds = 1;
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/driver/RELEASE/"+"Release",
+        method: "GET",
+        success: function (response) {
+            for (var ids of response.data) {
+                $("#chooseNewDriverIds").append($("<option></option>").attr("value", countReIds).text(ids.driverId));
+                countReIds++;
+            }
+        },
+        error: function (ob) {
+        }
+    });
+}
+
+$("#chooseNewDriverIds").click(function () {
+    $.ajax({
+        url: "http://localhost:8080/Car_Rental_System_war/driver/" + $("#chooseNewDriverIds option:selected").text(),
+        method: "GET",
+        success: function (response) {
+            $("#changedNewDriverName").val(response.data.driverName);
+            $("#changedNewDriverContact").val(response.data.driverContact);
+        },
+        error: function (ob) {
+        }
+    });
+});

@@ -1991,12 +1991,24 @@
                 <form class="ms-5 me-5" style="position: relative; top: 50px;">
 
                     <div class="row">
-                        <!-- select reservation number -->
-                        <div class="form-outline mb-2 ms-4 me-2">
-                            <label class="form-label text-dark fw-light fs-4" for="chooseReservationIds">* Choose Relevant Reservation</label>
-                            <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="chooseReservationIds">
-                                <option selected value="0">None</option>
-                            </select>
+                        <div class="col">
+                            <!-- select reservation number -->
+                            <div class="form-outline mb-2 ms-4 me-2">
+                                <label class="form-label text-dark fw-light fs-4" for="chooseReservationIds">* Reservation Ids</label>
+                                <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="chooseReservationIds">
+                                    <option selected value="0">None</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-outline mb-2 ms-4 w-100">
+                                <label class="form-label text-dark fw-light fs-4" for="viewCarId">* Car Ids</label>
+                                <select aria-label="Default select example" class="form-select fs-5" style="height: 37px" id="CarIds">
+                                    <option selected value="0"></option>
+                                </select>
+
+                            </div>
                         </div>
                     </div>
 

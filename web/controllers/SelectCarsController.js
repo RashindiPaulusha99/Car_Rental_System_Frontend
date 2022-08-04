@@ -349,7 +349,9 @@ function pasteDataToReservationFields() {
 var lossPayment = 0;
 var tblRow = -1;
 var count = 1;
-var click="1";
+var clickId="none";
+var clickName="none";
+var clickContact="none";
 
 function loadSelectedCars(carId) {
     $.ajax({
@@ -391,13 +393,13 @@ function loadSelectedCars(carId) {
                                         </div>
                                     </td>
                                      <td id="did" class="text-white" style="font-size: 2px">
-                                        ${click}
+                                        ${clickId}
                                     </td>
                                     <td id="dname">
-                                        
+                                        ${clickName}
                                     </td>
                                     <td id="dcontact">
-                                        
+                                        ${clickContact}
                                     </td>
                                     <td>
                                         ${lossPayment}
@@ -410,13 +412,6 @@ function loadSelectedCars(carId) {
                                 </tr>`;
             $("#tblSelectedCars tbody").append(raw);
             count += 1;
-
-           /* for (let i = 0; i < $("#tblSelectedCars tbody tr").lengh; i++) {
-                if (carId == $("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText){
-                    alert("You choosed this car ealier! Select another car!...");
-                    $(this).remove();
-                }
-            }*/
 
             openBookingPage();
 
@@ -1619,10 +1614,10 @@ function reserve(customer,denyOrAccept) {
         reserveId: $("#reserveId").val(),
         customer: customer,
         pickUpDate: $("#BPickupDate").val(),
-        reserveDate: today,
+        reserveDate: today.toString(),
         pickUpTime: $("#BPickupTime").val(),
         destination: $("#BDestination").val(),
-        duration: $("#BDuration").val(),
+        duration:parseInt($("#BDuration").val()),
         pickUpVenue: $("#BPickupLocation").val(),
         returnVenue: $("#BReturnLocation").val(),
         returnDate: $("#BReturnDate").val(),
@@ -1631,20 +1626,81 @@ function reserve(customer,denyOrAccept) {
         reserveDetails: details
     }
 
+
     $.ajax({
         url: "http://localhost:8080/Car_Rental_System_war/reserve",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(reserveDetail),
         success: function (response) {
-            //loadSchedule();
             alert(response.message);
+            loadScheduleDetails();
             //gotoHome();
         },
         error: function (ob) {
             alert(ob.responseJSON.message);
         }
     });
+}
+
+function loadScheduleDetails(){
+    console.log("schedule");
+    for (var i = 0; i < $("#tblSelectedCars tbody tr").length; i++) {
+
+        if ($('#checkDriverIfWant').is(':checked')) {
+            driverWantOrNot = "Want";
+        } else {
+            driverWantOrNot = "Not Want";
+        }
+
+        var reserveItems = {
+            reserveId: $("#reserveId").val(),
+            carId: $("#tblSelectedCars tbody tr").children(':nth-child(2)')[i].innerText,
+            driverId: $("#tblSelectedCars tbody tr").children(':nth-child(7)')[i].innerText,
+            type: $("#tblSelectedCars tbody tr").children(':nth-child(5)')[i].innerText,
+            colour: $("#tblSelectedCars tbody tr").children(':nth-child(4)')[i].innerText,
+            brand: $("#tblSelectedCars tbody tr").children(':nth-child(3)')[i].innerText,
+            driverWantOrNot:driverWantOrNot,
+            driverName: $("#tblSelectedCars tbody tr").children(':nth-child(8)')[i].innerText,
+            driverContact: $("#tblSelectedCars tbody tr").children(':nth-child(9)')[i].innerText,
+            loseDamageWaiverPayment: $("#tblSelectedCars tbody tr").children(':nth-child(10)')[i].innerText
+        }
+
+        console.log(reserveItems);
+
+        generateScheduleIds();
+
+        var schedule={
+            scheduleId:$("#scheduleId").val(),
+            pickUpDate:$("#BPickupDate").val(),
+            pickUpTime:$("#BPickupTime").val(),
+            returnDate:$("#BReturnDate").val(),
+            returnTime:$("#BReturnTime").val(),
+            pickUpVenue:$("#BPickupLocation").val(),
+            returnVenue:$("#BReturnLocation").val(),
+            releaseOrNot:"Not Release",
+            reserveDetails:reserveItems
+        }
+
+        console.log(schedule);
+
+        $.ajax({
+            url: "http://localhost:8080/Car_Rental_System_war/schedule",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(schedule),
+            success: function (response) {
+                alert(response.message);
+                console.log("success");
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+
+    }
+
+
 }
 
 

@@ -221,7 +221,7 @@ function register() {
     var cusDetail = {
         customerId: $("#generateCusId").text(),
         users:user,
-        registeredDate: today,
+        registeredDate: today.toString(),
         customerName: $("#customername").val(),
         customerAddress: $("#customeraddress").val(),
         customerContact: $("#contactnumber").val(),

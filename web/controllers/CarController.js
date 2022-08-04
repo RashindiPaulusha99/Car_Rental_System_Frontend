@@ -121,7 +121,7 @@ function generateVehicleIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car?test="+test,
+        url: "http://localhost:8080/Car_Rental_System_war/car?test="+test,
         method: "GET",
         success: function (response) {
             var carId = response.data;
@@ -175,7 +175,7 @@ $("#btnAddNewCar").click(function () {
 
 function findRegNoIsDuplicate() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/SEARCH/" + $("#registrationNo").val(),
+        url: "http://localhost:8080/Car_Rental_System_war/car/SEARCH/" + $("#registrationNo").val(),
         method: "GET",
         success: function (response) {
            if (response.data == $("#registrationNo").val()){
@@ -217,7 +217,7 @@ function addNewCar() {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car",
+        url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(carDetail),
@@ -237,7 +237,7 @@ function addNewCar() {
 function loadAllCars() {
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car",
+        url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "GET",
         success: function (response) {
 
@@ -447,7 +447,7 @@ function updateCar() {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car",
+        url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(carDetails),

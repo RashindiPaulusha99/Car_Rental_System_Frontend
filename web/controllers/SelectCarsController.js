@@ -42,7 +42,7 @@ function generateVReserveIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/reserve?test=" + test,
+        url: "http://localhost:8080/Car_Rental_System_war/reserve?test=" + test,
         method: "GET",
         success: function (response) {
             var reserveId = response.data;
@@ -70,7 +70,7 @@ function generateScheduleIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/schedule?test=" + test,
+        url: "http://localhost:8080/Car_Rental_System_war/schedule?test=" + test,
         method: "GET",
         success: function (response) {
             var scheduleId = response.data;
@@ -222,7 +222,7 @@ countAvailableCars();
 
 function countAvailableCars() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLECOUNT/" + "Available",
+        url: "http://localhost:8080/Car_Rental_System_war/car/AVAILABLECOUNT/" + "Available",
         method: "GET",
         success: function (response) {
             $("#availableCars").text(response.data);
@@ -238,7 +238,7 @@ loadAllCarsToSee();
 
 function loadAllCarsToSee() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car",
+        url: "http://localhost:8080/Car_Rental_System_war/car",
         method: "GET",
         success: function (response) {
             if (response.data.length == 0) {
@@ -353,7 +353,7 @@ var click="1";
 
 function loadSelectedCars(carId) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/" + carId,
+        url: "http://localhost:8080/Car_Rental_System_war/car/" + carId,
         method: "GET",
         success: function (response) {
 
@@ -447,7 +447,7 @@ function loadSelectedCars(carId) {
 
 function findDriverData() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/driver/ASSIGN/" + "Release",
+        url: "http://localhost:8080/Car_Rental_System_war/driver/ASSIGN/" + "Release",
         method: "GET",
         success: function (response) {
             load(response.data.driverId,response.data.driverName, response.data.driverContact);
@@ -473,10 +473,6 @@ function load(id,name, contact) {
                     $(this).find("td:eq(6)").text(did);
                     $(this).find("td:eq(7)").text(dname);
                     $(this).find("td:eq(8)").text(dcontact);
-                }else {
-                    $(this).find("td:eq(6)").text("1");
-                    $(this).find("td:eq(7)").text("none");
-                    $(this).find("td:eq(8)").text("none");
                 }
             }
         });
@@ -503,7 +499,7 @@ $("#sort").click(function () {
 
 function findPassengersAsc(passengerAsc) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/SORTPA/" + passengerAsc,
+        url: "http://localhost:8080/Car_Rental_System_war/car/SORTPA/" + passengerAsc,
         method: "GET",
         success: function (response) {
             var rentFeeDay;
@@ -573,19 +569,16 @@ function findPassengersAsc(passengerAsc) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -598,7 +591,7 @@ function findPassengersAsc(passengerAsc) {
 
 function findPassengersDsc(passengerDsc) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/SORTPD/" + passengerDsc,
+        url: "http://localhost:8080/Car_Rental_System_war/car/SORTPD/" + passengerDsc,
         method: "GET",
         success: function (response) {
             var rentFeeDay;
@@ -668,19 +661,16 @@ function findPassengersDsc(passengerDsc) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -693,7 +683,7 @@ function findPassengersDsc(passengerDsc) {
 
 function findDailyRateAsc(dailyRateAsc) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/SORTDA/" + dailyRateAsc,
+        url: "http://localhost:8080/Car_Rental_System_war/car/SORTDA/" + dailyRateAsc,
         method: "GET",
         success: function (response) {
             var rentFeeDay;
@@ -763,19 +753,16 @@ function findDailyRateAsc(dailyRateAsc) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -788,7 +775,7 @@ function findDailyRateAsc(dailyRateAsc) {
 
 function findDailyRateDsc(dailyRateDsc) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/SORTDD/" + dailyRateDsc,
+        url: "http://localhost:8080/Car_Rental_System_war/car/SORTDD/" + dailyRateDsc,
         method: "GET",
         success: function (response) {
             var rentFeeDay;
@@ -858,19 +845,16 @@ function findDailyRateDsc(dailyRateDsc) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -883,7 +867,7 @@ function findDailyRateDsc(dailyRateDsc) {
 
 function findMonthlyRateAsc(monthlyRateAsc) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/SORTMA/" + monthlyRateAsc,
+        url: "http://localhost:8080/Car_Rental_System_war/car/SORTMA/" + monthlyRateAsc,
         method: "GET",
         success: function (response) {
             var rentFeeDay;
@@ -953,19 +937,16 @@ function findMonthlyRateAsc(monthlyRateAsc) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -978,7 +959,7 @@ function findMonthlyRateAsc(monthlyRateAsc) {
 
 function findMonthlyRateDsc(monthlyRateDsc) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/SORTMD/" + monthlyRateDsc,
+        url: "http://localhost:8080/Car_Rental_System_war/car/SORTMD/" + monthlyRateDsc,
         method: "GET",
         success: function (response) {
             var rentFeeDay;
@@ -1048,19 +1029,16 @@ function findMonthlyRateDsc(monthlyRateDsc) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -1081,7 +1059,7 @@ $("#btnSearchCarsToSort").click(function () {
 
 function findTransmissionType(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPETR/" + type,
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPETR/" + type,
         method: "GET",
         success: function (response) {
             if (response.data.length == 0) {
@@ -1157,19 +1135,16 @@ function findTransmissionType(type) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -1183,7 +1158,7 @@ function findTransmissionType(type) {
 
 function findType(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPET/" + type,
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPET/" + type,
         method: "GET",
         success: function (response) {
             if (response.data.length == 0) {
@@ -1259,19 +1234,16 @@ function findType(type) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -1285,7 +1257,7 @@ function findType(type) {
 
 function findBrand(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEB/" + type,
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPEB/" + type,
         method: "GET",
         success: function (response) {
             if (response.data.length == 0) {
@@ -1361,19 +1333,16 @@ function findBrand(type) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -1387,7 +1356,7 @@ function findBrand(type) {
 
 function findFuelType(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEF/" + type,
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPEF/" + type,
         method: "GET",
         success: function (response) {
             if (response.data.length == 0) {
@@ -1463,19 +1432,16 @@ function findFuelType(type) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -1489,7 +1455,7 @@ function findFuelType(type) {
 
 function findColour(type) {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/TYPEC/" + type,
+        url: "http://localhost:8080/Car_Rental_System_war/car/TYPEC/" + type,
         method: "GET",
         success: function (response) {
             if (response.data.length == 0) {
@@ -1565,19 +1531,16 @@ function findColour(type) {
 
                 if (confirm(text) == true) {
 
-                    let text = "Do you want to rent another car ?";
+                    $("#tblShowCars tbody > tr").click(function () {
+                        tblSelectCarRow = $(this).children();
 
-                    if (confirm(text) == true) {
-                        alert("Choose a car you like!...");
-                    } else {
-                        $("#tblShowCars tbody > tr").click(function () {
-                            tblSelectCarRow = $(this).children();
-
+                        if (tblSelectCarRow.children()[4].innerText == "Not Available"){
+                            alert("This car is not available now! Choose another one!...");
+                        }else {
                             pasteDataToReservationFields();
-                            getLoseDWPayment(tblSelectCarRow.children()[1].innerText);
                             loadSelectedCars(tblSelectCarRow.children()[1].innerText);
-                        });
-                    }
+                        }
+                    });
                 } else {
 
                 }
@@ -1614,7 +1577,7 @@ $("#btnBook").click(function () {
 function findCustomerToReserve(denyOrAccept) {
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/customer/FIND/" + $("#PNIC").val(),
+        url: "http://localhost:8080/Car_Rental_System_war/customer/FIND/" + $("#PNIC").val(),
         method: "GET",
         success: function (response) {
             reserve(response.data,denyOrAccept);
@@ -1669,7 +1632,7 @@ function reserve(customer,denyOrAccept) {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/reserve",
+        url: "http://localhost:8080/Car_Rental_System_war/reserve",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(reserveDetail),

@@ -116,7 +116,7 @@ function generatePaymentIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/payment?test="+test,
+        url: "http://localhost:8080/Car_Rental_System_war/payment?test="+test,
         method: "GET",
         success: function (response) {
             var paymentId = response.data;
@@ -180,7 +180,7 @@ function calculateIncome() {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/payment",
+        url: "http://localhost:8080/Car_Rental_System_war/payment",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(paymentDetail),
@@ -200,7 +200,7 @@ function calculateIncome() {
 
 function loadPayments() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/payment",
+        url: "http://localhost:8080/Car_Rental_System_war/payment",
         method: "GET",
         success: function (response) {
 

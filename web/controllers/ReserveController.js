@@ -2,7 +2,7 @@ $("#tblReserve tbody > tr").off("click");
 
 function loadAllReserve(){
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/reserve",
+        url: "http://localhost:8080/Car_Rental_System_war/reserve",
         method: "GET",
         success: function (response) {
 

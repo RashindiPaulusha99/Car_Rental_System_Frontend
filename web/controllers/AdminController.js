@@ -221,7 +221,7 @@ function loadAdminDPanelData() {
 
 function totalRegisteredUsers() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/customer/COUNT/" + "count",
+        url: "http://localhost:8080/Car_Rental_System_war/customer/COUNT/" + "count",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -238,7 +238,7 @@ function totalRegisteredUsers() {
 
 function totalNewUsers() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/customer/COUNTDAILY/" + today,
+        url: "http://localhost:8080/Car_Rental_System_war/customer/COUNTDAILY/" + today,
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -255,7 +255,7 @@ function totalNewUsers() {
 
 function TodayAllReservations() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/reserve/COUNTDAILY/" + today,
+        url: "http://localhost:8080/Car_Rental_System_war/reserve/COUNTDAILY/" + today,
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -272,7 +272,7 @@ function TodayAllReservations() {
 
 function TodayActiveBookings() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/reserve/" + today+ "/"+"Accept",
+        url: "http://localhost:8080/Car_Rental_System_war/reserve/" + today+ "/"+"Accept",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -289,7 +289,7 @@ function TodayActiveBookings() {
 
 function AllReservation() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/reserve/COUNT/" + "all",
+        url: "http://localhost:8080/Car_Rental_System_war/reserve/COUNT/" + "all",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -306,7 +306,7 @@ function AllReservation() {
 
 function AvailableCars() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLECOUNT/"+"Available",
+        url: "http://localhost:8080/Car_Rental_System_war/car/AVAILABLECOUNT/"+"Available",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -323,7 +323,7 @@ function AvailableCars() {
 
 function ReservedCars() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/AVAILABLECOUNT/"+"Not Available",
+        url: "http://localhost:8080/Car_Rental_System_war/car/AVAILABLECOUNT/"+"Not Available",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -340,7 +340,7 @@ function ReservedCars() {
 
 function AvailableDrivers() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/driver/AVAILABLE/"+"Release",
+        url: "http://localhost:8080/Car_Rental_System_war/driver/AVAILABLE/"+"Release",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -357,7 +357,7 @@ function AvailableDrivers() {
 
 function OccupiedDrivers() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/driver/AVAILABLE/"+"Not Release",
+        url: "http://localhost:8080/Car_Rental_System_war/driver/AVAILABLE/"+"Not Release",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -374,7 +374,7 @@ function OccupiedDrivers() {
 
 function MaintainedCars() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/COUNTM/"+"Maintained",
+        url: "http://localhost:8080/Car_Rental_System_war/car/COUNTM/"+"Maintained",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -391,7 +391,7 @@ function MaintainedCars() {
 
 function UnderMaintainedCars() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/car/COUNTM/"+"Under Maintained",
+        url: "http://localhost:8080/Car_Rental_System_war/car/COUNTM/"+"Under Maintained",
         method: "GET",
         success: function (response) {
             if (response.data == ""){
@@ -408,7 +408,7 @@ function UnderMaintainedCars() {
 
 function TotalIncome() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/payment/ALLINCOME/" + "amount",
+        url: "http://localhost:8080/Car_Rental_System_war/payment/ALLINCOME/" + "amount",
         method: "GET",
         success: function (response) {
             if (response.data == ""){

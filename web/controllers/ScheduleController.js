@@ -2,7 +2,7 @@ $("#tblSchedule tbody > tr").off("click");
 
 function loadSchedule() {
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/schedule",
+        url: "http://localhost:8080/Car_Rental_System_war/schedule",
         method: "GET",
         success: function (response) {
 

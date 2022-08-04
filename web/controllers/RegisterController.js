@@ -135,7 +135,7 @@ function generateRegisterIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/customer?test="+test,
+        url: "http://localhost:8080/Car_Rental_System_war/customer?test="+test,
         method: "GET",
         success: function (response) {
             var customerId = response.data;
@@ -163,7 +163,7 @@ function generateUserIds() {
     var test = "id";
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/user?test="+test,
+        url: "http://localhost:8080/Car_Rental_System_war/user?test="+test,
         method: "GET",
         success: function (response) {
             var userId = response.data;
@@ -233,7 +233,7 @@ function register() {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/customer",
+        url: "http://localhost:8080/Car_Rental_System_war/customer",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(cusDetail),
@@ -261,7 +261,7 @@ function registerUser(users) {
     }
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/user",
+        url: "http://localhost:8080/Car_Rental_System_war/user",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(user),
@@ -281,7 +281,7 @@ function registerUser(users) {
 function loadAllCustomer() {
 
     $.ajax({
-        url: "http://localhost:8081/Car_Rental_System_war/customer",
+        url: "http://localhost:8080/Car_Rental_System_war/customer",
         method: "GET",
         success: function (response) {
 

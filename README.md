@@ -5,7 +5,7 @@ Also this is the frontend project of Car Rental System.
 
 <h3 align="center"><a href="https://git.io/typing-svg" align="center"><img align="center" src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&duration=4000&center=true&vCenter=true&width=435&lines=Car+Rental+System" alt="Typing SVG" style="max-width:100%" /></a></h3>
 
-<img src="web/assets/ss/1.png" alt="car rental" width="1000" height="250"/>
+![rent](web/assets/ss/1.png)
 
 # *Introduction* 📝
 Easy car rental private limited is a car rental service with 5 years of history. This company has about 
